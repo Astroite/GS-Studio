@@ -6,6 +6,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -138,6 +139,82 @@ class CandidateVerificationTests(unittest.TestCase):
     def test_updated_inventory_does_not_hide_broken_editor_binary_binding(self):
         self.write(self.prefix + "studio_selection_cuda.pyd", b"tampered synthetic binary")
         self.reinventory()
+        self.assert_failed("provenance hash mismatch")
+
+    @unittest.skipUnless(os.name == "nt" and shutil.which("pwsh"), "Native PowerShell 7 package metadata contract")
+    def test_sanitized_editor_proof_binds_shipped_bytes_and_retains_original_audit(self):
+        original_proof = {
+            "output": f"E:/AI/development/compiled/studio-selection/{self.key}",
+            "architecture": "8.9", "cuda_initialized": False,
+            "binary_sha256": self.hash(self.prefix + "studio_selection_cuda.pyd"),
+            "source_sha256": {name: self.hash("engine/editor_native/" + name)
+                              for name in ("selection.cpp", "selection.cu")},
+        }
+        original = (json.dumps(original_proof, indent=2) + "\n").encode()
+        self.write(self.prefix + "build-proof.json", original)
+        source_proof = self.root / "original-build-proof.json"
+        source_proof.write_bytes(original)
+        audit = self.root / "private-audit"
+        selection = dict(self.inputs["editor_selection"])
+        selection.update(binary_name="studio_selection_cuda.pyd", proof_sha256=hashlib.sha256(original).hexdigest(),
+                         sources=[{"name": name, "sha256": self.hash("engine/editor_native/" + name)}
+                                  for name in ("selection.cpp", "selection.cu")])
+        arguments = self.root / "fixture.json"
+        arguments.write_text(json.dumps({"package": str(self.package), "audit": str(audit),
+            "source_proof": str(source_proof), "relative_proof": self.prefix + "build-proof.json",
+            "selection": selection, "lock_hash": self.hash("runtime/python-requirements.lock.txt"),
+            "policy_hash": self.hash("runtime-prune-policy.json"),
+            "source_components": [{"source": "E:/AI/development/compiled", "component": "extensions",
+                                   "path": "engine/extensions"}]}), encoding="utf-8")
+        script = self.root / "sanitize-fixture.ps1"
+        script.write_text(r'''
+param([string]$FixtureInputs, [string]$ProvenanceScript)
+$ErrorActionPreference = 'Stop'
+Set-StrictMode -Version Latest
+$Fixture = Get-Content -LiteralPath $FixtureInputs -Raw | ConvertFrom-Json
+$PackageRoot = $Fixture.package
+$AuditRoot = $Fixture.audit
+$SourceComponents = @($Fixture.source_components)
+$Selection = $Fixture.selection
+$Profile = 'public'
+$Plan = @{python_lock_sha256=$Fixture.lock_hash;prune_policy_sha256=$Fixture.policy_hash;editor_selection=$Selection}
+function Under([string]$Path, [string]$Root) {
+    $Full = [IO.Path]::GetFullPath($Path)
+    $Boundary = [IO.Path]::GetFullPath($Root).TrimEnd('\','/')
+    return $Full.Equals($Boundary,[StringComparison]::OrdinalIgnoreCase) -or $Full.StartsWith($Boundary + [IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)
+}
+function Destination([string]$Relative) { return Join-Path $PackageRoot $Relative }
+. $ProvenanceScript
+Protect-PublicText (Destination $Fixture.relative_proof) $Fixture.source_proof $Fixture.relative_proof
+Public-Plan | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Destination 'package-inputs.json') -Encoding UTF8
+$Plan | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $AuditRoot 'package-inputs.json') -Encoding UTF8
+@($Transformations.ToArray()) | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $AuditRoot 'transformations.json') -Encoding UTF8
+''', encoding="utf-8")
+        proc = subprocess.run([shutil.which("pwsh"), "-NoProfile", "-File", str(script), str(arguments),
+                               str(REPO / "desktop/scripts/package-provenance.ps1")],
+                              capture_output=True, text=True, encoding="utf-8", timeout=30)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        shipped = candidate.read_json(self.package / (self.prefix + "build-proof.json"))
+        self.assertEqual(shipped["output"], self.prefix.rstrip("/"))
+        for field in ("architecture", "cuda_initialized", "binary_sha256", "source_sha256"):
+            self.assertEqual(shipped[field], original_proof[field])
+        self.assertEqual((audit / "originals" / (self.prefix + "build-proof.json")).read_bytes(), original)
+        private_inputs = candidate.read_json(audit / "package-inputs.json")
+        self.assertEqual(private_inputs["editor_selection"]["proof_sha256"], hashlib.sha256(original).hexdigest())
+        self.assertNotEqual(self.hash(self.prefix + "build-proof.json"), hashlib.sha256(original).hexdigest())
+
+        def refresh_manifest():
+            self.reinventory()
+            self.inventory["version"] = "0.3.0-rc.1"
+            self.write_json("package-inventory.json", self.inventory)
+
+        refresh_manifest()
+        result = candidate.verify(self.package)
+        self.assertEqual(result["status"], "passed", result)
+        # Even a matching regenerated inventory must not conceal a changed proof.
+        shipped["output"] = "changed-after-packaging"
+        self.write_json(self.prefix + "build-proof.json", shipped)
+        refresh_manifest()
         self.assert_failed("provenance hash mismatch")
 
     def test_editor_proof_assertions_and_source_hashes_are_checked(self):

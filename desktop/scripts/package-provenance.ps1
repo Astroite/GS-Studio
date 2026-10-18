@@ -43,11 +43,15 @@ function Public-Exclusions {
 }
 function Public-Plan {
     $SelectionPath = 'engine/extensions/studio-selection/' + $Selection.key
+    # Copy-SafeTree may replace developer paths in the public proof. Bind the
+    # bytes actually shipped; $Plan retains the original proof hash in audit.
+    $PackagedProof = Destination ($SelectionPath + '/build-proof.json')
+    $PackagedProofHash = (Get-FileHash -LiteralPath $PackagedProof -Algorithm SHA256).Hash.ToLowerInvariant()
     return [ordered]@{schema_version=3;profile=$Profile;product='GS Studio';version='0.3.0-rc.1';
         components=@($SourceComponents | ForEach-Object { [ordered]@{component=$_.component;path=$_.path} });
         python_lock=[ordered]@{path='runtime/python-requirements.lock.txt';sha256=$Plan.python_lock_sha256};
         prune_policy=[ordered]@{path='runtime-prune-policy.json';sha256=$Plan.prune_policy_sha256};
         editor_selection=[ordered]@{key=$Selection.key;binary=($SelectionPath + '/' + $Selection.binary_name);binary_sha256=$Selection.binary_sha256;
-            source_proof_sha256=$Selection.proof_sha256;architecture=$Selection.architecture;
+            source_proof_sha256=$PackagedProofHash;architecture=$Selection.architecture;
             sources=@($Selection.sources | ForEach-Object { [ordered]@{path=('engine/editor_native/' + $_.name);sha256=$_.sha256} })}}
 }
