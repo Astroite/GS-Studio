@@ -26,7 +26,7 @@ SPEC.loader.exec_module(native)
 class NativeBuildTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="GS Studio 构建 ")
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.out = self.root / "输出 jobs" / "new-job"
 
     def tearDown(self):
@@ -123,6 +123,47 @@ class NativeBuildTests(unittest.TestCase):
                                          "cache.pyc", "dist/old.whl", "old.egg-info/PKG-INFO"])
         self.assertEqual(set(native.source_files(source)), {"setup.py", "native/kernel.cu"})
 
+    def test_child_environment_drops_host_compiler_flags_and_preserves_windows_context(self):
+        unsafe = {name: "injected-host-setting" for name in (
+            "CC", "CXX", "CL", "_CL_", "CFLAGS", "CPPFLAGS", "CXXFLAGS", "LDFLAGS",
+            "NVCC_FLAGS", "NVCC_PREPEND_FLAGS", "NVCC_APPEND_FLAGS", "CUDACXX",
+            "CMAKE_ARGS", "SKBUILD_CONFIGURE_OPTIONS", "BUILD_NO_CUDA", "WITH_SYMBOLS",
+            "LINE_INFO", "CUDA_HOME", "CUDA_PATH", "MAX_JOBS", "TORCH_CUDA_ARCH_LIST",
+            "LP_GSPLAT_SOURCE", "PYTHONPATH", "INCLUDE", "LIB", "LIBPATH", "VSCMD_VER", "VSINSTALLDIR")}
+        original = {"Path": "existing-system-path", "SystemRoot": "C:/Windows", "TEMP": str(self.root), **unsafe}
+        with patch.dict(os.environ, original, clear=True):
+            before = dict(os.environ)
+            result = native.base_build_environment()
+            self.assertEqual(dict(os.environ), before)
+        self.assertEqual(result, {"PATH": "existing-system-path", "SYSTEMROOT": "C:/Windows", "TEMP": str(self.root)})
+
+    @unittest.skipUnless(os.name == "nt", "Windows compiler initialization contract")
+    def test_compiler_environment_uses_explicit_plan_after_discarding_host_settings(self):
+        vcvars = self.root / "explicit vcvarsall.bat"
+        vcvars.write_text("fixture only\n")
+        cuda = self.fixture("explicit cuda", ["bin/nvcc.exe"])
+        plan = native.make_plan(self.args("splat3-render", "--vcvars", str(vcvars), "--cuda-home", str(cuda),
+                                         "--architecture", "8.9", "--jobs", "2"))
+        captured = []
+        def initialize(command, **kwargs):
+            captured.append(dict(kwargs["env"]))
+            return subprocess.CompletedProcess(command, 0, stdout="PATH=explicit-msvc-path\nINCLUDE=explicit-msvc-headers\n".encode("utf-16-le"), stderr=b"")
+        with patch.dict(os.environ, {"PATH": "old-path", "SystemRoot": "C:/Windows", "CC": "wrong-cc",
+                                    "CL": "/fp:fast", "NVCC_FLAGS": "--fmad=false", "CUDA_HOME": "wrong-cuda",
+                                    "TORCH_CUDA_ARCH_LIST": "7.5", "MAX_JOBS": "99"}, clear=True), \
+                patch.object(native.subprocess, "run", side_effect=initialize), \
+                patch.object(native.shutil, "which", return_value=str(self.root / "ninja.exe")):
+            env = native.compiler_environment(plan)
+        self.assertNotIn("CC", captured[0])
+        self.assertNotIn("CL", env)
+        self.assertNotIn("NVCC_FLAGS", env)
+        self.assertEqual(env["CUDA_HOME"], str(cuda))
+        self.assertEqual(env["CUDA_PATH"], str(cuda))
+        self.assertEqual(env["TORCH_CUDA_ARCH_LIST"], "8.9")
+        self.assertEqual(env["CUDA_ARCHITECTURES"], "89")
+        self.assertEqual(env["MAX_JOBS"], "2")
+        self.assertEqual(env["INCLUDE"], "explicit-msvc-headers")
+
     def test_archive_receipt_binds_every_source_file_and_revision(self):
         source = self.fixture("fused source", ["setup.py", "kernel.cu"])
         plan = native.make_plan(self.args("fused-ssim", "--fused-ssim-source", str(source)))
@@ -157,6 +198,32 @@ class NativeBuildTests(unittest.TestCase):
             self.skipTest("symlink creation is unavailable")
         with self.assertRaisesRegex(ValueError, "symlink/reparse"):
             native.make_plan(self.args("splat3-render", "--source-root", str(link)))
+
+    @unittest.skipUnless(os.name == "nt", "Windows 8.3 overlap boundary")
+    def test_short_alias_cannot_bypass_source_or_repository_output_overlap(self):
+        import ctypes
+        from ctypes import wintypes
+        get_short_path = ctypes.WinDLL("kernel32", use_last_error=True).GetShortPathNameW
+        get_short_path.argtypes = (wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD)
+        get_short_path.restype = wintypes.DWORD
+        source = self.fixture("long source repository", ["setup.py", "kernel.cu"])
+        size = get_short_path(str(source), None, 0)
+        if not size:
+            self.skipTest("GetShortPathNameW unavailable on the fixture volume")
+        buffer = ctypes.create_unicode_buffer(size)
+        if not get_short_path(str(source), buffer, size):
+            self.skipTest("GetShortPathNameW did not return an alias")
+        alias = Path(buffer.value)
+        if str(alias).casefold() == str(source).casefold():
+            self.skipTest("8.3 alias generation is disabled on the fixture volume")
+        with self.assertRaisesRegex(ValueError, "overlap"):
+            native.make_plan(native.parse_args(["splat3-render", "--python", sys.executable,
+                "--source-root", str(source), "--output", str(alias / "new-output"), "--plan"]))
+        unrelated_source = self.fixture("unrelated module", ["setup.py"])
+        with patch.object(native, "REPO", source), self.assertRaisesRegex(ValueError, "overlap"):
+            native.make_plan(native.parse_args(["splat3-render", "--python", sys.executable,
+                "--source-root", str(unrelated_source), "--output", str(alias / "new-output"), "--plan"]))
+        self.assertFalse((source / "new-output").exists())
 
     def test_real_build_failure_propagates_and_keeps_failure_proof(self):
         plan = native.make_plan(self.args())

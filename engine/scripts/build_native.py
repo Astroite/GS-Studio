@@ -59,7 +59,10 @@ def plain_path(path):
             & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
         ):
             raise ValueError(f"Refuse symlink/reparse point: {candidate}")
-    return path
+    # Resolve only after inspecting the original ancestors: resolving first
+    # would hide junctions, while leaving 8.3 aliases unresolved can bypass an
+    # overlap check against the same directory's canonical long spelling.
+    return path.resolve()
 
 
 def overlaps(a, b):
@@ -216,15 +219,26 @@ def verify_external_sources(plan, receipts_path=None):
                 raise ValueError("gsplat archive receipt must bind the pinned GLM revision")
 
 
+def base_build_environment():
+    """Keep Windows process context, never inherited compiler/build settings."""
+    allowed = {
+        "SYSTEMROOT", "SYSTEMDRIVE", "WINDIR", "COMSPEC", "OS", "PATH", "PATHEXT",
+        "TEMP", "TMP", "USERPROFILE", "USERNAME", "HOMEDRIVE", "HOMEPATH",
+        "APPDATA", "LOCALAPPDATA", "PROGRAMDATA", "ALLUSERSPROFILE",
+        "PROGRAMFILES", "PROGRAMFILES(X86)", "PROGRAMW6432", "COMMONPROGRAMFILES",
+        "COMMONPROGRAMFILES(X86)", "COMMONPROGRAMW6432", "NUMBER_OF_PROCESSORS",
+        "PROCESSOR_ARCHITECTURE", "PROCESSOR_IDENTIFIER", "PROCESSOR_LEVEL", "PROCESSOR_REVISION",
+    }
+    return {key.upper(): value for key, value in os.environ.items() if key.upper() in allowed}
+
+
 def compiler_environment(plan):
     if os.name != "nt":
         raise ValueError("Real builds require native Windows")
     vcvars = plan["tools"]["vcvars"]
     if not vcvars or not Path(vcvars).is_file():
         raise ValueError("Existing --vcvars is required; no Visual Studio edition is assumed")
-    env = {key.upper(): value for key, value in os.environ.items()}
-    for key in ("PYTHONPATH", "PYTHONHOME", "PYTHONSTARTUP", "VIRTUAL_ENV", "CONDA_PREFIX"):
-        env.pop(key, None)
+    env = base_build_environment()
     env.update(PYTHONUTF8="1", PYTHONIOENCODING="utf-8", PYTHONDONTWRITEBYTECODE="1",
                DISTUTILS_USE_SDK="1", MSSdk="1", MAX_JOBS=str(plan["jobs"]),
                TORCH_CUDA_ARCH_LIST=plan["architecture"],
