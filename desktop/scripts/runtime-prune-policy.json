@@ -63,6 +63,12 @@
       "reason": "Compiler/build/test/installer executable; importable ninja wrapper and metadata remain"
     },
     {
+      "id": "unused-development-executables",
+      "phase": "payload",
+      "pattern": "(?i)^runtime/python/(Scripts/(ccmake|isympy|markdown-it|pygmentize|scikit-build-core|scikit-build|typer)\\.exe|Lib/site-packages/torch/bin/protoc\\.exe)$",
+      "reason": "Unused development console launchers with installation-specific shebangs, and the build-only Torch protoc compiler"
+    },
+    {
       "id": "local-install-provenance",
       "phase": "provenance",
       "pattern": "(?i)^runtime/python/Lib/site-packages/[^/]+\\.dist-info/direct_url\\.json$",
