@@ -32,6 +32,8 @@ python -I -B -X utf8 scripts/runtime/bootstrap_windows.py verify @BuildArguments
 
 `plan` 只检查路径、锁和源码摘要，不创建目录、不下载、不导入 Torch。`prepare` 是唯一联网阶段：下载公开工件、核验 SHA256、检出固定 Git commit 和 GLM。它可对相同身份的工作目录重复执行，补齐下载；内容变化或部分提取/编译失败可能需要检查保留文件后改用新目录。
 
+公开 Git 源码在首次检出前固定仓库内 `core.symlinks=false`，子模块检出也显式采用该策略，并在构建身份和准备记录中保存。Git link blob 因而作为其目标路径文本写入普通文件，避免不同 Windows 默认值产生真实 reparse point；不修改全局 Git 配置。原生构建仍拒绝真实符号链接和 junction，已有其他检出策略的工作目录需要保留并改用新目录，不能通过放宽路径保护继续。
+
 已有的公开下载缓存可通过 `--download-cache <目录>` 只读复用；缓存中的错误哈希会报错，脚本不会覆盖它。`--git <git.exe>` 可显式固定 Git 路径。`build` 和 `verify` 不解析在线依赖，不加载旧 site-packages。所有原生扩展先将源码复制到各自新作业目录，再用 [build_native.py](../../engine/scripts/build_native.py) 构建。
 
 没有 CUDA toolkit 的构建机可将参数中的 `--cuda-home` 和路径替换成 `--download-cuda`。脚本从 [NVIDIA 官方 CUDA 12.9.0 清单](https://developer.download.nvidia.com/compute/cuda/redist/redistrib_12.9.0.json) 固定下载七个编译器、运行时及头文件组件，解压至工作目录，不运行系统安装器、不安装驱动、不修改系统 PATH。每个组件的许可资源单独保留。这是构建工具来源记录，不构成最终二进制分发许可结论。

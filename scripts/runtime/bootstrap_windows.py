@@ -149,6 +149,7 @@ def make_plan(args):
             "cuda_home": str(workspace / "cuda") if args.download_cuda else
                          str(plain_path(args.cuda_home)) if args.cuda_home else None,
             "git": str(git) if git else None,
+            "git_checkout_policy": {"core.symlinks": False},
             "download_cuda": args.download_cuda, "jobs": args.jobs,
             "public_inputs_sha256": digest(INPUTS), "numerical_sources": numerical_identity(),
             "inputs": inputs, "claim": "Public-input native Windows build; GPU and release acceptance are separate gates"}
@@ -235,10 +236,31 @@ def owned_plan(plan):
         raise ValueError("Run prepare first")
     recorded = json.loads(receipt.read_text(encoding="utf-8"))
     for key in ("workspace", "public_inputs_sha256", "numerical_sources", "architecture",
-                "vcvars", "vcvars_version", "cuda_home", "download_cuda", "jobs"):
+                "vcvars", "vcvars_version", "cuda_home", "download_cuda", "jobs", "git_checkout_policy"):
         if recorded.get(key) != plan[key]:
             raise ValueError(f"Bootstrap identity changed: {key}; use a new workspace")
     return workspace
+
+
+def checkout_source(git, record, target):
+    """Materialize link blobs as files, without changing global Git settings."""
+    if not target.exists():
+        run([git, "clone", "--config", "core.symlinks=false", "--filter=blob:none",
+             "--no-checkout", record["url"], target])
+        # --config is persisted by clone before its first working-tree checkout.
+        run([git, "-C", target, "checkout", "--detach", record["revision"]])
+    policy = subprocess.check_output([git, "-C", str(target), "config", "--local", "--get", "core.symlinks"],
+                                     text=True).strip()
+    if policy != "false":
+        raise ValueError(f"Source checkout lacks the required local symlink policy: {target}")
+    if record["name"] == "gsplat":
+        run([git, "-c", "core.symlinks=false", "-C", target, "submodule", "update", "--init", "--recursive"])
+        glm = target / "gsplat/cuda/csrc/third_party/glm"
+        run([git, "-C", glm, "config", "--local", "core.symlinks", "false"])
+    observed = subprocess.check_output([git, "-C", str(target), "rev-parse", "HEAD"], text=True).strip()
+    if observed != record["revision"]:
+        raise ValueError(f"Public source checkout mismatch: {record['name']}")
+    return {"name": record["name"], "revision": observed, "core.symlinks": False}
 
 
 def prepare(plan):
@@ -265,16 +287,10 @@ def prepare(plan):
             temporary = workspace / f"unpack-{record['name']}"
             extract_archive(workspace / "downloads" / record["filename"], temporary)
             (temporary / target.name).rename(target)
+    checkouts = []
     for record in inputs["sources"]:
         target = workspace / "sources" / record["name"]
-        if not target.exists():
-            run([plan["git"] or "git", "clone", "--filter=blob:none", "--no-checkout", record["url"], target])
-            run([plan["git"] or "git", "-C", target, "checkout", "--detach", record["revision"]])
-        if record["name"] == "gsplat":
-            run([plan["git"] or "git", "-C", target, "submodule", "update", "--init", "--recursive"])
-        observed = subprocess.check_output([plan["git"] or "git", "-C", str(target), "rev-parse", "HEAD"], text=True).strip()
-        if observed != record["revision"]:
-            raise ValueError(f"Public source checkout mismatch: {record['name']}")
+        checkouts.append(checkout_source(plan["git"] or "git", record, target))
     if plan["download_cuda"] and not (workspace / "cuda/bin/nvcc.exe").is_file():
         for record in inputs["cuda"]["components"]:
             temporary = workspace / f"unpack-{record['name']}"
@@ -301,7 +317,7 @@ def prepare(plan):
         previous = json.loads(prepared_file.read_text())
         if previous.get("zlib_source_files", zlib_files) != zlib_files:
             raise ValueError("Prepared zlib source changed; preserve this workspace and use a new one")
-    write_json(prepared_file, {"success": True, "zlib_source_files": zlib_files,
+    write_json(prepared_file, {"success": True, "zlib_source_files": zlib_files, "git_checkouts": checkouts,
         "download_sha256": {record["filename"]: record["sha256"] for record in downloads}})
     return {"prepared": True, "workspace": str(workspace), "downloads": len(downloads)}
 

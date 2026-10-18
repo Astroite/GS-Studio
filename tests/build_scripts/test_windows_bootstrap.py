@@ -4,7 +4,10 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
+import shutil
+import subprocess
 import tarfile
 import tempfile
 import unittest
@@ -50,6 +53,7 @@ class WindowsBootstrapContracts(unittest.TestCase):
             with mock.patch.object(BOOT.subprocess, "run", side_effect=AssertionError("No subprocess in plan")):
                 plan = BOOT.make_plan(self.args(workspace))
             self.assertEqual(plan["architecture"], "8.9")
+            self.assertEqual(plan["git_checkout_policy"], {"core.symlinks": False})
             self.assertFalse(workspace.exists())
             self.assertIn("engine/native/splat3_tiles/tiles.cu", plan["numerical_sources"])
 
@@ -86,6 +90,38 @@ class WindowsBootstrapContracts(unittest.TestCase):
                 BOOT.checked_download(item, parent / "copy.whl", cache)
             self.assertEqual(BOOT.digest(parent / "copy.whl"), expected)
             self.assertEqual((cache / "input.whl").read_bytes(), b"public input")
+
+    @unittest.skipUnless(shutil.which("git"), "Git fixture requires the build tool")
+    def test_source_checkout_uses_local_false_despite_global_true_and_keeps_link_blob(self):
+        git = shutil.which("git")
+        with tempfile.TemporaryDirectory() as temporary:
+            parent = Path(temporary)
+            origin, checkout = parent / "origin", parent / "Windows checkout"
+            global_config = parent / "isolated-global.gitconfig"
+            global_config.write_text("[core]\n\tsymlinks = true\n", encoding="utf-8")
+            before = global_config.read_bytes()
+            with mock.patch.dict(os.environ, {"GIT_CONFIG_GLOBAL": str(global_config), "GIT_CONFIG_NOSYSTEM": "1"}):
+                subprocess.run([git, "init", "-q", str(origin)], check=True, capture_output=True)
+                (origin / "target.txt").write_text("real target contents", encoding="utf-8")
+                subprocess.run([git, "-C", str(origin), "add", "target.txt"], check=True, capture_output=True)
+                link_blob = subprocess.check_output([git, "-C", str(origin), "hash-object", "-w", "--stdin"],
+                                                    input=b"target.txt").decode().strip()
+                subprocess.run([git, "-C", str(origin), "update-index", "--add", "--cacheinfo",
+                                f"120000,{link_blob},link.txt"], check=True, capture_output=True)
+                subprocess.run([git, "-C", str(origin), "-c", "user.name=Fixture", "-c",
+                                "user.email=fixture@example.invalid", "commit", "-q", "--no-gpg-sign", "-m", "link fixture"],
+                               check=True, capture_output=True)
+                revision = subprocess.check_output([git, "-C", str(origin), "rev-parse", "HEAD"]).decode().strip()
+                with mock.patch("builtins.print"):
+                    proof = BOOT.checkout_source(git, {"name": "fixture", "url": str(origin), "revision": revision}, checkout)
+                self.assertEqual(proof["core.symlinks"], False)
+                self.assertFalse((checkout / "link.txt").is_symlink())
+                self.assertEqual((checkout / "link.txt").read_bytes(), b"target.txt")
+                self.assertEqual(subprocess.check_output([git, "-C", str(checkout), "config", "--local", "--get", "core.symlinks"]).decode().strip(), "false")
+                files = BOOT.native_helper().source_files(checkout)
+                self.assertIn("link.txt", files)
+                self.assertEqual(files["link.txt"], hashlib.sha256(b"target.txt").hexdigest())
+            self.assertEqual(global_config.read_bytes(), before)
 
     def test_bad_cache_is_retained_and_not_downloaded_over(self):
         with tempfile.TemporaryDirectory() as temporary:
