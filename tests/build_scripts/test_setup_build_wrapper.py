@@ -58,7 +58,7 @@ setup(name="local_splat3_stats", version="0.1.1", ext_modules=[SimpleNamespace(
         self.assertEqual((metadata["name"], metadata["version"]), ("local_splat3_stats", "0.1.1"))
         extension = metadata["ext_modules"][0]
         self.assertEqual(extension.sources, ["bindings.cpp", "stats.cu", "nested/extra.cpp"])
-        self.assertEqual(extension.include_dirs, [str(self.root), "include/unchanged"])
+        self.assertEqual(extension.include_dirs, [str(self.root.resolve()), "include/unchanged"])
         self.assertEqual(extension.extra_compile_args, {"cxx": ["/O2"], "nvcc": ["-O3"]})
         self.assertLess(max(map(len, extension.sources)), 30)
         self.assertFalse(any(Path(source).is_absolute() for source in extension.sources))

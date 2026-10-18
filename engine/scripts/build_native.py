@@ -6,8 +6,11 @@ Every real build copies its input to a fresh, external job directory first.
 from __future__ import annotations
 
 import argparse
+import base64
+import csv
 from email.parser import BytesParser
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -289,6 +292,81 @@ def validate_wheel(path, plan):
         raise RuntimeError(f"Wheel must match frozen CPython 3.10 Windows x64 ABI: {path}")
 
 
+def colocate_spz_zlib(wheel_path, job_root):
+    """Fix the new wheel's DLL placement, preserving every other original byte."""
+    root = plain_path(job_root).resolve()
+    wheel_path = plain_path(wheel_path).resolve()
+    if wheel_path.parent != root / "wheels" or wheel_path.suffix != ".whl":
+        raise ValueError("SPZ packaging transform requires its owned job/wheels artifact")
+    marker = root / "plan.json"
+    if not marker.is_file() or json.loads(marker.read_text(encoding="utf-8" )).get("module") != "spz":
+        raise ValueError("SPZ packaging transform requires a matching job plan")
+    dependency = plain_path(root / "build/_deps/zlib-build/z.dll").resolve()
+    if not dependency.is_relative_to(root) or not dependency.is_file():
+        raise ValueError("New SPZ build is missing its own build/_deps/zlib-build/z.dll")
+    dll = dependency.read_bytes()
+    before = sha256(wheel_path)
+    with zipfile.ZipFile(wheel_path) as archive:
+        infos = archive.infolist()
+        names = [info.filename for info in infos]
+        if len(names) != len({name.casefold() for name in names}):
+            raise ValueError("SPZ wheel has duplicate/aliased entries")
+        records = [name for name in names if name.endswith(".dist-info/RECORD")]
+        if len(records) != 1 or any(name.endswith((".dist-info/RECORD.jws", ".dist-info/RECORD.p7s")) for name in names):
+            raise ValueError("SPZ wheel must have one unsigned RECORD")
+        record_name = records[0]
+        contents = {info.filename: archive.read(info) for info in infos}
+        comment = archive.comment
+    for name in ("bin/z.dll", "spz/z.dll"):
+        if name in contents and contents[name] != dll:
+            raise ValueError(f"SPZ wheel dependency differs from this job's zlib build: {name}")
+    if not any(name.startswith("spz/") and name.endswith(".pyd") for name in contents):
+        raise ValueError("SPZ wheel has no package-local native extension")
+    original = root / "packaging-inputs" / wheel_path.name
+    original.parent.mkdir(exist_ok=False)
+    shutil.copy2(wheel_path, original)
+    payload = {}
+    new_infos = []
+    dependency_info = None
+    for info in infos:
+        if info.filename == "bin/z.dll":
+            dependency_info = info
+            continue
+        if info.filename == "spz/z.dll":
+            dependency_info = info
+            continue
+        new_infos.append(info)
+        payload[info.filename] = contents[info.filename]
+    if dependency_info is None:
+        dependency_info = zipfile.ZipInfo("spz/z.dll")
+        dependency_info.compress_type = zipfile.ZIP_DEFLATED
+    else:
+        dependency_info.filename = "spz/z.dll"
+    new_infos.append(dependency_info)
+    payload["spz/z.dll"] = dll
+    record_text = io.StringIO(newline="")
+    writer = csv.writer(record_text, lineterminator="\n")
+    for name, data in payload.items():
+        if name == record_name or name.endswith("/"):
+            continue
+        encoded = base64.urlsafe_b64encode(hashlib.sha256(data).digest()).rstrip(b"=").decode("ascii")
+        writer.writerow((name, "sha256=" + encoded, str(len(data))))
+    writer.writerow((record_name, "", ""))
+    payload[record_name] = record_text.getvalue().encode("utf-8")
+    temporary = wheel_path.with_name(wheel_path.name + ".repack.tmp")
+    with zipfile.ZipFile(temporary, "x") as archive:
+        archive.comment = comment
+        for info in new_infos:
+            archive.writestr(info, payload[info.filename])
+    temporary.replace(wheel_path)
+    return {"operation": "colocate-new-build-zlib-and-regenerate-wheel-record",
+            "dependency_source": dependency.relative_to(root).as_posix(),
+            "dependency_sha256": hashlib.sha256(dll).hexdigest(), "destination": "spz/z.dll",
+            "removed_redundant_entries": ["bin/z.dll"] if "bin/z.dll" in names else [],
+            "original_wheel": original.relative_to(root).as_posix(), "original_wheel_sha256": before,
+            "wheel_sha256": sha256(wheel_path), "preserved_other_payload_bytes": True}
+
+
 def build(plan, receipts_path=None):
     verify_external_sources(plan, receipts_path)
     env = compiler_environment(plan)
@@ -357,6 +435,8 @@ def build(plan, receipts_path=None):
             if len(expected_artifacts) != 1:
                 raise RuntimeError("Expected exactly one wheel per isolated module job")
             validate_wheel(expected_artifacts[0], plan)
+            if module == "spz":
+                proof["packaging_transform"] = colocate_spz_zlib(expected_artifacts[0], output)
         proof["artifacts"] = {p.relative_to(output).as_posix(): sha256(p) for p in expected_artifacts}
         proof["success"] = True
     finally:
