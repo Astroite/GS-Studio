@@ -316,7 +316,7 @@ def native_helper():
 def build_recipe_identity():
     return {relative: digest(ROOT / relative) for relative in (
         "scripts/runtime/bootstrap_windows.py", "engine/scripts/build_native.py",
-        "engine/scripts/build_studio_selection.py")}
+        "engine/scripts/build_studio_selection.py", "engine/scripts/run_setup_build.py")}
 
 
 def build(plan):

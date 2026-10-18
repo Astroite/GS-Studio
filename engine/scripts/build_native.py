@@ -337,9 +337,13 @@ def build(plan, receipts_path=None):
                           "--config-settings=cmake.define.CMAKE_CXX_COMPILER=" + env["CXX"],
                           "--config-settings=cmake.define.Python_EXECUTABLE=" + plan["python"], "."]
     else:
-        command = base + ["setup.py", "build", "--build-base", str(output / "build"),
+        command = base + [str(ENGINE / "scripts/run_setup_build.py"), "--source-root", str(source),
+                          "--", "build", "--build-base", str(output / "build"),
                           "bdist_wheel", "--dist-dir", str(output / "wheels")]
     proof = {"schema": 1, "module": module, "command": command, "success": False}
+    if module not in {"spz", "studio-selection"}:
+        proof["setup_wrapper"] = {"path": "engine/scripts/run_setup_build.py",
+                                  "sha256": sha256(ENGINE / "scripts/run_setup_build.py")}
     try:
         with (output / "build.log").open("wb") as log:
             proc = subprocess.run(command, cwd=source, env=env, stdout=log, stderr=subprocess.STDOUT)
