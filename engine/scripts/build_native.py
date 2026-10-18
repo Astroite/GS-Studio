@@ -256,7 +256,21 @@ def compiler_environment(plan):
         raise ValueError("Ninja is required in the explicit Python environment or --ninja")
     if plan["module"] == "spz" and not shutil.which("cmake", path=env["PATH"]):
         raise ValueError("CMake is required in the explicit Python environment or --cmake")
+    if plan["module"] == "spz":
+        configure_spz_environment(env, plan)
     return env
+
+
+def configure_spz_environment(env, plan):
+    """Use the initialized MSVC compiler with Ninja, independent of host defaults."""
+    compiler = shutil.which("cl.exe", path=env["PATH"])
+    if not compiler:
+        raise ValueError("MSVC cl.exe is missing after the explicit vcvars initialization")
+    for name in ("CMAKE_GENERATOR_PLATFORM", "CMAKE_GENERATOR_TOOLSET", "CMAKE_GENERATOR_INSTANCE",
+                 "CMAKE_TOOLCHAIN_FILE", "CMAKE_ARGS"):
+        env.pop(name, None)
+    env.update(CMAKE_GENERATOR="Ninja", CMAKE_BUILD_PARALLEL_LEVEL=str(plan["jobs"]),
+               CC=compiler, CXX=compiler)
 
 
 def validate_wheel(path, plan):
@@ -319,6 +333,8 @@ def build(plan, receipts_path=None):
                           "--config-settings=cmake.define.SPZ_BUILD_TOOLS=OFF",
                           "--config-settings=cmake.define.BUILD_SHARED_LIBS=OFF",
                           "--config-settings=cmake.define.CMAKE_CXX_FLAGS=/utf-8",
+                          "--config-settings=cmake.define.CMAKE_C_COMPILER=" + env["CC"],
+                          "--config-settings=cmake.define.CMAKE_CXX_COMPILER=" + env["CXX"],
                           "--config-settings=cmake.define.Python_EXECUTABLE=" + plan["python"], "."]
     else:
         command = base + ["setup.py", "build", "--build-base", str(output / "build"),

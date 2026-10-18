@@ -194,6 +194,27 @@ class NativeBuildTests(unittest.TestCase):
                     with self.assertRaises(RuntimeError):
                         native.validate_wheel(wheel, plan)
 
+    def test_spz_uses_ninja_and_initialized_msvc_not_host_generator_or_compilers(self):
+        env = {"PATH": "explicit-vcvars-path", "CC": "wrong-c-compiler", "CXX": "wrong-cxx-compiler",
+               "CMAKE_GENERATOR": "Visual Studio 17 2022", "CMAKE_GENERATOR_PLATFORM": "x64",
+               "CMAKE_GENERATOR_TOOLSET": "old", "CMAKE_GENERATOR_INSTANCE": "old-vs",
+               "CMAKE_TOOLCHAIN_FILE": "other-toolchain.cmake", "CMAKE_ARGS": "-G other"}
+        compiler = str(self.root / "MSVC 含空格" / "cl.exe")
+        with patch.object(native.shutil, "which", return_value=compiler) as lookup:
+            native.configure_spz_environment(env, {"jobs": 2})
+        lookup.assert_called_once_with("cl.exe", path="explicit-vcvars-path")
+        self.assertEqual(env["CMAKE_GENERATOR"], "Ninja")
+        self.assertEqual(env["CMAKE_BUILD_PARALLEL_LEVEL"], "2")
+        self.assertEqual(env["CC"], compiler)
+        self.assertEqual(env["CXX"], compiler)
+        self.assertFalse(set(env) & {"CMAKE_GENERATOR_PLATFORM", "CMAKE_GENERATOR_TOOLSET",
+                                    "CMAKE_GENERATOR_INSTANCE", "CMAKE_TOOLCHAIN_FILE", "CMAKE_ARGS"})
+
+    def test_spz_missing_initialized_msvc_is_an_explicit_failure(self):
+        with patch.object(native.shutil, "which", return_value=None):
+            with self.assertRaisesRegex(ValueError, "cl.exe is missing"):
+                native.configure_spz_environment({"PATH": "isolated"}, {"jobs": 2})
+
     @unittest.skipUnless(os.name == "nt", "Windows entrypoints")
     def test_every_cmd_delegates_to_same_relative_helper_and_propagates_bad_plan(self):
         mapping = {"native": "gsplat", "fused-ssim": "fused-ssim", "spz": "spz",
