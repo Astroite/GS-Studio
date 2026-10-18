@@ -6,6 +6,7 @@ Examples, from the repository root:
   python scripts/release/third_party_sources.py verify --source-dir distribution-sources --evidence-only
   python scripts/release/third_party_sources.py verify --source-dir distribution-sources --package-root package --report release-evidence.json
   python scripts/release/third_party_sources.py bundle --source-dir distribution-sources --output-dir source-bundle
+  python scripts/release/third_party_sources.py notices --source-dir distribution-sources --output-dir package-notices
   python scripts/release/third_party_sources.py self-test
 
 The default verify mode is a release gate. An intact evidence cache does not
@@ -107,10 +108,24 @@ def load_manifest(path):
     for item in manifest['artifacts']:
         if item['retrieval']['kind'] == 'archive-member' and item['retrieval']['archive_id'] not in ids:
             raise ValueError('Notice references an unknown source archive')
+    binary_paths = set()
     for binary in manifest['binary_fingerprints']:
         relative_name(binary['package_path'])
+        if binary['package_path'].lower() in binary_paths:
+            raise ValueError('Duplicate binary path')
+        binary_paths.add(binary['package_path'].lower())
         if not HASH.fullmatch(binary['sha256']):
             raise ValueError('Invalid binary fingerprint')
+        for reference in binary.get('notice_artifact_ids', []) + binary.get('source_artifact_ids', []):
+            if reference not in ids:
+                raise ValueError('Binary binding references unknown evidence')
+        if any(not next(item for item in manifest['artifacts'] if item['id'] == reference).get('package_notice')
+               for reference in binary.get('notice_artifact_ids', [])):
+            raise ValueError('Bound runtime notices must be required package resources')
+    for scope in manifest.get('native_inventory_scopes', []):
+        relative_name(scope['root'])
+        if type(scope.get('recursive')) is not bool:
+            raise ValueError('Native inventory scope requires an explicit recursion policy')
     for dependency in manifest['python_distributions']:
         for resource in dependency['notices']:
             if resource not in ids:
@@ -256,6 +271,7 @@ def inspect_package(manifest, package):
             issues.append(dict(code='python-version-mismatch', component=item['name'], expected=known['version'], actual=item['version']))
         elif not known['notices'] and name not in manifest['self_code_distributions']:
             issues.append(dict(code='python-distribution-license-resource-gap', component=item['name']))
+    bindings = []
     for item in manifest['binary_fingerprints']:
         path = inside(package, item['package_path'])
         if not path.is_file():
@@ -263,6 +279,11 @@ def inspect_package(manifest, package):
                 issues.append(dict(code='required-binary-missing', path=item['package_path']))
         elif matches(path, item):
             verified.append(item['package_path'])
+            if item.get('notice_artifact_ids') or item.get('source_artifact_ids'):
+                bindings.append(dict(path=item['package_path'], component=item['component'],
+                    source_artifact_ids=item.get('source_artifact_ids', []),
+                    notice_artifact_ids=item.get('notice_artifact_ids', []),
+                    status=item.get('binding_status', 'identity-and-notice-resources-recorded')))
         else:
             issues.append(dict(code='binary-hash-mismatch', path=item['package_path']))
     # Retained notices can appear with an existing packager's numeric prefix.
@@ -305,7 +326,52 @@ def inspect_package(manifest, package):
             unclassified_nvidia.append(relative)
     issues += [dict(code='unreviewed-pretrained-weight', path=name) for name in unknown_models]
     issues += [dict(code='unclassified-nvidia-runtime', path=name) for name in unclassified_nvidia]
-    return dict(distributions=observed, verified_binaries=verified, issues=issues)
+    known_binaries = {item['package_path'].lower() for item in manifest['binary_fingerprints']}
+    # A checksum list cannot protect against newly added, unreviewed native files
+    # unless actual directory contents are compared with it. These narrow scopes
+    # cover the interpreter/stdlib and external COLMAP, without pretending that
+    # every Python wheel or self-authored build must be byte-identical forever.
+    native_seen = set()
+    for scope in manifest.get('native_inventory_scopes', []):
+        base = inside(package, scope['root'])
+        if not base.is_dir():
+            continue
+        paths = base.rglob('*') if scope['recursive'] else base.iterdir()
+        for path in paths:
+            if not path.is_file() or path.suffix.lower() not in ('.dll', '.pyd', '.exe'):
+                continue
+            relative = path.relative_to(package).as_posix()
+            if relative.lower() not in native_seen and relative.lower() not in known_binaries:
+                issues.append(dict(code='unreviewed-native-resource', path=relative))
+            native_seen.add(relative.lower())
+    return dict(distributions=observed, verified_binaries=verified, native_resource_bindings=bindings, issues=issues)
+
+
+def notices(manifest, source_dir, output):
+    """Stage immutable notice bytes for a new package; never mutate a package."""
+    if output.resolve().is_relative_to(source_dir.resolve()) or source_dir.resolve().is_relative_to(output.resolve()):
+        raise ValueError('Evidence and notice directories must not overlap')
+    selected = [(item, relative_name(item['id']) + ''.join(PurePosixPath(item['file']).suffixes))
+                for item in manifest['artifacts'] if item.get('package_notice', False)]
+    if len({name.lower() for _, name in selected}) != len(selected):
+        raise ValueError('Notice output names must be unique on Windows')
+    # Check all inputs before creating output, so a failed preparation leaves no
+    # partially populated directory that a packager could mistake for complete.
+    if any(not matches(inside(source_dir, item['file']), item) for item, _ in selected):
+        raise ValueError('Cannot stage missing or corrupt notice evidence')
+    output.mkdir(parents=True, exist_ok=False)
+    inventory = []
+    for item, name in selected:
+        target = inside(output, name)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(inside(source_dir, item['file']), target)
+        if not matches(target, item):
+            raise ValueError('Notice changed while preparing the package')
+        inventory.append(dict(id=item['id'], file=name, component=item['component'], bytes=item['bytes'], sha256=item['sha256']))
+    report = dict(schema_version=1, release=manifest['release'], release_ready=False, notices=inventory,
+        note='Exact third-party notice bytes only. Distribution conditions and open manifest gaps still apply; this is not publication approval.')
+    (output/'NOTICE-INVENTORY.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8', newline='\n')
+    return report
 
 
 def verify(manifest, source_dir, package=None, evidence_only=False):
@@ -435,6 +501,38 @@ def self_test():
                 codes = {item['code'] for item in inspect_package(manifest, root)['issues']}
                 self.assertEqual(codes, {'private-sdk-excluded', 'unreviewed-pretrained-weight'})
 
+        def test_unknown_native_file_is_rejected_but_other_data_is_not(self):
+            with tempfile.TemporaryDirectory() as name:
+                root = Path(name)
+                (root/'runtime/python/DLLs').mkdir(parents=True)
+                (root/'runtime/python/DLLs/unreviewed.dll').write_bytes(b'new native dependency')
+                (root/'runtime/python/DLLs/readme.txt').write_bytes(b'documentation')
+                manifest = dict(python_distributions=[], required_python_distributions=[], self_code_distributions=[],
+                    binary_fingerprints=[], artifacts=[], package_exclusions=[],
+                    native_inventory_scopes=[dict(root='runtime/python/DLLs', recursive=True)])
+                issues = inspect_package(manifest, root)['issues']
+                self.assertEqual(issues, [dict(code='unreviewed-native-resource', path='runtime/python/DLLs/unreviewed.dll')])
+
+        def test_notice_preparation_checks_every_input_and_preserves_existing(self):
+            with tempfile.TemporaryDirectory() as name:
+                root = Path(name)
+                source = root/'cache'
+                source.mkdir()
+                content = b'provider notice bytes'
+                (source/'LICENSE.txt').write_bytes(content)
+                item = dict(id='license', file='LICENSE.txt', component='test', bytes=len(content),
+                    sha256=hashlib.sha256(content).hexdigest(), package_notice=True)
+                manifest = dict(release='test', artifacts=[item])
+                result = notices(manifest, source, root/'notices')
+                self.assertFalse(result['release_ready'])
+                self.assertEqual((root/'notices/license.txt').read_bytes(), content)
+                with self.assertRaises(FileExistsError):
+                    notices(manifest, source, root/'notices')
+                (source/'LICENSE.txt').write_bytes(b'corrupt')
+                with self.assertRaises(ValueError):
+                    notices(manifest, source, root/'bad-notices')
+                self.assertFalse((root/'bad-notices').exists())
+
         def test_bundle_exports_only_reviewed_resources_and_rejects_corruption(self):
             with tempfile.TemporaryDirectory() as name:
                 root = Path(name)
@@ -462,7 +560,7 @@ def self_test():
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('command', choices=['fetch', 'materialize', 'verify', 'inventory', 'bundle', 'self-test'])
+    parser.add_argument('command', choices=['fetch', 'materialize', 'verify', 'inventory', 'bundle', 'notices', 'self-test'])
     parser.add_argument('--manifest', type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument('--source-dir', type=Path)
     parser.add_argument('--package-root', type=Path)
@@ -494,6 +592,11 @@ def main(argv=None):
             if not args.output_dir:
                 parser.error('bundle requires a new --output-dir')
             emit(bundle(manifest, args.manifest, args.source_dir, args.output_dir), args.report)
+            return 0
+        if args.command == 'notices':
+            if not args.output_dir:
+                parser.error('notices requires a new --output-dir')
+            emit(notices(manifest, args.source_dir, args.output_dir), args.report)
             return 0
         if args.package_root and not args.package_root.is_dir():
             raise ValueError('Selected package root does not exist')
