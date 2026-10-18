@@ -113,6 +113,8 @@ jobs:
         run: |
           npm test
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run build
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           cargo test --locked --manifest-path src-tauri/Cargo.toml -- --skip actual_worker_bootstrap_consumes_module_paths_before_argparse
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Compile the Windows desktop executable without an installer upload

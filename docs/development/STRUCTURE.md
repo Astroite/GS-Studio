@@ -20,14 +20,18 @@ GS Studio 的源代码分为桌面、统一操作层和独立数值引擎。它�
 | `engine/scripts/` | 原生构建、运行时记录、可复用验证和合成数据工具 |
 | `tools/` | 自有 MediaSDK bridge 源码和 RealityScan 导出参数；不包含商业 SDK |
 | `tests/{unit,contract,manual}/`、`engine/tests/` | 单元、接口、数值与显式人工/GPU 验证；合成 fixtures 保留在 tests |
+| `tests/build_scripts/`、`scripts/runtime/` | 无 GPU 的构建/完整性契约，以及固定依赖、公开输入和隔离 Windows bootstrap |
 | `scripts/` | 已验收包的启动代理、源码 session 及仍被测试引用的维护工具 |
+| `scripts/release/` | 包完整性核验与第三方来源整理；不自动上传附件或授予分发许可 |
 | `.githooks/`、`scripts/check_source_payload.py` | 源码提交/推送检查；防止媒体、模型、运行载荷与 LFS 对象进入 Git |
-| `.github/` | 源码卫生、有限 CPU 契约、锁定前端和 Rust 的只读 CI |
+| `.github/` | 源码/构建 CPU 契约及前端/Rust CI；另有手动干净 Windows 编译，无 GPU、无二进制上传 |
 | `docs/` | 当前使用/维护文档、架构契约及小型归档索引 |
 
 根目录只保留产品说明、许可证/notice、贡献及变更记录、构建配置和启动代理。`desktop`、`src`、`engine`、`tools` 的职责不因历史来源而混合；不复制环境或 SDK 到这些目录。`tests/output` 与开发构建输出被忽略，测试需要的少量合成二进制夹具按精确路径和哈希保留，不构成真实数据的例外。
 
 预处理、核心训练和编辑各用独立进程，但 `python` 与 `preprocess_python` 指向同一锁定 Python 环境。独立进程用于生命周期、故障和 GPU 调度隔离，不代表两套 Torch。运行时相对路径按其 JSON 配置文件目录解析；所有入口共用用户级 GPU 锁。
+
+新环境的[公开输入构建](CLEAN-WINDOWS-BUILD.md)在仓库外完成下载、依赖安装及原生编译；它与复制已有冻结核心的离线 provisioning 工具职责不同。原生统一构建入口是 `engine/scripts/build_native.py`，包组装及只读核验见[Windows 发布说明](WINDOWS-RELEASE.md)。这些源码入口和工作流不构成 GPU 或最终包已经通过的证据。
 
 退役的 `src/gsstudio/interfaces/desktop/` Qt 界面与三个 Qt 专属契约测试已归档；混合 worker 测试保留现行协议覆盖。精确范围见[后续归档清单](../archive/source-retirement-20261017-002.json)。
 

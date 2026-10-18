@@ -8,7 +8,9 @@ v0.3.0-rc.1 是 [GS-Studio](https://github.com/Astroite/GS-Studio) 的仅源码�
 
 目标为 Windows x64、Python 3.10.22、Torch 2.8.0+cu129、torchvision 0.23.0+cu129 和匹配的原生扩展。`python` 与 `preprocess_python`、`core_runtime_root` 与 `preprocess_runtime_root` 必须分别指向同一个解释器与根目录。Python 依赖锁由打包配置的 `package.python_lock_file` 指定；原生扩展必须有源哈希、二进制哈希与目标 GPU 架构证据。实际 GPU 验证仅覆盖 compute capability 8.9，不能推定其他架构可用。
 
-开发环境的 [52-distribution 联合锁](../../scripts/runtime/unified-requirements.lock.txt)由冻结的 44 项核心和 8 个带 SHA256 的流水线 wheel 组成；[provisioning 工具](../../scripts/provision_runtime.py)仅向新的不存在目录复制核心并离线添加这 8 项，不改原环境或升级核心。41 项运行时与 11 项构建/测试锁用于区分用途；裁剪包保留审计 metadata/许可证，不承诺带有测试或安装器载荷。复现、保留旧环境回滚及裁剪规则见[运行时瘦身](RUNTIME-SLIMMING.md)。
+开发环境使用冻结的 [52-distribution 联合锁](../../scripts/runtime/unified-requirements.lock.txt)。新的 [公开输入构建入口](../../scripts/runtime/bootstrap_windows.py)在仓库外创建 Python 3.10.22 环境，从带 SHA256 的 44 个公开轮子、一个公开源包及固定 commit 的源码构建七个原生发行包和编辑扩展，不复制已有环境或私有编译轮子。步骤、显式工具链参数及干净 Windows 工作流范围见[从公开输入构建](CLEAN-WINDOWS-BUILD.md)；构建步骤存在不代表已经通过编译、GPU 或最终包验收。
+
+原有 [provisioning 工具](../../scripts/provision_runtime.py)用于另一种复现：向新的不存在目录复制已验证的 44 项核心，并离线添加 8 个带 SHA256 的流水线 wheel，不改原环境或升级核心。它不能证明从零构建。41 项运行时与 11 项构建/测试锁用于区分用途；裁剪包保留审计 metadata/许可证，不承诺带有测试或安装器载荷。保留旧环境回滚及裁剪规则见[运行时瘦身](RUNTIME-SLIMMING.md)。
 
 目录包组装输入包括解释器、扩展、工具、离线模型和 notices；公开分发须另行闭合下述第三方证据门槛。需要本机 NVIDIA 驱动；开发编译工具链不属于用户运行依赖。RealityScan 单独安装，通过运行时配置指向用户自己的安装；COLMAP 可作为另一重建后端。
 
@@ -20,12 +22,15 @@ public 包载荷路径相对包内 `runtime/runtime.json`，用户可写数据�
 
 ## 构建与计划
 
-在仓库根目录使用已有开发工具链构建前端及 Tauri：
+先按[公开输入构建说明](CLEAN-WINDOWS-BUILD.md)执行 `plan → prepare → build → verify`，或明确采用已有环境的离线复制路径。新的原生构建入口使用显式 Python、VS、CUDA、架构及新输出目录；旧 `engine/scripts/setup-runtime.ps1` 已停止执行安装，不再作为当前引导命令。
+
+在仓库根目录使用 Node 22 和已安装的 Rust 1.95.0 Windows MSVC 工具链构建前端及 Tauri；工具链选择仅影响当前进程：
 
 ```powershell
+$env:RUSTUP_TOOLCHAIN = '1.95.0'
 Push-Location desktop
 try {
-    npm ci
+    npm ci --ignore-scripts
     if ($LASTEXITCODE -ne 0) { throw 'npm ci failed' }
     npm test
     if ($LASTEXITCODE -ne 0) { throw 'frontend tests failed' }
@@ -61,6 +66,18 @@ $Output = Join-Path $env:TEMP 'GS-Studio-0.3.0-rc.1-new'
 | 质量与资源 | 固定输入/划分与预算，逐视角画质、计时范围、显存口径及已知限制 |
 | 再分发 | 对最终包内每个第三方载荷闭合来源、条款、notice、对应源码/构建资料及制品身份 |
 
-只有与实际源文件、依赖锁和最终包哈希绑定的结果，才能标记该构建通过。历史集成包、精简候选包、最终包和搬移后的包各有独立范围，见[迁移记录](PIPELINE-MIGRATION.md)。CI 只提供源码/文档、有限 CPU、前端及 Rust 检查；不签名、发布或上传目录包，不使用自托管 GPU runner。
+组装后可先运行只读完整性检查，报告必须写入包外的新文件：
+
+```powershell
+$Package = (Resolve-Path '<待检查目录包>').Path
+$Source = (Resolve-Path '.').Path
+$Report = Join-Path $env:TEMP ('gsstudio-candidate-' + [guid]::NewGuid().ToString('N') + '.json')
+python -I -B -X utf8 scripts/release/verify_candidate.py --package $Package --source-root $Source --report $Report
+if ($LASTEXITCODE -ne 0) { throw 'candidate integrity verification failed' }
+```
+
+[verify_candidate.py](../../scripts/release/verify_candidate.py)核对清单中的完整载荷、大小和 SHA256，检查锁、裁剪策略及编辑二进制证据；`--source-root` 额外对比包内所带源码的实际字节。它不启动应用、不导入 GPU、不审定许可，也不证明 EXE/原生轮子由该源码或某个 Git commit 编译。当前 schema 3 没有提交绑定；需要严格绑定时指定 `--expected-source-commit <完整 SHA>` 会拒绝无法证明的声明。包清单是完整性记录，不是可信签名。
+
+只有与实际源文件、依赖锁和最终包哈希绑定的结果，才能标记相应验收范围通过。历史集成包、精简候选包、最终包和搬移后的包各有独立范围，见[迁移记录](PIPELINE-MIGRATION.md)。[普通 CI](../../.github/workflows/source-checks.yml)提供源码/文档、构建脚本 CPU 契约、前端及 Rust 检查；[手动干净 Windows 构建](../../.github/workflows/clean-windows-build.yml)另行尝试公开输入编译及无 GPU 的预编译导入。是否通过以对应 commit 的实际运行结果为准。两个工作流均不签名、发布或上传目录包，不使用自托管 GPU runner；它们不能代替本地真实 GPU、完整训练或最终包验收。
 
 二进制分发另受[第三方分发证据](../distribution/third-party-sources.json)约束，目前状态为 `evidence-gathered-binary-release-blocked`。未闭合项包括 FFmpeg 对应源码/静态依赖构建资料、COLMAP 依赖及 Qt/其他许可绑定、权重分发条款、GPL `plyfile` 分发条件、CUDA/cuDNN 协议和 Python 原生依赖资源。Apache-2.0 仅覆盖自有代码；保留 LICENSE/NOTICE 或通过哈希检查不等于取得第三方分发权。Insta360 SDK 外接、RealityScan 另装的边界保持不变。

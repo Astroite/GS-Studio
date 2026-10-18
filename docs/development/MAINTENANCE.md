@@ -8,6 +8,8 @@ Tauri + React + Spark 是桌面主线。Rust 管理 JSONL worker 和后代进程
 
 `scripts/gs-studio.ps1` 与根 `gsstudio.ps1` 是目录包代理；`scripts/session.ps1` 仅供已配置的源码开发环境使用，不改变全局环境。使用 `GSSTUDIO_RUNTIME` 显式选择开发配置。发布时 `python`/`preprocess_python` 必须解析为同一解释器；不得靠多套 site-packages 或环境回退凑出运行时。
 
+新的开发环境按[公开输入 Windows 构建](CLEAN-WINDOWS-BUILD.md)执行：解释器、下载哈希、外部源码 commit、工具链与新工作目录显式记录，预处理与训练仍共用同一 52 包锁。已有核心的离线复制工具保留独立用途；不能将复制环境的结果记录为公开源码从零构建。
+
 无现行生产导入方的 Qt 界面和严格 Qt 专属测试已归档；混合 worker 协议测试保留非 Qt 用例。`pipeline/training/native.py` 与 `pipeline/editor/runtime.py` 只作为源码侧旧支持模块保留，现行发布入口使用独立引擎，不添加兼容路径。开发不再推荐旧 `studio` extra。COLMAP 4.2.1 的合法 Qt DLL 依赖应保留，不能按退役 GS Studio PySide/PyQt 一并排除。
 
 主要运行时字段为 `python, preprocess_python, engine_root, pipeline_root, data_root, ffmpeg, ffprobe, colmap, media_helper, mediasdk_root, realityscan, realityscan_export_params, torch_home, torch_extensions_dir, cache_root, log_root, gpu_lock_path`。相对路径相对所在 JSON 解析。公共目录包使用可搬移的载荷路径，用户项目、缓存、日志与共享锁在用户目录；具体覆盖顺序以运行时 resolver 和目录包说明为准。
@@ -17,9 +19,12 @@ Tauri + React + Spark 是桌面主线。Rust 管理 JSONL worker 和后代进程
 | 脚本 | 用途与边界 |
 | --- | --- |
 | `desktop/scripts/package-gsstudio.ps1` | 当前 public/local 目录包计划与组装；不安装环境，输出到新目录 |
+| `scripts/runtime/bootstrap_windows.py`、`public-build-inputs.json` | 从固定公开输入创建新环境并离线编译；plan 不下载，prepare 是联网阶段，编译及导入结果分开记录 |
+| `scripts/provision_runtime.py` | 复制已有冻结核心、离线补入八个 wheel 的复现；不构建公开源码或升级核心 |
+| `scripts/release/verify_candidate.py` | 只读核验包清单、锁、策略、编辑证据及可选源码字节；不运行应用，不证明编译来源或分发许可 |
 | `desktop/scripts/test-package-plan.ps1`、`test-gsstudio-cli.ps1` | 临时 fixture 中检查打包与 CLI；后者仍引用 `scripts/gsstudio-next.ps1`，因此保留该代理 |
-| `engine/scripts/setup-build-*.cmd`、`build_studio_selection.*` | 原生编译源入口；部分开发默认值需按目标机器核对，不是用户安装步骤 |
-| `engine/scripts/setup-runtime*`、`setup_record_runtime.py` | 独立引擎运行时构建/记录资料；不自动成为发布包依赖锁 |
+| `engine/scripts/build_native.py`、`setup-build-*.cmd`、`build_studio_selection.*` | 统一离线原生构建及包装入口；显式解释器、工具链、源码与新输出目录，计划不导入 Torch；不是用户启动步骤 |
+| `engine/scripts/setup-runtime*`、`setup_record_runtime.py` | 历史独立引擎依赖/记录资料；旧 setup-runtime.ps1 明确停止执行，当前引导改用公开输入 bootstrap |
 | `engine/scripts/record_splat3_renderer_runtime.py`、`record_splat3_round4_runtime.py` | 原生制品与配置记录；当前 CPU 测试直接引用 |
 | `engine/scripts/evaluate_reference_pngs.py`、`render_reference_cameras.py` | 显式标定与图像比较工具；被现有测试验证 |
 | `engine/scripts/studio_synthetic.py`、`studio_selection_cases.py`、`validate_studio_*.py` | 合成数据和核心验证；GPU 脚本只在明确安排的本地任务运行 |
@@ -46,10 +51,11 @@ photo/gs 是输入预设，quality_v2/observed_v5/observed_v6 是独立配方。
 | 范围 | 检查与证据 |
 | --- | --- |
 | 源码、文档与发布边界 | `python .github/check_source.py`、`git diff --check`、源码 payload 守卫及守卫单元测试；具体入口见贡献指南 |
+| 构建入口 | `python -I -B -m unittest discover -s tests/build_scripts -v`；只用 stdlib 验证路径、下载/源码身份、失败传播与包完整性规则，不安装依赖或使用 GPU |
 | 产品接口与桌面代码 | `tests/unit`、`tests/contract`、锁定前端测试/构建及 Rust 测试；需要已配置的开发依赖 |
 | CUDA、真实素材与目录包 | 显式安排本地任务，绑定输入、源文件、锁与最终包哈希，分别记录功能、质量、恢复和分发条件 |
 
-[CI](../../.github/workflows/source-checks.yml)只覆盖源码/文档卫生、有限 CPU 契约、锁定前端及 Rust 单元检查。它不验证 CUDA、真实重建、画质、离线包或交互行为。部分 `engine/tests` 会执行 CUDA，不能无筛选地用整套核心测试作 CPU 检查。文档整理不触发 GPU、训练、重建或安装。
+[普通 CI](../../.github/workflows/source-checks.yml)覆盖源码/文档卫生、构建脚本与有限 CPU 契约、锁定前端及 Rust 单元检查。[手动干净 Windows 工作流](../../.github/workflows/clean-windows-build.yml)在新托管虚拟机上另行构建公开输入、检查无 GPU 的预编译导入并编译桌面程序，不上传二进制；结果须查对应提交的实际运行。两者均不证明真实 GPU、重建、画质、最终离线包或交互行为。部分 `engine/tests` 会执行 CUDA，不能无筛选地用整套核心测试作 CPU 检查。文档整理不触发 GPU、训练、重建或安装。
 
 输出放 `tests/output` 或仓库外。原生 Windows 日志为 UTF-8，worker stdout 仅 JSONL，诊断写 stderr。不要把合成 fixture 成功当作训练接受结果；既有接受范围见[迁移记录](PIPELINE-MIGRATION.md)。
 
