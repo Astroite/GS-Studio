@@ -21,7 +21,10 @@ def plain(path):
         if item.is_symlink() or (item.exists() and getattr(item.lstat(), "st_file_attributes", 0)
                                 & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)):
             raise ValueError(f"Source symlink/reparse point rejected: {item}")
-    return path
+    # On Windows TEMP may use an 8.3 alias while setup.py resolves __file__ to
+    # its long name. Canonicalize only after inspecting the original ancestors,
+    # so resolving cannot hide a junction/symlink from the containment check.
+    return path.resolve()
 
 
 def normalize_extensions(extensions, source_root):

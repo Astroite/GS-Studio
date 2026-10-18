@@ -95,6 +95,29 @@ setup(name="local_splat3_stats", version="0.1.1", ext_modules=[SimpleNamespace(
         with self.assertRaisesRegex(ValueError, "symlink/reparse"):
             wrapper.normalize_extensions([SimpleNamespace(sources=["linked.cu"])], self.root)
 
+    @unittest.skipUnless(os.name == "nt", "Windows 8.3 path aliases")
+    def test_short_staged_root_accepts_canonical_long_source_paths(self):
+        import ctypes
+        from ctypes import wintypes
+        get_short_path = ctypes.WinDLL("kernel32", use_last_error=True).GetShortPathNameW
+        get_short_path.argtypes = (wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD)
+        get_short_path.restype = wintypes.DWORD
+        canonical_root = self.root.resolve()
+        size = get_short_path(str(canonical_root), None, 0)
+        if not size:
+            self.skipTest("GetShortPathNameW unavailable for this fixture volume")
+        buffer = ctypes.create_unicode_buffer(size)
+        if not get_short_path(str(canonical_root), buffer, size):
+            self.skipTest("GetShortPathNameW did not return a fixture alias")
+        short_root = Path(buffer.value)
+        if str(short_root).casefold() == str(canonical_root).casefold():
+            self.skipTest("8.3 alias generation is disabled on this fixture volume")
+        extension = SimpleNamespace(sources=[str(canonical_root / "bindings.cpp"),
+                                             str(canonical_root / "stats.cu")])
+        wrapper.normalize_extensions([extension], short_root)
+        self.assertEqual(extension.sources, ["bindings.cpp", "stats.cu"])
+        self.assertEqual(wrapper.plain(short_root), canonical_root)
+
 
 if __name__ == "__main__":
     unittest.main()

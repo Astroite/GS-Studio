@@ -68,6 +68,10 @@ jobs:
         if: always()
         shell: pwsh
         run: |
+          if ([string]::IsNullOrWhiteSpace($env:GSSTUDIO_CLEAN_WORKSPACE)) {
+            'No build workspace was initialized. Inspect the earlier failed setup or contract step; runtime verification was not performed.' >> $env:GITHUB_STEP_SUMMARY
+            exit 0
+          }
           $verified = Join-Path $env:GSSTUDIO_CLEAN_WORKSPACE 'verified.json'
           if (Test-Path -LiteralPath $verified) { Get-Content -LiteralPath $verified >> $env:GITHUB_STEP_SUMMARY }
           'This job has no NVIDIA GPU: it checks compilation and offline precompiled imports only. Local GPU, final directory package and third-party distribution approval remain separate gates. No binaries or build archives are uploaded.' >> $env:GITHUB_STEP_SUMMARY
