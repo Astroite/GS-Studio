@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "description": "Windows inference package policy; never filters runtime DLL/PYD or package metadata by generic suffix.",
+  "rules": [
+    {
+      "id": "editable-and-retired",
+      "pattern": "(?i)(^|/)(__editable__[^/]*|[^/]*\\.egg-link|easy-install\\.pth|gsdb[^/]*|PySide[26][^/]*|PyQt[56][^/]*|shiboken[26][^/]*|__pycache__|\\.git|prototypes)(/|$)",
+      "reason": "Editable hooks, retired database/Qt frontend, or source/cache artifacts",
+      "phase": "forbidden"
+    },
+    {
+      "id": "retired-trainer",
+      "pattern": "(?i)(^|/)(interfaces/desktop/|pipeline/training/native\\.py$|postshot[^/]*\\.(exe|dll|ptx)$|[^/]*\\.(pyc|psht)$)",
+      "reason": "Retired frontend/trainer or original Postshot artifacts",
+      "phase": "forbidden"
+    },
+    {
+      "id": "development-hooks",
+      "pattern": "(?i)(^|/)(a1_coverage|pytest-cov)\\.pth$",
+      "reason": "Development startup instrumentation",
+      "phase": "forbidden"
+    },
+    {
+      "id": "windows-build-products",
+      "pattern": "(?i)\\.(lib|pdb|exp|obj|o)$|(^|/)(build\\.ninja|\\.ninja_log|\\.ninja_deps)$",
+      "reason": "Static import libraries, debug symbols, or offline compiler products",
+      "phase": "standard"
+    },
+    {
+      "id": "build-only-headers",
+      "pattern": "(?i)^runtime/python/(include/|libs/|Lib/site-packages/(torch/include/|numpy/(core|_core)/include/|pybind11/include/|nvidia/[^/]+/include/|gsplat/(include/|cuda/(include/|csrc/))))",
+      "reason": "Build-only headers/sources; release uses precompiled extensions",
+      "phase": "standard"
+    },
+    {
+      "id": "python-tests-examples",
+      "pattern": "(?i)^runtime/python/Lib/(site-packages/)?(.*/)?(tests|test|examples|benchmarks|docs)/",
+      "reason": "Non-runtime test/example/benchmark/documentation trees",
+      "phase": "standard"
+    },
+    {
+      "id": "development-metadata",
+      "pattern": "(?i)^runtime/python/(Scripts/(pytest|py\\.test|f2py|ninja|cmake|ctest|cpack|torchfrtrace|torchrun)(\\.exe|\\.py|\\.cmd)?$|Lib/site-packages/[^/]+/(\\.github/|\\.gitignore$|CMakeLists\\.txt$|setup\\.(py|cfg)$))",
+      "reason": "Build/development entry points and source metadata",
+      "phase": "standard"
+    },
+    {
+      "id": "colmap-build-tests",
+      "pattern": "(?i)^tools/colmap/(bin/[^/]+_test\\.exe$|include/)",
+      "reason": "COLMAP build-time unit-test executables or headers; runtime DLLs remain",
+      "phase": "standard"
+    },
+    {
+      "id": "development-package-payloads",
+      "phase": "payload",
+      "pattern": "(?i)^runtime/python/Lib/site-packages/(cmake|_pytest|pytest|scikit_build_core|nanobind|python_devtools|devtools|pluggy|iniconfig|pathspec|exceptiongroup|pip|wheel)(/|\\.py$)",
+      "reason": "Build/test/installer package payload; distribution metadata and licenses retained for audit"
+    },
+    {
+      "id": "compiler-executables",
+      "phase": "payload",
+      "pattern": "(?i)^runtime/python/(Lib/site-packages/ninja/data/|Scripts/(pytest|py\\.test|cmake|ctest|cpack|ninja|nanobind|pip[0-9.]*|wheel)(\\.exe|\\.py|\\.cmd)?$)",
+      "reason": "Compiler/build/test/installer executable; importable ninja wrapper and metadata remain"
+    },
+    {
+      "id": "local-install-provenance",
+      "phase": "provenance",
+      "pattern": "(?i)^runtime/python/Lib/site-packages/[^/]+\\.dist-info/direct_url\\.json$",
+      "reason": "Machine-local installation origin retained in sibling audit, not public distribution"
+    }
+  ]
+}

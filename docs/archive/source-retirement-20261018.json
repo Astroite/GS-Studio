@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-18",
+  "snapshot_id": "remote-media-purge-20261018-001",
+  "archive_set": "fresh-repo-20261018-001",
+  "source_snapshot_kind": "git-bundle",
+  "source_snapshot_filename": "repository-before.bundle",
+  "source_snapshot_sha256": "aebf18f68d5c8b8280a994b09c380746bf55e27959b140bde3a72b40ce39409d",
+  "policy": "Copy and verify exact SHA256 and absolute path boundaries before individual unlink; preserve current numerical/native tests, fixtures, SDKs, runtime and all user data.",
+  "entries": [
+    {
+      "original_relative_path": "src/gsstudio/infrastructure/adapters/postshot.py",
+      "sha256": "709fb590a921d7b138b8e652c66eb8e9ad2c3f4f5dc0ff15a08a15e98a9c3788",
+      "bytes": 4366,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/infrastructure/adapters/postshot.py",
+      "reason": "Retired external Postshot backend/comparison with no current production or test caller; independent training remains the only runtime backend."
+    },
+    {
+      "original_relative_path": "src/gsstudio/pipeline/training/comparison.py",
+      "sha256": "97229078f9576ae8a4c8b0360968b62ad02e090657b8f941b9fed0e629b511b7",
+      "bytes": 5046,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/pipeline/training/comparison.py",
+      "reason": "Retired external Postshot backend/comparison with no current production or test caller; independent training remains the only runtime backend."
+    },
+    {
+      "original_relative_path": "scripts/compare-backends-v5.py",
+      "sha256": "1a6dc22c980aaca38f6a76bc8bcd82e297579de87826e7104dbd74829eb1dc69",
+      "bytes": 1723,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/compare-backends-v5.py",
+      "reason": "Retired external Postshot backend/comparison with no current production or test caller; independent training remains the only runtime backend."
+    },
+    {
+      "original_relative_path": "engine/scripts/record_splat3_stats_runtime.py",
+      "sha256": "7caa9ce4a0bf374f45da2337c2658da99c15986494a8b1c878361637b05e68cf",
+      "bytes": 2506,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/record_splat3_stats_runtime.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_packaged_gpu.py",
+      "sha256": "7c0ab17aa6d4149a81e04fc65f6d5aa54d9acc5cd0c8dcbd98d54394ca69764c",
+      "bytes": 10941,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_packaged_gpu.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_relocation.py",
+      "sha256": "3e08241d1747ddaf4b6db47eb27d7b029c93f2b745847eb8373773128d264b4b",
+      "bytes": 6044,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_relocation.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_worker.py",
+      "sha256": "6ba7e5ffffa2b50a092a4d018714d2c3dc9625056aa5854bbb90e20ed70b1c01",
+      "bytes": 7445,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_worker.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_splat3_stats.py",
+      "sha256": "5bbe8146ac3a5b5f787be4fbe73d2ef0c04e2429d9f98db1408434679a3750cb",
+      "bytes": 4586,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_splat3_stats.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_fused_ssim.py",
+      "sha256": "b5b15bbfc8f8d74b172e4fbfad86f50feaf33b26ebadaed9108ef6e21bed69fb",
+      "bytes": 12649,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_fused_ssim.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_renderer_runtime_cpu.py",
+      "sha256": "5ab352bbdb3b1188834b758029c98d7d97df949874502e017cadce9dcd73ef71",
+      "bytes": 2280,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_renderer_runtime_cpu.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/tests/manual_acceptance.py",
+      "sha256": "e1fa81bfa41e1d5d486497e5ea473da2eba5ab7e89a46c70dcc72b0cc174bef5",
+      "bytes": 1966,
+      "action": "archive",
+      "archive_relative_path": "files/engine/tests/manual_acceptance.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/tests/manual_clean_acceptance.py",
+      "sha256": "32508de4f15aaf532f06bd8026567297e76845312c058e973311509229c2121a",
+      "bytes": 2396,
+      "action": "archive",
+      "archive_relative_path": "files/engine/tests/manual_clean_acceptance.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/tests/manual_codec_acceptance.py",
+      "sha256": "49cf0bf1853e60329bdd9e66876ca06af4f09ff7717e5cfb50a13b279ccf8216",
+      "bytes": 3481,
+      "action": "archive",
+      "archive_relative_path": "files/engine/tests/manual_codec_acceptance.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/tests/manual_quality_acceptance.py",
+      "sha256": "23cdb46895c9e30bff4ddc2c4acd99aaac002cc2b70884cb3a5de4b760f03b8b",
+      "bytes": 2280,
+      "action": "archive",
+      "archive_relative_path": "files/engine/tests/manual_quality_acceptance.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/tests/manual_video_acceptance.py",
+      "sha256": "cbf8359180593aed6eca5da455c3f7116f4f6871d432c691a707573678af0201",
+      "bytes": 3584,
+      "action": "archive",
+      "archive_relative_path": "files/engine/tests/manual_video_acceptance.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/tests/manual_worker_recovery.py",
+      "sha256": "18f91245dc60afac94cca989a5245d97f882ee7182c2556adcae3aa9cc276227",
+      "bytes": 4977,
+      "action": "archive",
+      "archive_relative_path": "files/engine/tests/manual_worker_recovery.py",
+      "reason": "Retired unreferenced manual acceptance/provenance helper tied to historical private workflow paths; current automated numerical tests and active build helpers retained."
+    },
+    {
+      "original_relative_path": "engine/native/splat3_render/provenance.json",
+      "sha256": "782cd6cf9378b0d2c7ee670293d7b0fcc358d396078d88e1d36aaf40f4ebce27",
+      "bytes": 463,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/native/splat3_render/provenance.json",
+      "reason": "Original metadata/docstring retained before source-only path sanitization; numerical/native source bodies and fixture identities unchanged."
+    },
+    {
+      "original_relative_path": "tests/fixtures/nerfstudio_vendor/baseline.json",
+      "sha256": "f24ead5124a760c67602b0d1f6e06f118a2bfec612f4f2b883b500b5997054e6",
+      "bytes": 7687,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/tests/fixtures/nerfstudio_vendor/baseline.json",
+      "reason": "Original metadata/docstring retained before source-only path sanitization; numerical/native source bodies and fixture identities unchanged."
+    },
+    {
+      "original_relative_path": "engine/tests/test_gpu_resume.py",
+      "sha256": "e5b2685dfa33d93042535f04a9915d0e9aaf3f2764c493fbad4d011def450cab",
+      "bytes": 43952,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/tests/test_gpu_resume.py",
+      "reason": "Original metadata/docstring retained before source-only path sanitization; numerical/native source bodies and fixture identities unchanged."
+    }
+  ]
+}

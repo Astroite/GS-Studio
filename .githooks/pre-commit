@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+repo=$(git rev-parse --show-toplevel) || exit 2
+exec sh "$repo/.githooks/run-source-guard.sh" staged

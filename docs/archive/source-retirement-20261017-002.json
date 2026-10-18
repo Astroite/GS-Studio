@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "snapshot_id": "slim-20261017-001",
+  "archive_set": "followup-002",
+  "source_snapshot_sha256": "f66c0fbb8533e2178e034be8e91dd38422b3bf82e9168a6153321c730d731b76",
+  "policy": "Copy and SHA256-verify before guarded exact unlink; no recursive deletion, ignored runtime, SDK, cache or data touched.",
+  "entries": [
+    {
+      "original_relative_path": ".github/check_source.py",
+      "sha256": "7aad940575fe77284a8ab530959c124167956aea77ec476fe99d15e7f2b2a81b",
+      "bytes": 8266,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/.github/check_source.py",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "AGENTS.md",
+      "sha256": "f9ddb396cf12e42a2342fce300878b4f75cb38a2ee2929c88e11e131de19b326",
+      "bytes": 2136,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/AGENTS.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "CHANGELOG.md",
+      "sha256": "b8443651a987140dc7820d110553351bc9b3da830dd41591578847705b0858a9",
+      "bytes": 1244,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/CHANGELOG.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "CONTRIBUTING.md",
+      "sha256": "ed188d3fb0d4fdcdc2a7643b7dd2a9c083bae43dc09588b12a90a490d4b98c40",
+      "bytes": 4265,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/CONTRIBUTING.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "desktop/README.md",
+      "sha256": "004c23f66a60a861b500e1138160e50dc0acbeb059107e19188b3fe4683fb2d3",
+      "bytes": 9814,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/desktop/README.md",
+      "reason": "Final runtime-worker README preserved after handoff, before public path and COLMAP dependency wording cleanup."
+    },
+    {
+      "original_relative_path": "desktop/desktop-fix-requests.md",
+      "sha256": "e740216bc64b9a37067e835cceaec8efa2cfc30afbf8703d642e93beceff3adb",
+      "bytes": 3073,
+      "action": "archive",
+      "archive_relative_path": "files/desktop/desktop-fix-requests.md",
+      "reason": "Obsolete desktop coordination history with private paths; superseded by current docs and external worker reports."
+    },
+    {
+      "original_relative_path": "desktop/desktop-fix-status.md",
+      "sha256": "1430393c6b3af40c029ef4003fff8048a3764fbf9bc90b357c2d588c6eebb429",
+      "bytes": 6788,
+      "action": "archive",
+      "archive_relative_path": "files/desktop/desktop-fix-status.md",
+      "reason": "Obsolete desktop coordination history with private paths; superseded by current docs and external worker reports."
+    },
+    {
+      "original_relative_path": "docs/architecture/GS-STUDIO-ENGINEERING-ROADMAP.md",
+      "sha256": "c771bef09d0f86fbc2f785143be70334098abd6917bc3602dc7d1df8f3946789",
+      "bytes": 1232,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/architecture/GS-STUDIO-ENGINEERING-ROADMAP.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "docs/archive/2026-10-17-source-release/README.md",
+      "sha256": "4758871994f36ca94635e184cc8a33bc1398b621cbf5c3a9a209127b3f7be743",
+      "bytes": 976,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/archive/2026-10-17-source-release/README.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "docs/archive/README.md",
+      "sha256": "77de4a85a610919cdacf64db1a2373506e4397e4db4340f67f7dad0ae6197aa8",
+      "bytes": 1180,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/archive/README.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "docs/development/MAINTENANCE.md",
+      "sha256": "16c7e4045f472cf8ed80c2f0fd1f3be1b32769b5edc03721d71da852af92d7cd",
+      "bytes": 5237,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/MAINTENANCE.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "docs/development/PIPELINE-MIGRATION.md",
+      "sha256": "7af5a89d47243e1dcf13193ed212304f5dc8291541d1666dafce533b98a595a7",
+      "bytes": 2835,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/PIPELINE-MIGRATION.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "docs/development/STRUCTURE.md",
+      "sha256": "6417de4a60accfde47f890ff1d566b19d383c1273b81c39dc700192c6310a11f",
+      "bytes": 2808,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/STRUCTURE.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "docs/development/WINDOWS-RELEASE.md",
+      "sha256": "d6bd743e6d7b9ac42a64372c23df29dd3fb288f154f43f1be47193949efdabc1",
+      "bytes": 4050,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/WINDOWS-RELEASE.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "src/gsstudio/_vendor/PROVENANCE.md",
+      "sha256": "78e54a096ebb7287e02a4f5b0ba0b006c7f63d153df60c30d98daed87d0267a4",
+      "bytes": 3813,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/src/gsstudio/_vendor/PROVENANCE.md",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/__init__.py",
+      "sha256": "e62ed79b48c3ece78b991f769efda1205dd0123ab7d7a646b336de08c28119dc",
+      "bytes": 282,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/__init__.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/__main__.py",
+      "sha256": "b566ce8641c3f8826b1f82a5b5a38789eb80db2341a219ba13acf4fa7d3856e4",
+      "bytes": 106,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/__main__.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/app.py",
+      "sha256": "611b8aedb6f00243e2d5ec30a9a7e044ae78bd62052a158ed3d67dd82b427c16",
+      "bytes": 39063,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/app.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/compare.py",
+      "sha256": "05d9e947b32224852a84921da13711c54ef86fe09382d7ffb40fe10ab3a9a0fa",
+      "bytes": 8396,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/compare.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/external_import.py",
+      "sha256": "92204f37811650e83b19137b4fa2998f183e695a32a23894a5609364dee2e571",
+      "bytes": 22476,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/external_import.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/model.py",
+      "sha256": "1f05322583e370f21ef54752c100e744d4e08a6e21889e7cfb73cc3be56ad5ec",
+      "bytes": 29526,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/model.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/panels.py",
+      "sha256": "8298a117dec712494c18ca24f03762c3f68005ef4fc78966b3b5f965ca539e3c",
+      "bytes": 23579,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/panels.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/settings.py",
+      "sha256": "ed08a11547563500fad73b788b020368afd6b1ed5209b6a7abae116b8447fd5e",
+      "bytes": 574,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/settings.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/theme.py",
+      "sha256": "85515b726ff1b25de361477d0c67a37da38af87f0858800b52e68bdc01f795a0",
+      "bytes": 5243,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/theme.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/interfaces/desktop/workflow.py",
+      "sha256": "978984063e2a0887bac977f4dfc16a698134dc1ef36c19a384436e6078012b74",
+      "bytes": 13293,
+      "action": "archive",
+      "archive_relative_path": "files/src/gsstudio/interfaces/desktop/workflow.py",
+      "reason": "Retired Qt UI; zero current production importers outside this retired UI, verified before removal."
+    },
+    {
+      "original_relative_path": "src/gsstudio/pipeline/editor/runtime.py",
+      "sha256": "a55d1780e4ada102ca5403c95a627020764f04ef93644ecd8ba796cf6246c6ac",
+      "bytes": 17439,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/src/gsstudio/pipeline/editor/runtime.py",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "src/gsstudio/pipeline/training/native.py",
+      "sha256": "664beec29328d37cf082766e0e40e1e0638ff1fa5ec49362cc92f9022e4c6049",
+      "bytes": 35573,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/src/gsstudio/pipeline/training/native.py",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    },
+    {
+      "original_relative_path": "tests/contract/test_compare_view.py",
+      "sha256": "97acd5dd164a3431bab250b144bcb5160760a8b387ff071ffd9b2c7bd3b771be",
+      "bytes": 2669,
+      "action": "archive",
+      "archive_relative_path": "files/tests/contract/test_compare_view.py",
+      "reason": "Strictly Qt-only contract for the retired UI; entire module depends on PySide6/widgets."
+    },
+    {
+      "original_relative_path": "tests/contract/test_external_import_dialog.py",
+      "sha256": "fae90dd150c758a8102da05827fff2426465bd682a25efd2153cf83343986657",
+      "bytes": 1428,
+      "action": "archive",
+      "archive_relative_path": "files/tests/contract/test_external_import_dialog.py",
+      "reason": "Strictly Qt-only contract for the retired UI; entire module depends on PySide6/widgets."
+    },
+    {
+      "original_relative_path": "tests/contract/test_gui_shell.py",
+      "sha256": "3dcb41800d7ff1a3a007bd707b4eb7757d0cccddb740a1f5a81e206426fe880e",
+      "bytes": 5763,
+      "action": "archive",
+      "archive_relative_path": "files/tests/contract/test_gui_shell.py",
+      "reason": "Strictly Qt-only contract for the retired UI; entire module depends on PySide6/widgets."
+    },
+    {
+      "original_relative_path": "tests/contract/test_worker_protocol.py",
+      "sha256": "b72d54ca00978b2cdf69899dc64d9763d20351ff94f505722517508757a01b7b",
+      "bytes": 3845,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/tests/contract/test_worker_protocol.py",
+      "reason": "Original follow-up source/document preserved before narrowly scoped hygiene edits; numerical bodies, vendor code/hash/license records remain unchanged."
+    }
+  ]
+}

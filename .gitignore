@@ -1,0 +1,162 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+.venv-gsplat/
+.venv*/
+dist/
+build/
+.runtime-locks/
+studio-projects/
+env/
+condaenv.*.requirements.txt
+
+# Editors, tooling indexes, and operating systems
+.codegraph/
+.idea/
+.vscode/
+.claude/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+
+# Common reconstruction/training artifacts if created elsewhere
+*.mp4
+*.mov
+*.insv
+*.lrv
+*.ply
+*.splat
+*.ksplat
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.db-shm
+*.db-wal
+
+# MediaSDK is an external licensed dependency; never vendor or commit its build outputs.
+tools/mediasdk-helper/build/
+tools/mediasdk-helper/vendor/
+tools/mediasdk-helper/**/*.dll
+tools/mediasdk-helper/**/*.lib
+tools/mediasdk-helper/**/*.exe
+
+# The Insta360 MediaSDK payload is an external licensed dependency; never commit it.
+sdks/
+# Native wheels and CUDA build output stay local; target architecture is recorded per build.
+wheels/
+
+# Test scripts live in tests/ and are versioned; test byproducts never are.
+tests/output/
+tests/.tmp/
+
+# Data belongs to the separate Data repository; a stray Data-shaped tree in APP
+# (e.g. a relative export path) must never be committed.
+locations/
+
+# Local runtime, tools, projects and secrets are preserved on disk, never published.
+/runtime/
+/cache/
+/.cache/
+/data/
+/Data/
+/projects/
+/private/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+
+# Frontend/native build products and raw historical evidence.
+node_modules/
+desktop/src-tauri/target/
+desktop/src-tauri/gen/
+engine/release/
+engine/evidence/
+engine/reference/evidence/
+*.pyd
+*.dll
+*.lib
+*.obj
+*.exe
+
+# Source-only publication: case-insensitive media/model/archive patterns also
+# cover case-sensitive developer filesystems. Hooks validate forced additions.
+*.[mM][pP]4
+*.[mM][oO][vV]
+*.[mM][kK][vV]
+*.[aA][vV][iI]
+*.[wW][eE][bB][mM]
+*.[iI][nN][sS][vV]
+*.[lL][rR][vV]
+*.[mM]4[vV]
+*.[wW][mM][vV]
+*.[fF][lL][vV]
+*.[mM][pP][gG]
+*.[mM][pP][eE][gG]
+*.[mM][tT][sS]
+*.[mM]2[tT][sS]
+*.[mM][xX][fF]
+*.[pP][lL][yY]
+*.[sS][pP][zZ]
+*.[sS][pP][lL][aA][tT]
+*.[kK][sS][pP][lL][aA][tT]
+*.[pP][sS][hH][tT]
+*.[cC][kK][pP][tT]
+*.[pP][tT]
+*.[pP][tT][hH]
+*.[oO][nN][nN][xX]
+*.[sS][aA][fF][eE][tT][eE][nN][sS][oO][rR][sS]
+*.[eE][xX][eE]
+*.[dD][lL][lL]
+*.[pP][yY][dD]
+*.[lL][iI][bB]
+*.[oO][bB][jJ]
+*.[pP][dD][bB]
+*.[wW][hH][lL]
+*.[zZ][iI][pP]
+*.7[zZ]
+*.[rR][aA][rR]
+*.[bB][iI][nN]
+*.[nN][pP][yY]
+*.[nN][pP][zZ]
+/[dD][aA][tT][aA]/
+/[lL][oO][cC][aA][tT][iI][oO][nN][sS]/
+/[pP][rR][oO][jJ][eE][cC][tT][sS]/
+/[rR][uU][nN][tT][iI][mM][eE]/
+/[cC][aA][cC][hH][eE]/
+/[sS][dD][kK][sS]/
+[cC][aA][pP][tT][uU][rR][eE][sS]/
+[rR][uU][nN][sS]/
+[cC][hH][eE][cC][kK][pP][oO][iI][nN][tT][sS]/
+
+# Raster assets require exact path/hash review; raw photos are never source.
+*.[jJ][pP][gG]
+*.[jJ][pP][eE][gG]
+*.[pP][nN][gG]
+*.[wW][eE][bB][pP]
+*.[tT][iI][fF]
+*.[tT][iI][fF][fF]
+*.[hH][eE][iI][cC]
+*.[hH][eE][iI][fF]
+*.[dD][nN][gG]
+*.[eE][xX][rR]
+*.[hH][dD][rR]
+*.[bB][mM][pP]
+*.[gG][iI][fF]
+*.[iI][cC][oO]
+
+# Reviewed assets/fixtures must survive a fresh source checkout's first add.
+# These path exceptions do not bypass the guard's exact SHA256 checks.
+!desktop/src-tauri/icons/icon.ico
+!tests/fixtures/nerfstudio_vendor/**/*.bin
+!tests/fixtures/nerfstudio_vendor/*.npy
+!tests/fixtures/nerfstudio_vendor/*.npz

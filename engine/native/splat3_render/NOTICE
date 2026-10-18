@@ -1,0 +1,8 @@
+This private compositor contains modified gsplat1.5.3 CUDA forward/backward
+rasterization source, copyright the gsplat contributors, distributed under
+Apache License2.0. Upstream: https://github.com/nerfstudio-project/gsplat
+Commit:937e29912570c372bed6747a5c9bf85fed877bae.
+Local modifications are described at the top of derived source files and in
+provenance.json. The private statistics kernel is independently written for
+LocalPostshot and uses the same public Gaussian rasterization mathematics.
+This module contains no original Postshot source, PTX, plugin or binary.

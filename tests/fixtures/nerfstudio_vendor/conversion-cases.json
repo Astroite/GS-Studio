@@ -1,0 +1,44 @@
+[
+  {
+    "name": "single_default",
+    "keep_original_world_coordinate": false,
+    "use_single_camera_mode": true,
+    "extras": false,
+    "count": 4
+  },
+  {
+    "name": "single_per_frame",
+    "keep_original_world_coordinate": false,
+    "use_single_camera_mode": false,
+    "extras": true,
+    "count": 4
+  },
+  {
+    "name": "single_original",
+    "keep_original_world_coordinate": true,
+    "use_single_camera_mode": true,
+    "extras": true,
+    "count": 4
+  },
+  {
+    "name": "multiple_default",
+    "keep_original_world_coordinate": false,
+    "use_single_camera_mode": true,
+    "extras": true,
+    "count": 8
+  },
+  {
+    "name": "multiple_original",
+    "keep_original_world_coordinate": true,
+    "use_single_camera_mode": false,
+    "extras": false,
+    "count": 8
+  },
+  {
+    "name": "nonone_camera_id",
+    "keep_original_world_coordinate": false,
+    "use_single_camera_mode": true,
+    "extras": false,
+    "count": 4
+  }
+]

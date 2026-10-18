@@ -1,0 +1,8 @@
+LocalPostshot private tile support, 2026.
+The public gsplat 1.5.3 tensor layout, bounding rectangle and packed depth-key
+interface were consulted, copyright the gsplat contributors, Apache License 2.0.
+Upstream: https://github.com/nerfstudio-project/gsplat
+The kernels in this module were independently written and use NVIDIA CUB from
+the installed CUDA SDK for stable radix sorting. Their recovered-algebra mode
+is documented separately from the conservative mode and is not original code.
+No original Postshot source, PTX, plugin, or binary is included or executed.

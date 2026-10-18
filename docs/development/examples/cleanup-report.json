@@ -1,0 +1,91 @@
+{
+  "origin": "Synthetic CPU fixture; not production data",
+  "preview": {
+    "schema_version": 1,
+    "config_hash": "91ba1c438df68d7baa5b4533c8bdc3971923a91c2261d968b2c06fc2010af3a5",
+    "roots": [
+      "inputs/primary/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/frames",
+      "frames-primary"
+    ],
+    "trigger": "verified downstream commit",
+    "consumer_verification": {
+      "mask": "validated final input inventory"
+    },
+    "files": [
+      {
+        "path": "frames-primary/frame_000001.jpg",
+        "sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+        "bytes": 9,
+        "inode": [
+          3740039593,
+          4222124650885813
+        ],
+        "links": 1,
+        "status": "planned"
+      },
+      {
+        "path": "inputs/primary/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/frames/frame_000001.jpg",
+        "sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+        "bytes": 9,
+        "inode": [
+          3740039593,
+          4222124650885809
+        ],
+        "links": 1,
+        "status": "planned"
+      }
+    ],
+    "logical_bytes": 18,
+    "reclaimable_bytes": 18,
+    "retained": [
+      "Raw sources, manifests, logs, QA and lineage records",
+      "Selected filtered images/masks, COLMAP, training inputs, checkpoints and results",
+      "Global caches, other Runs and external output directories"
+    ],
+    "status": "preview"
+  },
+  "completed": {
+    "schema_version": 1,
+    "config_hash": "91ba1c438df68d7baa5b4533c8bdc3971923a91c2261d968b2c06fc2010af3a5",
+    "roots": [
+      "inputs/primary/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/frames",
+      "frames-primary"
+    ],
+    "trigger": "verified downstream commit",
+    "consumer_verification": {
+      "mask": "validated final input inventory"
+    },
+    "files": [
+      {
+        "path": "frames-primary/frame_000001.jpg",
+        "sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+        "bytes": 9,
+        "inode": [
+          3740039593,
+          4222124650885813
+        ],
+        "links": 1,
+        "status": "deleted"
+      },
+      {
+        "path": "inputs/primary/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/frames/frame_000001.jpg",
+        "sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7",
+        "bytes": 9,
+        "inode": [
+          3740039593,
+          4222124650885809
+        ],
+        "links": 1,
+        "status": "deleted"
+      }
+    ],
+    "logical_bytes": 18,
+    "reclaimable_bytes": 18,
+    "retained": [
+      "Raw sources, manifests, logs, QA and lineage records",
+      "Selected filtered images/masks, COLMAP, training inputs, checkpoints and results",
+      "Global caches, other Runs and external output directories"
+    ],
+    "status": "complete"
+  }
+}

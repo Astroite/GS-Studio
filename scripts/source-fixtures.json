@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "description": "Reviewed synthetic upstream compatibility fixtures and application image assets; exact path and SHA256 only. No user data, video, model, checkpoint, LFS or size exemption.",
+  "sha256_by_path": {
+    "tests/fixtures/nerfstudio_vendor/conversion/multiple_default/model/cameras.bin": [
+      "55d56030f206cfe3eec9e870844a2ba1a9465293d9cbac0f696803c9e530c0fd"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/multiple_default/model/images.bin": [
+      "c7a0f4f813aad964c4f2d55f4d8bd2940d8e9544103e8ceb4d03aa5f05479b37"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/multiple_default/model/points3D.bin": [
+      "8deea5cccad08a23afc4784847756687a6c676565f7e9f8c0bb2064577d27ab2"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/multiple_original/model/cameras.bin": [
+      "55d56030f206cfe3eec9e870844a2ba1a9465293d9cbac0f696803c9e530c0fd"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/multiple_original/model/images.bin": [
+      "c7a0f4f813aad964c4f2d55f4d8bd2940d8e9544103e8ceb4d03aa5f05479b37"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/nonone_camera_id/model/cameras.bin": [
+      "a9f5ae0718d29d947d6494e4a1f8982401032f826add5bc5ee691ecdadca836a"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/nonone_camera_id/model/images.bin": [
+      "71482da73271b81830c6163ff1f41e427e1289ee510960a50aef08bd5ae80d1b"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/nonone_camera_id/model/points3D.bin": [
+      "8deea5cccad08a23afc4784847756687a6c676565f7e9f8c0bb2064577d27ab2"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_default/model/cameras.bin": [
+      "bdd17f4c8e2066f0447ea0e773f96554e792c0663c32023475600957e5ff7c1f"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_default/model/images.bin": [
+      "1adf6b65eb123cb1b0aa0cf1047984f1dc73a60db1c2cacbd1cba0a2a20d314c"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_default/model/points3D.bin": [
+      "8deea5cccad08a23afc4784847756687a6c676565f7e9f8c0bb2064577d27ab2"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_original/model/cameras.bin": [
+      "bdd17f4c8e2066f0447ea0e773f96554e792c0663c32023475600957e5ff7c1f"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_original/model/images.bin": [
+      "1adf6b65eb123cb1b0aa0cf1047984f1dc73a60db1c2cacbd1cba0a2a20d314c"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_per_frame/model/cameras.bin": [
+      "bdd17f4c8e2066f0447ea0e773f96554e792c0663c32023475600957e5ff7c1f"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_per_frame/model/images.bin": [
+      "1adf6b65eb123cb1b0aa0cf1047984f1dc73a60db1c2cacbd1cba0a2a20d314c"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_per_frame/model/points3D.bin": [
+      "8deea5cccad08a23afc4784847756687a6c676565f7e9f8c0bb2064577d27ab2"
+    ],
+    "tests/fixtures/nerfstudio_vendor/parsing/cameras.bin": [
+      "340b8c9418dde6c9cc1a9d17d33b1b4f74b6e62f908f18744260f96757b5b022"
+    ],
+    "tests/fixtures/nerfstudio_vendor/parsing/images.bin": [
+      "9acb8cd2f4978d04c6658aba3824771f9eb3c70546ef32cfac25f427e71d8666"
+    ],
+    "tests/fixtures/nerfstudio_vendor/parsing/points3D.bin": [
+      "8deea5cccad08a23afc4784847756687a6c676565f7e9f8c0bb2064577d27ab2"
+    ],
+    "tests/fixtures/nerfstudio_vendor/projection-input.npy": [
+      "0cc668becae55f7f5c4852567d150c1a59d120458d0b6d059821274d6d74634f"
+    ],
+    "tests/fixtures/nerfstudio_vendor/projection-results.npz": [
+      "3137c93e95db10c14bc04d6f327e429987763d8da86f04d015cb766092b1096e"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/multiple_default/expected/sparse-ply.txt": [
+      "abae25565a6e9fe459ecdfa096b2ff626fbf992b7c6f06a96a6a1bb36050c293",
+      "b9f15718b4977ecf361097f168ca4b68bf01f3ecc20c2a9b68c2d261e0781f9a"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/multiple_original/expected/sparse-ply.txt": [
+      "28e3dc797b7100b0b09caaf6810f35910016f7f8b97f8076fec0cae5a73838a8",
+      "dda8ffa2873524a03ec397035867de619f467e4577387d1dad7a257a631e823b"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/nonone_camera_id/expected/sparse-ply.txt": [
+      "abae25565a6e9fe459ecdfa096b2ff626fbf992b7c6f06a96a6a1bb36050c293",
+      "b9f15718b4977ecf361097f168ca4b68bf01f3ecc20c2a9b68c2d261e0781f9a"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_default/expected/sparse-ply.txt": [
+      "abae25565a6e9fe459ecdfa096b2ff626fbf992b7c6f06a96a6a1bb36050c293",
+      "b9f15718b4977ecf361097f168ca4b68bf01f3ecc20c2a9b68c2d261e0781f9a"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_original/expected/sparse-ply.txt": [
+      "28e3dc797b7100b0b09caaf6810f35910016f7f8b97f8076fec0cae5a73838a8",
+      "dda8ffa2873524a03ec397035867de619f467e4577387d1dad7a257a631e823b"
+    ],
+    "tests/fixtures/nerfstudio_vendor/conversion/single_per_frame/expected/sparse-ply.txt": [
+      "abae25565a6e9fe459ecdfa096b2ff626fbf992b7c6f06a96a6a1bb36050c293",
+      "b9f15718b4977ecf361097f168ca4b68bf01f3ecc20c2a9b68c2d261e0781f9a"
+    ],
+    "desktop/src-tauri/icons/icon.ico": [
+      "daa40f4d0369261c4047a0b41ebfcebfc129c4f29c0f1623a0d6b708eb721a2d"
+    ]
+  }
+}

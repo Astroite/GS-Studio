@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gsstudio"
+version = "0.3.0rc1"
+description = "Location-oriented 360 video to Gaussian Splatting workflow and catalog"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "Pillow==12.3.0",
+  "opencv-python-headless==4.11.0.86",
+  "pydantic>=2.8,<3",
+  "PyYAML>=6.0.2,<7",
+  "typer>=0.12,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.1.1",
+  "pytest-cov>=5,<7",
+]
+
+[project.scripts]
+gsstudio = "gsstudio.interfaces.cli.app:app"
+gs-studio = "gsstudio.interfaces.launcher:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+gsstudio = ["resources/*.html", "_vendor/*.md", "_vendor/*.json", "_vendor/*.txt"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests/unit", "tests/contract"]

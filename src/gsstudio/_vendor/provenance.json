@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "baseline_version": "1.1.5",
+  "baseline_root": "distribution:nerfstudio/nerfstudio",
+  "upstream_repository": "https://github.com/nerfstudio-project/nerfstudio",
+  "installed_direct_url": {
+    "url": "https://github.com/nerfstudio-project/nerfstudio.git",
+    "vcs_info": {
+      "commit_id": "758ea1918e082aa44776009d8e755c2f3a88d2ee",
+      "requested_revision": "758ea1918e082aa44776009d8e755c2f3a88d2ee",
+      "vcs": "git"
+    }
+  },
+  "colmap_origin": "https://github.com/colmap/colmap/blob/1a4d0bad2e90aa65ce997c9d1779518eaed998d5/scripts/python/read_write_model.py",
+  "changes": [
+    "Only used function/class/data closure retained; unused tools and heavyweight imports omitted.",
+    "Internal imports rewritten to gsstudio._vendor.nerfstudio siblings.",
+    "CONSOLE constructed directly with rich.console.Console(width=120), as in the baseline.",
+    "Function/class/data arithmetic, signatures, fields, model IDs, exceptions and serialization unchanged.",
+    "Baseline equirect includes the already installed grid_sample output clamp; retained exactly."
+  ],
+  "sources": [
+    {
+      "source": "data/utils/colmap_parsing_utils.py",
+      "source_sha256": "a88484d92706bb1eb797a14084567faba91639e6c4fa404f0fbfe3d070871025",
+      "vendored": "nerfstudio/colmap_parsing_utils.py",
+      "vendored_sha256": "89fa87307627986dd91a1e1d0ee27832fe44b2c41210bf9d1b997c9fd4f46f13",
+      "symbols": [
+        {
+          "symbol": "read_next_bytes",
+          "source_lines": [
+            75,
+            84
+          ],
+          "normalized_source_sha256": "ce9ec9902983e6fd004b3bb22d60f8d3902afb35e3484ce040db638a5c4214c7"
+        },
+        {
+          "symbol": "read_cameras_text",
+          "source_lines": [
+            103,
+            124
+          ],
+          "normalized_source_sha256": "5649be9e353aa6bcf50c2d37f8eb149c02b881758b2bf295ad887066b01a1e48"
+        },
+        {
+          "symbol": "read_cameras_binary",
+          "source_lines": [
+            127,
+            149
+          ],
+          "normalized_source_sha256": "0c1961a6649f2ca46e78a76736475b94691d575d7ecb51293f355696096e2511"
+        },
+        {
+          "symbol": "read_images_text",
+          "source_lines": [
+            188,
+            220
+          ],
+          "normalized_source_sha256": "7f150732ce6db7b28f44da3c286cd0c84673a349f735d91ad8cdfee094ee5cef"
+        },
+        {
+          "symbol": "read_images_binary",
+          "source_lines": [
+            223,
+            257
+          ],
+          "normalized_source_sha256": "5944f6adddc122506ede43eb77ee176b106c60df7861703c8d0c8aa55ee4d7a9"
+        },
+        {
+          "symbol": "read_points3D_text",
+          "source_lines": [
+            311,
+            335
+          ],
+          "normalized_source_sha256": "5617eb0b693dff207472fe2ce3d389cb807752b66dd5d798ba1eb41681f037be"
+        },
+        {
+          "symbol": "read_points3D_binary",
+          "source_lines": [
+            338,
+            360
+          ],
+          "normalized_source_sha256": "34289aec9cf64e73e80b6011c2643b216873ee61571f7f53fe690b569cbff8e4"
+        },
+        {
+          "symbol": "qvec2rotmat",
+          "source_lines": [
+            455,
+            474
+          ],
+          "normalized_source_sha256": "5cddbef0620b7b5df10a035111465447a6a0fe692d9cb064228ddc85a67b4dff"
+        }
+      ],
+      "data_definitions_source_lines": [
+        47,
+        72
+      ],
+      "data_definitions_normalized_source_sha256": "fcec7dd992c2c4d106187dc2d72b520f61ab1a0d4690a47c0683e50c219f6fa9"
+    },
+    {
+      "source": "process_data/equirect_utils.py",
+      "source_sha256": "bc2eb21d42fc51722a0ccd705ad8f9b1410e3c67e640e8084cdf0de94aec4739",
+      "vendored": "nerfstudio/equirect_utils.py",
+      "vendored_sha256": "c93c66d77ae178f969323e97e10bcfa029276e796e8039af9b7afcaa218bda6b",
+      "symbols": [
+        {
+          "symbol": "euler_rodriguez_rotation_matrix",
+          "source_lines": [
+            31,
+            52
+          ],
+          "normalized_source_sha256": "4b07a7360eda548a10c3cdfdc682ac84b49876cc17b2a873c1d928273f25c462"
+        },
+        {
+          "symbol": "remap_cubic",
+          "source_lines": [
+            55,
+            83
+          ],
+          "normalized_source_sha256": "238e41fd1f18535cec68f44e701bdb2cc45416c67a643629a34c046735bde8bc"
+        },
+        {
+          "symbol": "equirect2persp",
+          "source_lines": [
+            86,
+            158
+          ],
+          "normalized_source_sha256": "fd54f6ae9e6f6e9d4fbf9cedd225860fbb6aea79e7f0198fb4fd18598babeb09"
+        }
+      ]
+    },
+    {
+      "source": "process_data/process_data_utils.py",
+      "source_sha256": "f6327c535966dee6f07009046cb8db8f223aaf3e9e5a8520601c0d824efe8191",
+      "vendored": "nerfstudio/camera_model.py",
+      "vendored_sha256": "2ef678952a6aa8a320e407a6232ba7200a74e0a907b554ec2852649b02b83786",
+      "symbols": [
+        {
+          "symbol": "CameraModel",
+          "source_lines": [
+            47,
+            54
+          ],
+          "normalized_source_sha256": "7289b9f410f104ce7945fe349e9ece22a20b432b5f7b112b3c73ec77dcc082c1"
+        }
+      ]
+    },
+    {
+      "source": "process_data/colmap_utils.py",
+      "source_sha256": "e94d798b2a40807d3fce7e8824fb860ecc0ce5465906de629c557358ab61ad4f",
+      "vendored": "nerfstudio/colmap_utils.py",
+      "vendored_sha256": "020d4cb3dfc1285561a1988a0daba3b23e0d914bffd589077a1300b11797ba7f",
+      "symbols": [
+        {
+          "symbol": "parse_colmap_camera_params",
+          "source_lines": [
+            187,
+            387
+          ],
+          "normalized_source_sha256": "1dd8712b3059787f109dd8968a9edf591a923273ffc2f9eda6fa69b3acd0d51b"
+        },
+        {
+          "symbol": "colmap_to_json",
+          "source_lines": [
+            390,
+            494
+          ],
+          "normalized_source_sha256": "649463b6e324b4bfe9809a3bef726e025d42c541e4b3c157203065043d408906"
+        },
+        {
+          "symbol": "create_ply_from_colmap",
+          "source_lines": [
+            671,
+            714
+          ],
+          "normalized_source_sha256": "1f517ae8d14080847635fa0fb4dfe3fbc9cf714a56ad358ca531eb38088bf82a"
+        }
+      ]
+    }
+  ],
+  "console_source": {
+    "source": "utils/rich_utils.py",
+    "source_sha256": "5e261665e991eb5546cabd15e65db30deec50d633bda7b746a9739e801ffd995",
+    "retained": "CONSOLE = Console(width=120)"
+  },
+  "licenses": [
+    {
+      "file": "LICENSE-APACHE-2.0.txt",
+      "sha256": "32ff538ae1110d8ec2fe127986a05bd618c48f08641c10eafad4f424d857f3cb"
+    },
+    {
+      "file": "LICENSE-COLMAP-BSD.txt",
+      "sha256": "656c8fbd8bc6367d70f19380e18d8e6835fda070a6b0233c84feebfacd23f341"
+    }
+  ]
+}

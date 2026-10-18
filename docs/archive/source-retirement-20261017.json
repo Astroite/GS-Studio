@@ -1,0 +1,3017 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "snapshot_id": "slim-20261017-001",
+  "source_snapshot_sha256": "f66c0fbb8533e2178e034be8e91dd38422b3bf82e9168a6153321c730d731b76",
+  "policy": "Copy and SHA256-verify every file before exact unlink; guarded resolved source/archive paths; no directories, links, ignored runtime or data removed.",
+  "entries": [
+    {
+      "original_relative_path": ".gitignore",
+      "sha256": "adb97011041b0fb7ea338c5bef9595496e5fb6d11ec06e63595814ed0cd58f22",
+      "bytes": 1162,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/.gitignore",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "README.md",
+      "sha256": "12e4bd9e5674d09d20079078f809392066971bc188da70ce777c51c1ab9257d7",
+      "bytes": 3807,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/README.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/README.md",
+      "sha256": "ad46526298d7666f4140e3a804c2ba4ca28b121533cefd413e996d7bc3b9ec76",
+      "bytes": 638,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/README.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/architecture/GS-STUDIO-DECISIONS.md",
+      "sha256": "63f81442ff822b6467e8143381b1b99691130315335e7a27a0b683a4b1722cf2",
+      "bytes": 12604,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/architecture/GS-STUDIO-DECISIONS.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/architecture/GS-STUDIO-ENGINEERING-ROADMAP.md",
+      "sha256": "aefa49c1c341f673007a93612ef823c752150d9a4ef94afd3e2c8de2a56991ec",
+      "bytes": 8266,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/architecture/GS-STUDIO-ENGINEERING-ROADMAP.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/architecture/GS-STUDIO-PROJECT-ROADMAP.md",
+      "sha256": "0ab2af32be3c7ee46b1a5cbf7bc12887c30ee5e1165fed56300df6c09116d2db",
+      "bytes": 8012,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/architecture/GS-STUDIO-PROJECT-ROADMAP.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/architecture/STUDIO-UI-PLAN.md",
+      "sha256": "bb9fc84c6dd2d6f0d83de7446ea273f920c4943920789813f26a84638681cdd5",
+      "bytes": 4206,
+      "action": "archive",
+      "archive_relative_path": "files/docs/architecture/STUDIO-UI-PLAN.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/AGENTS.md",
+      "sha256": "995001966545d785518adf3080419cdec8336ac434ed83af6de25d41ee316427",
+      "bytes": 1970,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/AGENTS.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/CHANGELOG.md",
+      "sha256": "ebf521a9f97e71ef3ebba6461f7aa398d368c015a39a6397967d81fdb6527e59",
+      "bytes": 4569,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/CHANGELOG.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/README.md",
+      "sha256": "c0f496f859a79936973e15137107b91cea9c6fe5ca84f171b3c4d2ab0b393db4",
+      "bytes": 4968,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/README.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/UI-EXPLORATION.md",
+      "sha256": "29a018bf70d5b98501a90f3fc3e39004352f8948998bd9e97092b6fd504d8a9b",
+      "bytes": 4327,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/UI-EXPLORATION.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/COMPARISON.md",
+      "sha256": "1bbabf212637254addd765df6cdc5e165c33e8131dbbcf253611fbd1978ed9b6",
+      "bytes": 5493,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/COMPARISON.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/DIRECTION-A.md",
+      "sha256": "511347bc15bc3cc5a13a1dff0aab3b21a37b00d06de09c1b839a73d382a087a8",
+      "bytes": 4124,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/DIRECTION-A.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/DIRECTION-B.md",
+      "sha256": "f9670bc3995efe892686a5a17875bbab0fcdf47f5dafe078fbe5450427adc9f7",
+      "bytes": 3962,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/DIRECTION-B.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/DIRECTION-C.md",
+      "sha256": "b3c87c7f3891ee2dff9716fd6f459d5038401d5856335c99b5a47462bee70765",
+      "bytes": 4030,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/DIRECTION-C.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/direction-a-import.svg",
+      "sha256": "0ed2d2fb246dec4d0df79f0c1a3e004211517775ebc0d297835a41cf0a7f3eaa",
+      "bytes": 29627,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/direction-a-import.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/direction-a-workspace.svg",
+      "sha256": "53ccd5ffb86f53868208eac3afcfb92a3c7dcf136fd72e9050fbe7b338899083",
+      "bytes": 33956,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/direction-a-workspace.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/direction-b-import.svg",
+      "sha256": "b5c8d1c90f42849ebef4b018c81b4e6a2e8ca8da87146b5a59f04ff9c3a9b13c",
+      "bytes": 28559,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/direction-b-import.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/direction-b-workspace.svg",
+      "sha256": "2f5d710271c50eaedb75eb2a954e0fb4098c30f33d20974d4fa4fca671b72bb1",
+      "bytes": 30137,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/direction-b-workspace.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/direction-c-import.svg",
+      "sha256": "b6fb4e26818f387793e23be7512e66edf37a0347ba6f7d040f8ea3e3b18fdb9f",
+      "bytes": 21449,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/direction-c-import.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/deliverables/direction-c-workspace.svg",
+      "sha256": "82cecfacd9d832de654c464722825ae160c0debaca1a3e0c52b17508b5f38e06",
+      "bytes": 25282,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/deliverables/direction-c-workspace.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/01-empty.svg",
+      "sha256": "023d3550c6ff4e7f9b1174d862576f6c235b55af307d249dcb1f24da3c01766c",
+      "bytes": 17632,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/01-empty.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/02-import-errors.svg",
+      "sha256": "1702af7360b6ecb063900d24714b21d29c746d4949011de591e9e19566b971d3",
+      "bytes": 25592,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/02-import-errors.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/03-import-ready.svg",
+      "sha256": "9bec5ac0bace89271f2b2dc71cd9c0bba522cb8926e302df9a673bfd66f704aa",
+      "bytes": 25602,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/03-import-ready.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/04-training.svg",
+      "sha256": "584d28a967f69e5288bd2a3057c5984bdc1c4bf62cb97e7de8b1b25d014aec92",
+      "bytes": 28911,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/04-training.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/05-compare.svg",
+      "sha256": "309b0ebcaca0eb878c5d2db7776e14ebd1b31b47663267bb4011322b7be69fef",
+      "bytes": 21625,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/05-compare.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/06-snapshot-selection.svg",
+      "sha256": "a7c15d4cee4418136010be41d831a1d86812ca257749cc52652b9935640a4703",
+      "bytes": 26062,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/06-snapshot-selection.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/07-crop.svg",
+      "sha256": "e6145065bc2c2e5ab8d889bcb2351c042683d5a3409373f72de73b8aa6343c27",
+      "bytes": 24987,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/07-crop.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/08-transform.svg",
+      "sha256": "dea8cf4e77adbf254e00cb504ebf4cf074ddc4ecc457c9023dca38cd05ceaef7",
+      "bytes": 26059,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/08-transform.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/09-export.svg",
+      "sha256": "ae6b8691b30367179caa177aa2c55aa563b2a1b814572ff4c29110114abdf780",
+      "bytes": 18681,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/09-export.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/10-project-recovery.svg",
+      "sha256": "0730535bade10743fdff7a0b2fd0f77cc45e0ef9d8a1394fb0cb730206ac3bbd",
+      "bytes": 19657,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/10-project-recovery.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/11-lifecycle-states.svg",
+      "sha256": "5dae898367ef7a7218cb34620794de66b31c5f92437da3aa135f75b37c9172f4",
+      "bytes": 24662,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/11-lifecycle-states.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/12-save-recovery-states.svg",
+      "sha256": "96c810f2bd7cbdd4d9f0f99d87abfc1c600a70e30ee8c4646d9561ce66d0a688",
+      "bytes": 24800,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/12-save-recovery-states.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/13-basic-components.svg",
+      "sha256": "415e73b1f5cd835d8c52071e90538d29e46bf8bb242b86a6e74173fbbcbefdf1",
+      "bytes": 21586,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/13-basic-components.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/14-domain-components.svg",
+      "sha256": "b75c77191fee36dc5666b18a3334b3857a668d10cbadf82e3aa21d9a6813e6a2",
+      "bytes": 23854,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/14-domain-components.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/15-training-1280x800-100.svg",
+      "sha256": "b0c6b52663ae49f11406bda185a6e5e6bae60cf2a36a833d0ca902592ac0170c",
+      "bytes": 17531,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/15-training-1280x800-100.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/16-compare-1280x800-100.svg",
+      "sha256": "4a8ed639e2a3db5896f370a6e345966ea0c17cc591242c4f6ca00a12e1cec6fb",
+      "bytes": 17028,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/16-compare-1280x800-100.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/17-training-1920x1080-150.svg",
+      "sha256": "ebf7b287b87558f582bb997805f2d82396b03b7449d53191df07bee1b20dc415",
+      "bytes": 17533,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/17-training-1920x1080-150.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/18-compare-1920x1080-150.svg",
+      "sha256": "191228c72fcb274ab2d962c3d7ab761815fb34ac72af10c10c9ba42935521f93",
+      "bytes": 17030,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/18-compare-1920x1080-150.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/19-training-1280x800-150.svg",
+      "sha256": "e0b29300d139f0c42afbcaed61364176a834e3f1dc07e214a9b144c2baed0f57",
+      "bytes": 16652,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/19-training-1280x800-150.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/20-compare-1280x800-150.svg",
+      "sha256": "8acba6a9080bdcd487e37f01064de8149f1e1bd1cde3bb75054752f5051942c6",
+      "bytes": 16926,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/20-compare-1280x800-150.svg",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/COVERAGE-REVIEW.md",
+      "sha256": "dcd2cb8557f5b658522c35f98331ac6121bf4998dc70e987936cd9486f8459d4",
+      "bytes": 6211,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/COVERAGE-REVIEW.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/INTERACTIONS.md",
+      "sha256": "f9c3af3aeb41acaef4164ee4182d9b9b3d5cafcf336b30fda589afde2835292b",
+      "bytes": 11294,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/INTERACTIONS.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/README.md",
+      "sha256": "a21e85f3c87fa8c1ae176fc2b028250174320175e58c6d044b05e4e5fbb48ba0",
+      "bytes": 4138,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/README.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/design/specification-a/VISUAL-SPEC.md",
+      "sha256": "7156ddecf6b044037d34e575c9b03abad4ef03a870f47ceaaee7c82003d8b3c4",
+      "bytes": 6542,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/design/specification-a/VISUAL-SPEC.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/planning/BACKLOG.md",
+      "sha256": "13b52637cc81a381cf0c6a5201cbba6a422d679936a586f3ea0aa1fde9f8e83d",
+      "bytes": 5947,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/planning/BACKLOG.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/planning/DECISIONS-AND-RISKS.md",
+      "sha256": "9b5c1a422efd0e634ae83d6b35d060d547d5cdcadabde2434e14fcc5eb574f4a",
+      "bytes": 4985,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/planning/DECISIONS-AND-RISKS.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/planning/ROADMAP.md",
+      "sha256": "423e0ccdcf59e24f21e57597f939b0cb4b77f7cbe1864100149b1d0011ecfdbc",
+      "bytes": 3855,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/planning/ROADMAP.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/planning/decisions/D-03-GS-STUDIO-ROUTE.md",
+      "sha256": "89766b2956c9b7b8c69063339d31c06b73dfee58327219428fda2c15eebbe75e",
+      "bytes": 1800,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/planning/decisions/D-03-GS-STUDIO-ROUTE.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/planning/decisions/D-04-UI-DIRECTION.md",
+      "sha256": "4cc91cee0d0b336f85f3a6b8dcf7a098350cf6fcf3e763c487f72324694cc32b",
+      "bytes": 2845,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/planning/decisions/D-04-UI-DIRECTION.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/planning/decisions/D-07-EDITING-INTERACTION.md",
+      "sha256": "e5571b5771ebf2b08a608679a40bd16d6a1ae61906b4929707ebbd1db9895732",
+      "bytes": 2606,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/planning/decisions/D-07-EDITING-INTERACTION.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/planning/decisions/D-11-GUI-FIRST-SCOPE.md",
+      "sha256": "6f0a374be9b078b6268168c96ead51a0dc9d4fc6078d94ba2c3821bd9fc34895",
+      "bytes": 2272,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/planning/decisions/D-11-GUI-FIRST-SCOPE.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/product/PRD.md",
+      "sha256": "30e12e2d56dbb212f5baef132b0422d6a74dd7114f6d70bd31b9a9c55fda24fd",
+      "bytes": 3607,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/product/PRD.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/product/REQUIREMENTS.md",
+      "sha256": "cbc3b31785dabb9681e817714a8fd8c1c2eb7af79ec49cb406025cf623dd6e76",
+      "bytes": 6042,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/product/REQUIREMENTS.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/quality/ACCEPTANCE.md",
+      "sha256": "37714145b991ceacd34c850a824cda25dbf63ab52623144e4cff424167fb253d",
+      "bytes": 6109,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/quality/ACCEPTANCE.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/COMPETITIVE-ANALYSIS.md",
+      "sha256": "fec15f140384ccda90201f1b4a1174016603919bb9ca69616ccfa802a8d42c53",
+      "bytes": 3809,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/COMPETITIVE-ANALYSIS.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/SKILLS-AND-METHODS.md",
+      "sha256": "0e22aa1b5d30ce8f02576c36d4cf4704fc988776da7d19b2546532899a60d0a6",
+      "bytes": 2285,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/SKILLS-AND-METHODS.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/SOURCES.md",
+      "sha256": "ce3720e7efc84cac5f939d6c566495ae8a59f4eadce89e67a37d4f3075b7e6b4",
+      "bytes": 3515,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/SOURCES.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/technical-evaluation/CANDIDATE-COMPARISON.md",
+      "sha256": "46b510c3ed1d7703e586a27348f4dd07c3d7145839010d37245b2bc9acba43d1",
+      "bytes": 24832,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/technical-evaluation/CANDIDATE-COMPARISON.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/technical-evaluation/PROTOTYPE-AUDIT.md",
+      "sha256": "7acd19eae8eb38b41d424434a6494febfef10ae0f9d643bd4c7ca3153cbd40af",
+      "bytes": 8914,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/technical-evaluation/PROTOTYPE-AUDIT.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/technical-evaluation/README.md",
+      "sha256": "3da03c2f472de8c141ce96a9ffc92de1d8b0a9204121dc4f0867f72889bd01da",
+      "bytes": 8949,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/technical-evaluation/README.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/technical-evaluation/SOURCES-AND-DEPENDENCIES.md",
+      "sha256": "60093d8eb62766c668cceb9459c76c2d55967a10187dd4e2f55f42ca3284dfbf",
+      "bytes": 19484,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/technical-evaluation/SOURCES-AND-DEPENDENCIES.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/research/technical-evaluation/VALIDATION-HANDOFF.md",
+      "sha256": "27c0d4bc6923bb530aa9b666f9b150519ac71fb632e3662dee70bba080cac88c",
+      "bytes": 8189,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/research/technical-evaluation/VALIDATION-HANDOFF.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/status/BASELINE.md",
+      "sha256": "ee9d527df071cfe146b6e12155da2e9552606f95c85683b0e1a239249e115ed4",
+      "bytes": 5935,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/status/BASELINE.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/templates/DECISION.md",
+      "sha256": "ff98507891571230da87789d5d8d6d9799df979af65b48366bd18c39b452a669",
+      "bytes": 656,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/templates/DECISION.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/GS-Studio-Plan/templates/TASK.md",
+      "sha256": "82730d6a7ac37679baf524f855a71ca80253b57df1059527ba00f9bd4e5db2d0",
+      "bytes": 792,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/GS-Studio-Plan/templates/TASK.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/compose/spec/app-project-optimization.md",
+      "sha256": "a6a4a7fa6824e0586cf28649f2b7769daff44a31b38cdc0aa92b9abb778bbf82",
+      "bytes": 5288,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/compose/spec/app-project-optimization.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/archive/compose/spec/floater-optimization.md",
+      "sha256": "291aeefa4888f3fa21e20a54a04e230587179791797b3e14752738d77b8742da",
+      "bytes": 7213,
+      "action": "archive",
+      "archive_relative_path": "files/docs/archive/compose/spec/floater-optimization.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/development/CLI-ACTIVATION.patch",
+      "sha256": "ddb7e95e71397e4c0fea45b55cdd5775772f4fca52c7a5157a935371cb8ae437",
+      "bytes": 1364,
+      "action": "archive",
+      "archive_relative_path": "files/docs/development/CLI-ACTIVATION.patch",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/development/HISTORICAL-STUDIO-2026-10-08.md",
+      "sha256": "4516d349a4a367e368c07b94d1ea44d5f1fd3908eb446e949ce3a73abd40cc0f",
+      "bytes": 12080,
+      "action": "archive",
+      "archive_relative_path": "files/docs/development/HISTORICAL-STUDIO-2026-10-08.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/development/LAUNCHER-ACTIVATION.patch",
+      "sha256": "0a783a7e0adc01ed33d4e278d3ffc1c72633ff3583fece72b5ebabac013d4afd",
+      "bytes": 320,
+      "action": "archive",
+      "archive_relative_path": "files/docs/development/LAUNCHER-ACTIVATION.patch",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/development/MAINTENANCE.md",
+      "sha256": "2d8e037c0cf88beb37affc95a5bf991241785ba8cad098866a05ec6abbde4642",
+      "bytes": 11235,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/MAINTENANCE.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/development/PIPELINE-MIGRATION.md",
+      "sha256": "b455624e152a31f0356d0b6ee28b54013089f6a87c82e3480ab8073d020b19a2",
+      "bytes": 13529,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/PIPELINE-MIGRATION.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/development/STRUCTURE.md",
+      "sha256": "ea15495a8c642a55c6c3a56a4b5011522c17221ebe220ef47071fe9ed2e49e8d",
+      "bytes": 4261,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/STRUCTURE.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/development/VALIDATION-2026-09-24.md",
+      "sha256": "36dab79b71263c0c63e873dd08769be285b7b5c04b9f1b5633ad8ace7247c190",
+      "bytes": 8099,
+      "action": "archive",
+      "archive_relative_path": "files/docs/development/VALIDATION-2026-09-24.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/development/VALIDATION-2026-10-08.md",
+      "sha256": "4b8112fb56dd4b3e14be01c2898f58cc741f97f012da2ce3a55642cf0994739c",
+      "bytes": 7825,
+      "action": "archive",
+      "archive_relative_path": "files/docs/development/VALIDATION-2026-10-08.md",
+      "reason": "Superseded design, activation or private historical record; dated sanitized summaries replace raw public history."
+    },
+    {
+      "original_relative_path": "docs/development/WINDOWS-RELEASE.md",
+      "sha256": "2d1a32d3e573d54782d76605bc00f0b1cdb8e29d8cc30feb406da4c4501c1c54",
+      "bytes": 3634,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/WINDOWS-RELEASE.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/development/examples/cleanup-report.json",
+      "sha256": "6698af75c0ed25d1350a5b5caccc4ec54f65449f39f6df0dcae6e7a5e0c62ef2",
+      "bytes": 2904,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/development/examples/cleanup-report.json",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/user/CAPTURE-SOP.md",
+      "sha256": "ac0cd092da608fd11f081706992bb31e3c0b4e017a1cd53b230482745ba9555e",
+      "bytes": 5246,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/user/CAPTURE-SOP.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/user/CURRENT-WORKFLOW.md",
+      "sha256": "989d0565f9e4449bdb60ad4c16a36df51f72b60a46fe6e1e0ea13431fb86cc6f",
+      "bytes": 18248,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/user/CURRENT-WORKFLOW.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "docs/user/STUDIO.md",
+      "sha256": "a471dd6cc9f8d8844d00cf99a86e7c3884e7f06fb6b429f2c72aa300df9fe25d",
+      "bytes": 7610,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/docs/user/STUDIO.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/README.md",
+      "sha256": "d0d46795eef87577dd8e8cafefbc407b51594a51e481176dbbcd54414bfd8b82",
+      "bytes": 6827,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/README.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/reference/ACCEPTANCE.md",
+      "sha256": "551a27cd8e421d5c6d292ab5fc4932975e026abb286fecd91b209e55b5a08fe1",
+      "bytes": 33405,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/reference/ACCEPTANCE.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/reference/ENGINE_CONTRACT.md",
+      "sha256": "23833e6a8bc3f1386cba9c32a6dd0aedd2d5bf6ea988e7c414c7e251646ce2c3",
+      "bytes": 10891,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/reference/ENGINE_CONTRACT.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/reference/README.md",
+      "sha256": "f3ccee66e652ab40f6e0cdb5318117a749dadec7332bee48348a652a64c9a166",
+      "bytes": 9169,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/reference/README.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/reference/ROUND3_REPORT.md",
+      "sha256": "0cbe761d9bf61da3bd61d66ffd44a788f4d914cb99853c2533527efbb6c29f56",
+      "bytes": 7790,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/reference/ROUND3_REPORT.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/reference/ROUND4_REPORT.md",
+      "sha256": "fbe53e06c6bd887ac43c25fdcf2f05d8509dd650b34100c2e312bed90063a3b1",
+      "bytes": 8180,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/reference/ROUND4_REPORT.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/reference/THIRD_PARTY_NOTICES.md",
+      "sha256": "b6f07af0b119ae64a4c4324a1ed3ab0e71287a467aedb16a6b672558edf4de21",
+      "bytes": 7443,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/reference/THIRD_PARTY_NOTICES.md",
+      "reason": "Original documentation/config retained privately before public release cleanup; this is not a current release validation claim."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/behavior-contracts.json",
+      "sha256": "40baf99a8c26c86c24706ee1c5b61043c9f986ceec4f6056e840682e776dcf9d",
+      "bytes": 9061,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/behavior-contracts.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/delivered-engine-hashes.json",
+      "sha256": "011abab3dd19a4c91923395ba93c9776da3d12697b3772f12bb65cc094861052",
+      "bytes": 4052,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/delivered-engine-hashes.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/module-contracts.json",
+      "sha256": "12c2476cfe998e39cdce438837cf7b227c6a6ea194122e705ab3e5762b1f49fd",
+      "bytes": 10903,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/module-contracts.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/comparison-acceptance.json",
+      "sha256": "d8738286acc3a01909ba3af6a8349fac40c7f3a8849b0e6bcb61d957bfc5b3c6",
+      "bytes": 183423,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/comparison-acceptance.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/comparison-commands.json",
+      "sha256": "d95fbf76e6e674380f2aeba2af361f5103e1d9cc5b28ecbc7190a1f40ebfed21",
+      "bytes": 3155,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/comparison-commands.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/comparison-evaluation.json",
+      "sha256": "c80ff71d809f3fe6205ccf91da975c4290bd6d22ba45763253d8b8ecb02737e5",
+      "bytes": 158208,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/comparison-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/comparison-overview.json",
+      "sha256": "32fdba37c0cd61bb47bbd79cf3e57210f333f76f133acc756cd9f38d78e3cdb5",
+      "bytes": 14048,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/comparison-overview.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/comparison-rendering.json",
+      "sha256": "ba5951f0f6c7f9eba70bc96d6673bb823e9d120510f12be584d1eb9fb574c288",
+      "bytes": 4431,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/comparison-rendering.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/gui-input-audit.json",
+      "sha256": "fee306abc5f6fad268df2bfb7fd4680a4a433f19cebf852192dabf1f017cde92",
+      "bytes": 7888,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/gui-input-audit.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/gui-reference.json",
+      "sha256": "f3dcd0d687c757e83b075e5cea924c6298d807b629ea4cb9ac237c1ab901bff2",
+      "bytes": 30569,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/gui-reference.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/gui-reopen.json",
+      "sha256": "6477722fe3a5ad2e167ef9621b13924d305ebf01028c993bf5360181bd5426b7",
+      "bytes": 8455,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/gui-reopen.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/holdout-watermark-mask.json",
+      "sha256": "a33a24e6a8ba19b24f4554992c6832619bee29efe2e1d3e25eed66c412812157",
+      "bytes": 6991,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/holdout-watermark-mask.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/holdout16-alignment-contract.json",
+      "sha256": "27e572e8f24be319d7e92082c7e785903e99d6c1159c9a1e37e9fe25ce2a3bdf",
+      "bytes": 64149,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/holdout16-alignment-contract.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/input-transfer-analysis.json",
+      "sha256": "164a005033b9d055316e31ff0ee46b95e232a62a4c23c4ae327d23d9a5c4a5d8",
+      "bytes": 90759,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/input-transfer-analysis.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/profile-summary.json",
+      "sha256": "36cb482e0f030cf01f3d9df9ef04ba789bd34748ce8808f76f378444e06d9ee2",
+      "bytes": 9400,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/profile-summary.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/reopen-investigation.json",
+      "sha256": "232df1285de04696bdc6b9eb57eee18b67e083763a6bf7d14bafa2515671adb4",
+      "bytes": 42137,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/reopen-investigation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/reopened-camera2-comparison.json",
+      "sha256": "e7fd104f05caab70b509c337f5870eb814835ee59d354d4ad872bff0d44446ac",
+      "bytes": 30929,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/reopened-camera2-comparison.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/target-holdout16-cameras-audit.json",
+      "sha256": "1a1c708b3445330ca6a69047f7bdf02deca35ffb6b681931e4b3520c48b5ce84",
+      "bytes": 6022,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/target-holdout16-cameras-audit.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/original/training-memory-summary.json",
+      "sha256": "42871278618f40279b52b4e6ec6c0d40494ad8caac775feed3bdac8502d67cb5",
+      "bytes": 814,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/original/training-memory-summary.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/packaged-gpu.json",
+      "sha256": "ef27e3509e82c444e9c057dc36fffbe375590ed7258a8caa67145cd28026f83c",
+      "bytes": 6205,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/packaged-gpu.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/packaged-worker.json",
+      "sha256": "5987f15c3ed8496e2e79c8d0b27347b5445110ea489ebb8a067c6ed2bd509d59",
+      "bytes": 4162,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/packaged-worker.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/relocation.json",
+      "sha256": "af5dc71751bf0980d2a5749ef2c1b8cec1bd6949d9ca2e6079a02f49d09e7d1d",
+      "bytes": 1383,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/relocation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/benchmark-audit.json",
+      "sha256": "f654c3d9fc29b14afa281df6225f24fe0411f9d1b4bb29c14154fe09a9b264ea",
+      "bytes": 55383,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/benchmark-audit.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/delivery.json",
+      "sha256": "638b45baf5a590f0f7ce6de66ac84fb443c44841e33a2150b5309e3eeeefa63c",
+      "bytes": 5770,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/delivery.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/desktop-verification.json",
+      "sha256": "b48c49e894214a6b99f02f793009411c4b6f5a1bec6e0e39b30e950430f159b4",
+      "bytes": 970,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/desktop-verification.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/fused-ssim-build.json",
+      "sha256": "6f7eb2e42f457168c4274795b5b92dc964d3fd51584a5a9943d56340a2fb88de",
+      "bytes": 14500,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/fused-ssim-build.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/fused-ssim-validation.json",
+      "sha256": "30fd38d5b1bbc4ee101b8750adc0672cc19446a8783fe22c08c58a68d9a8de65",
+      "bytes": 10791,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/fused-ssim-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/init-loss-reproduction.json",
+      "sha256": "6fe9ef0cadcbe2ef616bfc62005acea8c7e54c15dcc7d5d70b6c6693f0a72318",
+      "bytes": 2917,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/init-loss-reproduction.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/init-loss-resume-audit.json",
+      "sha256": "0fbe63468d8d5e926fe6b5fc1334cbfcac191a031de38c148b8b90c4c66a67c9",
+      "bytes": 28802,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/init-loss-resume-audit.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/packaged-observed-v3.json",
+      "sha256": "af2af39cd7f6a92a23a84a5138f3f8a197241e6fa9fbeab80f4c085f2b29f1ee",
+      "bytes": 12945,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/packaged-observed-v3.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/packaged-quality-v2.json",
+      "sha256": "67ab7ab6e4335300835545885a01ac0baf245c2e7cc331162b3bb7db248fbad9",
+      "bytes": 11769,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/packaged-quality-v2.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r10-eval-aa.json",
+      "sha256": "aa97cc49905862c155688a7e91ab0cdd69c3d8d28c41034229af41504031c004",
+      "bytes": 124975,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r10-eval-aa.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r10-evaluation.json",
+      "sha256": "9e7ae9e98dc6ab3ce0980cc18b53725ecf5039aba8825cf6eedc7858d8b885f9",
+      "bytes": 192668,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r10-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r10-run.json",
+      "sha256": "7bae987050e2ce5110cfbb39d1f0f25d17adce6eb10dc186e0775f7eb3f21394",
+      "bytes": 16857,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r10-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r11-eval-aa.json",
+      "sha256": "c7e7a699554cab5360c2ea2ec23fa0616b59784b1c257287b5930622ccf36676",
+      "bytes": 124980,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r11-eval-aa.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r11-evaluation.json",
+      "sha256": "7dc62c3d7844a118dd26919869bd6f029af07793d2bdc176d04eb5992dcf74d3",
+      "bytes": 192712,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r11-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r11-run.json",
+      "sha256": "3b2227f767dd68569e1ece92e67c0befa994fc9926f43f6efc6c3863ba57a35c",
+      "bytes": 16722,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r11-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r12-evaluation.json",
+      "sha256": "6ac1cdf598e682653e3bad7c0b98999bcc89a7a9c1f34de608866aca007ce7db",
+      "bytes": 192823,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r12-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r12-run.json",
+      "sha256": "0a964a3ca6b8a07f5bd1adbbe58c524850ff07d99325f38f8f5ec7af494b76b1",
+      "bytes": 17626,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r12-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r13-evaluation.json",
+      "sha256": "b1f1d9b1981885be546c473776509a9dd41862f38d6db9a147a4801700dfd50b",
+      "bytes": 192718,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r13-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r13-run.json",
+      "sha256": "3986bb7fa035ef6168d8ab72eb7f701068af36a97d316091ae58a8205b1a124c",
+      "bytes": 17612,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r13-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r14-evaluation.json",
+      "sha256": "4871a96972376bddd1cc770836315572bd6e1100e3ef5575d805b3b1316a3ae2",
+      "bytes": 192660,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r14-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r14-run.json",
+      "sha256": "1b4671d74d17a7b203b669c655bd84395ab3fdd4997ca30519109eeab17637f0",
+      "bytes": 17569,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r14-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r15-evaluation.json",
+      "sha256": "cb9fa155bfc3ac038d03e60953e8758284d31c08a18972d9aeb156aa472ffe9c",
+      "bytes": 192609,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r15-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r15-run.json",
+      "sha256": "38a76c556fb22112f171af8d5355d1856dc00ee7e58065d225436b2b3ad09a94",
+      "bytes": 31028,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r15-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r16-evaluation.json",
+      "sha256": "d58c2a4e4892cb3369ed42500f74706c8150e7f3f20376966b1e8bc4a31ae995",
+      "bytes": 192698,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r16-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r16-run.json",
+      "sha256": "d0cde9f263ed94bd587614a9fa6067333725a230b0ceb1106a390bbb06ebafcd",
+      "bytes": 18073,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r16-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r17-evaluation.json",
+      "sha256": "638eb7cb67d58a17c8fd2d9869d14829a3c17b273b454677cb8db6e1a2e3c2af",
+      "bytes": 192744,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r17-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r17-run.json",
+      "sha256": "595e7d33b9e7e6b8709f8f1be961df000b01886f8aea4e26eb27f6506b96f0e9",
+      "bytes": 18576,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r17-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r18-evaluation.json",
+      "sha256": "dcc976167cd49c7054be0bd58492d0f231350e4543154247a9dcdd23b2ebf615",
+      "bytes": 192647,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r18-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r18-run.json",
+      "sha256": "a1bf8638d56522114d20488370d6306751f94270170e6f0517124bae9936c509",
+      "bytes": 19465,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r18-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r19-evaluation.json",
+      "sha256": "1f9aa299a5cc622c32d23682e7e4ab9d5e5bfd864893c826ccfb4681128a4ae8",
+      "bytes": 192576,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r19-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r19-run.json",
+      "sha256": "52ec6c573588fbee1a39f70899cd263255736f8ca521a82e5453c4b2f9b4fbaa",
+      "bytes": 19870,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r19-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r2-evaluation.json",
+      "sha256": "284bc115dbee1dd37a4733b6c207776d00024a9605f86f7b37503fcefc981418",
+      "bytes": 192350,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r2-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r2-recovery.json",
+      "sha256": "5300d9f5fca7bc3ed729afc2201290e78ea2207ea37db0763e8b3c0b54639064",
+      "bytes": 921,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r2-recovery.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r2-run.json",
+      "sha256": "437274ffd58064a3445f4b171f3feb6d01cbad7f520308011dfa9d187c820735",
+      "bytes": 15679,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r2-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r3-evaluation.json",
+      "sha256": "192035114d3e91fd8d0e3b669f75dfbb70aa50a6eebeb9eb29e7e91a2c83f5b2",
+      "bytes": 192458,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r3-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r3-run.json",
+      "sha256": "63c5d3a2c6ec3c8cc68a7553817be64524bad455a5a19d2bc0303246605b32e4",
+      "bytes": 12844,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r3-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r4-evaluation.json",
+      "sha256": "beb5280aa28205a75e8628668e11487ac1a4247e027b3746000599ebded334db",
+      "bytes": 192537,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r4-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r4-run.json",
+      "sha256": "0ddbaf27bf9413078d5fdd895e01eee0468e4c3ca44618de591f22fa73c775c0",
+      "bytes": 12281,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r4-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r5-evaluation.json",
+      "sha256": "47b4c155b99830cb5e16bad50fd9c14c5ed6134cd67293c7e4f0bbe189bc4f5d",
+      "bytes": 192513,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r5-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r5-run.json",
+      "sha256": "023b9f6aa9e2ca651b6f2f135862168b64897f80bcdc020b2a4a9c6b9f35f791",
+      "bytes": 14432,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r5-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r6-evaluation.json",
+      "sha256": "19564ac346ded0e2908343c6e7aa412a408f62227e086f5661a6a2a0c54333c5",
+      "bytes": 192634,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r6-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r6-run.json",
+      "sha256": "2b0e4aa5ac4fdf9c3a7dd728115f764dcfa0f8871f11c5c63f0632cd6b798170",
+      "bytes": 14625,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r6-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r7-evaluation.json",
+      "sha256": "d4a4c73a24be1c8b50ecb219de3e07adb43168b060584fa699febd2ebbb5d930",
+      "bytes": 192603,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r7-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r7-run.json",
+      "sha256": "6bb91149deb81793c7023e249b200ccec560e1be20ec4f34a25d5de1f9dab74b",
+      "bytes": 14656,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r7-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r8-evaluation.json",
+      "sha256": "ba0783912c23254d06974c2548278f85f9deeccb1995c3d4a50c2146ddd243b6",
+      "bytes": 192652,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r8-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r8-run.json",
+      "sha256": "0103defc6c86863b87e7576064c9a02174850bbca628565791fda63e5df70153",
+      "bytes": 14607,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r8-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r8c-evaluation.json",
+      "sha256": "c41adf82c76cce3137f4af67d6ebbfa21476b897af241a9fe9ca9779690ecbdc",
+      "bytes": 124788,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r8c-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r9-evaluation.json",
+      "sha256": "916d5a97057d279ff5f437154baea1533f73e061308392a7a8456f44c81d99c5",
+      "bytes": 192605,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r9-evaluation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/r9-run.json",
+      "sha256": "a43349b9ff9292a82213980a1afcd0e812b0b95a40f8cc8a425252a08406a26e",
+      "bytes": 15653,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/r9-run.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/resume-validation.json",
+      "sha256": "948e21aa5c2071f40c873b2183175b0744a8da952f685765989212aafd78ce07",
+      "bytes": 2439,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/resume-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round-acceptance.json",
+      "sha256": "4b6ec9d44449754b33a21aa5b85f5d0e373ffa9cc7b050614bd84145a4de9b49",
+      "bytes": 30804,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round-acceptance.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round-comparison.json",
+      "sha256": "ab0314d2a8bbc4224aa6e77c851026094c0ea10afae4235dec2889dc3a110ad5",
+      "bytes": 13974,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round-comparison.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-acceptance.json",
+      "sha256": "609c2d77b955ae8527bc76c4efbbda3ce3f3106c8d6ae85ab2203ef5eae36f3a",
+      "bytes": 51511,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-acceptance.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-comparison.json",
+      "sha256": "690af80cd37f374c673715f45d6d8cb673540b918e54e514e234893f9c275d3b",
+      "bytes": 861,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-comparison.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-core-contract.json",
+      "sha256": "38d8c9acd0aa89e5f4dbba3a09e343cb504dcc0a7305b68ff3c13d48e2b9cf58",
+      "bytes": 7261,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-core-contract.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-delivery.json",
+      "sha256": "63ebf5f1c93211aaee78d26e6bbbac7893e1d316ae85ed0f64e28709aeca55a0",
+      "bytes": 4989,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-delivery.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-host/optimizer-followup/optimizer-gradient-summary.json",
+      "sha256": "2ed11b64104c1284315d87261bdf7b03c9af6dfebcf0c5baf542903fab1cd19e",
+      "bytes": 2702,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-host/optimizer-followup/optimizer-gradient-summary.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-native-preflight.json",
+      "sha256": "a7b532d0f9392fd5f674e3fa8b4266b969d9ca82e74492f4d50bfefc1ef8a6a3",
+      "bytes": 10252,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-native-preflight.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-packaged-v4.json",
+      "sha256": "968804ad374a09e611595705cfc504740b0e5cc1383dc9d5ee2bf9bd1c00fcb5",
+      "bytes": 14575,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-packaged-v4.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-packaged-weak-v4.json",
+      "sha256": "cdf0d4552c9e88cb2843d3c6eb60cf9e5bea645e948745bc1917c696d26f6a67",
+      "bytes": 14575,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-packaged-weak-v4.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-packaged-worker.json",
+      "sha256": "5987f15c3ed8496e2e79c8d0b27347b5445110ea489ebb8a067c6ed2bd509d59",
+      "bytes": 4162,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-packaged-worker.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-performance/dense-state-gpu-microbench.json",
+      "sha256": "96a745265631e40a13ec3aeca45b2ae2a717c4eb597979d4a3a5e437e341c3c7",
+      "bytes": 30469,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-performance/dense-state-gpu-microbench.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-performance/stats-build-v0.1.1.json",
+      "sha256": "8edf27ebb11ac72ef546a178d677612f328b3edb24215c740b0d26310f6d920f",
+      "bytes": 9194,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-performance/stats-build-v0.1.1.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-performance/stats-performance-comparison.json",
+      "sha256": "36b06097eb164d0abcd9ff0ad6cbbdf8125ef9e64930441b34d05b264bd55707",
+      "bytes": 871,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-performance/stats-performance-comparison.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-performance/stats-validation.json",
+      "sha256": "846948994ec96be4c0f797894b9a07e802a349e598ec949f10046381b70c0d65",
+      "bytes": 1483,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-performance/stats-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round2-resume-validation.json",
+      "sha256": "26024740398146e1104ed6d3399b06dd9c627e0ffb006a86502ea4d54b6b2205",
+      "bytes": 17054,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round2-resume-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-acceptance.json",
+      "sha256": "9ada1bbc2f1a8f663c67a104a57fa3920aa9c98c4d99579b0db038c49c26fcfe",
+      "bytes": 131789,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-acceptance.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-core-contract.json",
+      "sha256": "8f6285d963209df3aa26b6f9ea978a0a0a9dd2d0f1cf2aa9f9805775fb8e326a",
+      "bytes": 7100,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-core-contract.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-delivery.json",
+      "sha256": "62d71703fb2685e4f914d02a46728caed54a7271c134893f17f7fa8d3e8c88d6",
+      "bytes": 9081,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-delivery.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-desktop-r13-values.json",
+      "sha256": "715c098622f56af35c55e4ebe7a01ba104c8773df016e3c818e3f614314a12a4",
+      "bytes": 250,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-desktop-r13-values.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-desktop-r14-tree.json",
+      "sha256": "980d37d2db060786326bd0510ec74c5ae668f9690c8749be384c58ae0b0a851f",
+      "bytes": 46335,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-desktop-r14-tree.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-desktop-tree.json",
+      "sha256": "64f28c296b708c56cf8c32c78c4a32f09f969e248a65b7ff480b65c3a955e1bc",
+      "bytes": 53707,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-desktop-tree.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-desktop-validation.json",
+      "sha256": "36acd461bf7978fcfe812d7c85feaeadfa92765e4476191f5016284b8523e849",
+      "bytes": 2326,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-desktop-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-execution-notes.json",
+      "sha256": "4eba9f3208401e6e1cf5bba89451c1e1575a79539c559cdd64d9ee154e1dc04f",
+      "bytes": 1985,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-execution-notes.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-optimizer/optimizer-context-summary.json",
+      "sha256": "77b0590c9305bd6f7e79ec06c2f71b8649ddedd72bafcbae0a58ccfbb1ec1086",
+      "bytes": 1980,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-optimizer/optimizer-context-summary.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-optimizer/quaternion/quaternion-summary.json",
+      "sha256": "725634b9d2983b109a878d3f9de7a411103d33339f8276a656794283a6f6ca74",
+      "bytes": 1399,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-optimizer/quaternion/quaternion-summary.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-packaged-native-context.json",
+      "sha256": "22af3b3c797cf9ce48ae6a8037876a968e06474c3e41406d62f18fb9b38f4e0c",
+      "bytes": 16304,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-packaged-native-context.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-packaged-v5.json",
+      "sha256": "14a2c987e6d37f199845f73350bba19735279af0afc9ba381be20b516615e60a",
+      "bytes": 16531,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-packaged-v5.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-packaged-worker.json",
+      "sha256": "b0b07d31a81a21a66ed57c443d91a9d7bab46beb27193da30ac98503a45d8d2c",
+      "bytes": 4551,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-packaged-worker.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-profile-equivalence.json",
+      "sha256": "8fe10b89a38972031e2b78c58ab670e296566db3106492bfde567a79e2ca7445",
+      "bytes": 3905,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-profile-equivalence.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-projection/independent-review.json",
+      "sha256": "ed29591739cb1270a7a8e6f1839f4ff20615cadef5cc16be23da20900cb7bb0f",
+      "bytes": 5173,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-projection/independent-review.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-renderer/build.json",
+      "sha256": "05453b36efe773ef82ba212ebebb605ed6c928dbcb487383b0af711a2fbd3ee3",
+      "bytes": 11059,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-renderer/build.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-renderer/provenance.json",
+      "sha256": "782cd6cf9378b0d2c7ee670293d7b0fcc358d396078d88e1d36aaf40f4ebce27",
+      "bytes": 463,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-renderer/provenance.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-renderer/real-r10-view.json",
+      "sha256": "ed3d35622d7e7f79ac3c1f6cbd7419f3e260c3cb6460155c7b96d88004ccad4b",
+      "bytes": 6428,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-renderer/real-r10-view.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-renderer/runtime-cpu-imports.json",
+      "sha256": "b7934caf29de7fb669235e476e3138fee53214695325d5df72a8c82e3cb35000",
+      "bytes": 996,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-renderer/runtime-cpu-imports.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-renderer/runtime-integration.json",
+      "sha256": "32d5012d45a411443efab73898681c9d68810b9d2a5f2cb8d646ccee909a9193",
+      "bytes": 11810,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-renderer/runtime-integration.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-resume-validation.json",
+      "sha256": "0ad3d699a7a4b602e894eb9856b8b9e41bd3fcae2971edfee743e27200698716",
+      "bytes": 63839,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-resume-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round3-views.csv",
+      "sha256": "d3f5bd88e9d30f70d392d53c87d8420b6db0d78826e98cf9951389cea75de27c",
+      "bytes": 8046,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round3-views.csv",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-aa/PAUSED.json",
+      "sha256": "a57f714345baaa387d8c96302e2167a034ee99a643925bf7b178f7b401b5a9cc",
+      "bytes": 6055,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-aa/PAUSED.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-aa/build.json",
+      "sha256": "fe55947f50de67b6e712ac6e3991cca66aa4904349d818d1db30420cd6d58e35",
+      "bytes": 2148,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-aa/build.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-aa/contract.json",
+      "sha256": "0695800e9ddb3b86113919ad49b6f81934189a5d5c6c61de75cbb66cf9167399",
+      "bytes": 33837,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-aa/contract.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-aa/finite-difference-step-sweep.json",
+      "sha256": "da08035fd8ebb1e72084ab4dd82d13f99009feb4920a2d19652f662e25bdda17",
+      "bytes": 3936,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-aa/finite-difference-step-sweep.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-aa/public-source-provenance.json",
+      "sha256": "65496f50466649c779d7fbadf193449ea7bddac7a6aedc82e6fba34497396065",
+      "bytes": 1286,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-aa/public-source-provenance.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-aa/real-r13-aa.json",
+      "sha256": "cb4da4d29078386bb06e94c242b30d7e9f57682429bdf38d5c9d06db38aa83d8",
+      "bytes": 23920,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-aa/real-r13-aa.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-aa/validation.json",
+      "sha256": "8992a93a492132361ff75b10b7263e35077cbee08f4e3a07f0d983d176867278",
+      "bytes": 4258,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-aa/validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-acceptance.json",
+      "sha256": "ab2432f98385fbf6cd30809be2272d54f04c7823fef9c478d12bf1ef84812956",
+      "bytes": 111139,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-acceptance.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-core-contract.json",
+      "sha256": "1ffee4db9a3cfee0a314a3e2b002f0c21678e790ac92b085ee6a3d515e40ef89",
+      "bytes": 21366,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-core-contract.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-delivery.json",
+      "sha256": "884786b4e1692e51810d137e82610c7fd349b61674430ac86be59a7a2145c669",
+      "bytes": 32369,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-delivery.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-design.json",
+      "sha256": "336454e2ec96e36decb790744dfe8b8edaada952aa60f421efd9acaebfb1888a",
+      "bytes": 4367,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-design.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-desktop-aa-tree.json",
+      "sha256": "b277441cf91e70fe88a928192a8d5e98497b8310aaaba9fa40df8c09656aa7d7",
+      "bytes": 46311,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-desktop-aa-tree.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-desktop-final-state.json",
+      "sha256": "5fcf95feef46e1a5d1d46c241fa81e9ec241b638924333c544391254dd750f2d",
+      "bytes": 311,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-desktop-final-state.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-desktop-tree.json",
+      "sha256": "830d830d21e0118c0ca4499a3270e59ccfcf0346b9a631fd15a67423db36cff8",
+      "bytes": 46311,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-desktop-tree.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-desktop-validation.json",
+      "sha256": "b4a0c94294014f21576743f5b4c404dce8a3917fd6c6f104cdf8a6254165afcd",
+      "bytes": 4411,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-desktop-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-desktop-values.json",
+      "sha256": "ad1137f0dce416926f963137af77b46f553284c0e6e8c78b3f436f55863b9f68",
+      "bytes": 744,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-desktop-values.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-execution-notes.json",
+      "sha256": "db8ac78f9fa90acbf714a0a56875d9ffd4c4deb3de0f67ed869a43cd5e768c0c",
+      "bytes": 14683,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-execution-notes.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-interruption.json",
+      "sha256": "6f47854b00aecbfc813937c7bbee8743a7ac958f69c381fbe667c6cc64d34f03",
+      "bytes": 2726,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-interruption.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-packaged-aa.json",
+      "sha256": "05059e938dd4f96b09b517510d4a86a9ab9e13a981b74181f853c7e3e0c5ea24",
+      "bytes": 18648,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-packaged-aa.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-packaged-v6.json",
+      "sha256": "cc0634c671a26122b147a575ab7aeb41339be962d94e4ec7f4b191d9b3098d74",
+      "bytes": 17987,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-packaged-v6.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-packaged-worker.json",
+      "sha256": "733d9bef95037ebefb0ba1bc46b45457da7e2664261fc9419460e8f48a96b0bf",
+      "bytes": 5121,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-packaged-worker.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-profile-equivalence.json",
+      "sha256": "62fcbe2a2f0d52a9c45c0bd86badc2e6c4e90b48c66de5d847e0ecb38821bcbd",
+      "bytes": 4309,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-profile-equivalence.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-profile/analysis.json",
+      "sha256": "982d7e65a2c97f29cf8e79e7b310d96bf8f979b297fa30e431ec55d1577a8de4",
+      "bytes": 30837,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-profile/analysis.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-profile/initial-profile-policy-setup-failure.json",
+      "sha256": "5e7634d51da3268c4f36dc88bac69a203ca5c696dbfbd8b4e358666a44893535",
+      "bytes": 19590,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-profile/initial-profile-policy-setup-failure.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-profile/paired-final-tile/summary.json",
+      "sha256": "836a00ac30ac100d8283b039121f885044fd1841cc809f0dd0cfef1d19dab8fa",
+      "bytes": 6774,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-profile/paired-final-tile/summary.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation.json",
+      "sha256": "e281f80272b9b4b8f95d01e15f0487b327d5551e119a96a333c72065ad7a7925",
+      "bytes": 85574,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/legacy_adc/resume-diagnostics.json",
+      "sha256": "ae88334f64b403b5afda0170480deb5e778aab498f10f30bf821411d75b0f319",
+      "bytes": 3263,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/legacy_adc/resume-diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v3/resume-diagnostics.json",
+      "sha256": "96e1f92d92f2590a999a241b8ca9d32cc20c6eab267d2bdc05e84538ccb2d4f5",
+      "bytes": 3326,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v3/resume-diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v4/resume-diagnostics.json",
+      "sha256": "4de91dfd925d2ce677124cf24c38e75d61721abce8b3870f8e9168479426e878",
+      "bytes": 3895,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v4/resume-diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v4/shared_prefix_checkpoint.json",
+      "sha256": "e5663cc0dc42271f52702caa5742a73f335d499e2331877091d6f04ecc4dbf5e",
+      "bytes": 443,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v4/shared_prefix_checkpoint.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v4/v4_anchor_oom_receipt.json",
+      "sha256": "f78571adb8d737b7914b5d2740bd1a38fe6114f52ca183e6d4f7388813cc2aad",
+      "bytes": 476,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v4/v4_anchor_oom_receipt.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v4/v4_real_pause_receipt.json",
+      "sha256": "38c120936a4da4b8d535c331f775c012b59d9ecf50acd59c6e6d2020e4989bbf",
+      "bytes": 665,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v4/v4_real_pause_receipt.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v4/v4_state_diagnostics.json",
+      "sha256": "cdd22789a871c5c9f0b65f966c90dd9e087b78b14029e2a87818333ac28bc3e4",
+      "bytes": 268989,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v4/v4_state_diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v5/resume-diagnostics.json",
+      "sha256": "faa751dcddc70f079cd077f5f81fd28b3bd96ab73cfaddcb1aa0f4bdec3b7e48",
+      "bytes": 3865,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v5/resume-diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v5/shared_prefix_checkpoint.json",
+      "sha256": "10c0fd26d373f74ec486d09e5b4d1f53dc14d2a52dcd441dd859145924c2537c",
+      "bytes": 443,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v5/shared_prefix_checkpoint.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v5/v5_anchor_oom_receipt.json",
+      "sha256": "269965065d2e926ff93d9e9d4c85ad37192136a9a2379dcffe86dd3eb9b581f6",
+      "bytes": 476,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v5/v5_anchor_oom_receipt.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v5/v5_real_pause_receipt.json",
+      "sha256": "c3bc3a5dfd30232a5bfb4f2f58bad44b45e3b12fd6c4f257e8d16bf11a501766",
+      "bytes": 747,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v5/v5_real_pause_receipt.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v5/v5_state_diagnostics.json",
+      "sha256": "1888adfde0d8dcac7a5b1b4d55094515b0cff8dae68e03724808512df9e05f18",
+      "bytes": 270928,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v5/v5_state_diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v6/resume-diagnostics.json",
+      "sha256": "b34140683ce1c3622346eae7bcbe7af5e28334b4a70a373bab1d8c874914f85b",
+      "bytes": 3934,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v6/resume-diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v6/shared_prefix_checkpoint.json",
+      "sha256": "d68260840140e8395b43b9edef9d774fc43cce33efb7d83f76dba783bcd64fe3",
+      "bytes": 443,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v6/shared_prefix_checkpoint.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v6/v6_anchor_oom_receipt.json",
+      "sha256": "8e2ec148ddd0083730beefeafb334a78905e21bbde622124eb6f3da12cc780d7",
+      "bytes": 476,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v6/v6_anchor_oom_receipt.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v6/v6_real_pause_receipt.json",
+      "sha256": "ad1453fafa582e838693d266ffd75d8c91c99ab4184e1cde8568f5b023b21610",
+      "bytes": 665,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v6/v6_real_pause_receipt.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/observed_v6/v6_state_diagnostics.json",
+      "sha256": "240930e62088202aaf441cb2e75437547e3c0d109e63d040a9a55bbb96f3f433",
+      "bytes": 268914,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/observed_v6/v6_state_diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-resume-validation/quality_v2/resume-diagnostics.json",
+      "sha256": "2080d601c802481a5690fd763041e1969b4b36ff0c9df21c04f9acd72634d115",
+      "bytes": 3257,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-resume-validation/quality_v2/resume-diagnostics.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-review/PAUSED.json",
+      "sha256": "8c94fcf714416cae2844bb6d5b5436275006bc5dba3434e74abfcc0ac6931c0e",
+      "bytes": 6283,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-review/PAUSED.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-review/REVIEW.json",
+      "sha256": "74eec75f7688d42a561231d729a9a9f59483c3aa382b192552dc8772af6a4ad2",
+      "bytes": 4518,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-review/REVIEW.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-review/independent-cpu-review.json",
+      "sha256": "c9832753ba1102eaca55df68130877bef74f1c9e530fbc86eb93f9b3743a84da",
+      "bytes": 5509,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-review/independent-cpu-review.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-runtime.json",
+      "sha256": "e9fe07f4dfbe43a49e4dcd2cab0addca8aa67911f9c43ad165063a071d8949d2",
+      "bytes": 3017,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-runtime.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/HANDOFF.json",
+      "sha256": "6a48b4c7252d1b9e33944171974db4e1b3f99f5bf2b228d75af4b1ac10f8abdc",
+      "bytes": 2940,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/HANDOFF.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/PAUSED.json",
+      "sha256": "97b3cf9eaca264de055ae6f39c12a7c6e0a468cb707cf6650f93652448dd381a",
+      "bytes": 2936,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/PAUSED.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/build-repeat-result.json",
+      "sha256": "e4e05e9a302a9b75482b7a78e0ef56507f591bc2343d14a92b10ed62b091720b",
+      "bytes": 761,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/build-repeat-result.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/build.json",
+      "sha256": "9aa107f5376269c42d5e820144a2d1cf38dc7be5e42ed8b09d521efbf3018127",
+      "bytes": 1788,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/build.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/contract.json",
+      "sha256": "fe92810641239c8d3655c61cf89c9031ed170f1769b4afbb68a4c0b37f4248b6",
+      "bytes": 8941,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/contract.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/gradient-repeat-r13-view24.json",
+      "sha256": "c1b27a5836e9079a88c42148e83af5d093cb4cb22567d573f150c07c16a0c0b4",
+      "bytes": 67992,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/gradient-repeat-r13-view24.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/native-large-radius-initial.json",
+      "sha256": "1d04c60f67f861634f6c8f50ef2ac26fb9c4351aa0e5576e274a853a5a65a8b3",
+      "bytes": 3230,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/native-large-radius-initial.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/real-r13-before-bounds-guard.json",
+      "sha256": "8131935c766ee19e7ad170d6b90a22db3c640ad3640d4ae7dd01265473fe07e9",
+      "bytes": 19200,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/real-r13-before-bounds-guard.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-tile/real-r13.json",
+      "sha256": "a67538cc80a18f9214def3d0a2253fe51ca259bc5339d69cc6750222491c0e19",
+      "bytes": 19199,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-tile/real-r13.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-training-drift.json",
+      "sha256": "ce923f1fcb66ab2accc8e94176d26a431f762c921c00097e4bbf4bcbe8ac94b9",
+      "bytes": 2766,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-training-drift.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/round4-views.csv",
+      "sha256": "ab7981892e6b80e0bf279291aa7112dfa19f48ff42bb56bf4b5641bd54b1bf18",
+      "bytes": 9399,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/round4-views.csv",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/reference/evidence/splat3/training-recovery-contract.json",
+      "sha256": "95fb36874676d21976b0401c3212e9eb5ade473175fe695005a895e8ee4896f6",
+      "bytes": 2647,
+      "action": "archive",
+      "archive_relative_path": "files/engine/reference/evidence/splat3/training-recovery-contract.json",
+      "reason": "Raw benchmark/RE/runtime evidence; no current source/test reads these repository artifacts; public contracts and aggregate methodology retained separately."
+    },
+    {
+      "original_relative_path": "engine/scripts/analyze_splat3_schedule.py",
+      "sha256": "f68896bc6fedc625294a975b0e127f16b5aad3f593bf7a79fd16ae29520ce64d",
+      "bytes": 5526,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/analyze_splat3_schedule.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/audit_splat3_round2_delivery.py",
+      "sha256": "ea0f6a2c57b3416feb59f35a43684b3dd7a5b7e6b807a71a17326736b53b5aa6",
+      "bytes": 3038,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/audit_splat3_round2_delivery.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/audit_splat3_round3_delivery.py",
+      "sha256": "c1799cfc1861614d83c57f8bbcef2093716f73e9ddc9a5ab9ac882f3b17d5be5",
+      "bytes": 4395,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/audit_splat3_round3_delivery.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/audit_splat3_round4_delivery.py",
+      "sha256": "ef5e926351e1df944d923ba5c34b4d0929cf6da7a494db9058ee3e2b5a475541",
+      "bytes": 22118,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/audit_splat3_round4_delivery.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/capture-local-desktop.ps1",
+      "sha256": "09a06f9fa20cb3da588d4d59416ce9a1219f54fd94742e3e7d6435055b4a6475",
+      "bytes": 2547,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/capture-local-desktop.ps1",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/collect_splat3_round2_resume.py",
+      "sha256": "c6df5382ff243c9c4e714e5b05803dd48f2a9cd6087d3be798a2f33a2494c56f",
+      "bytes": 2678,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/collect_splat3_round2_resume.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/collect_splat3_round3_resume.py",
+      "sha256": "fc2c972a43f988f063efe7fb839e7ab41da35ebd77e13dee9d74820ee8c7472c",
+      "bytes": 6343,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/collect_splat3_round3_resume.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/collect_splat3_round4_resume.py",
+      "sha256": "9af9c96d881844b31b067c5f67ff6624d6e1404945858fbb93ae61aa5592be32",
+      "bytes": 6641,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/collect_splat3_round4_resume.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/compare_projection_sensitivity_round3.py",
+      "sha256": "d24d484a0237997a1225a8a1e8f4fd23aabccbe9fb52ff4f300383ddeeb30ef7",
+      "bytes": 3076,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/compare_projection_sensitivity_round3.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/diagnose_splat3_projection.py",
+      "sha256": "7e4e4f80f87663155f8bf5542daa6575860b78318a0d1b8e2c462bbacd834f75",
+      "bytes": 6075,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/diagnose_splat3_projection.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/finalize_splat3_round2.py",
+      "sha256": "9b23f1ee83313713dc153089c1a473bcc8da5583b058c5108e04a349c9ce7947",
+      "bytes": 9623,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/finalize_splat3_round2.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/finalize_splat3_round3.py",
+      "sha256": "4fb7104c06fcd4912166fb512f00ba81236b4d0117c43bb90985b08538e3c5f8",
+      "bytes": 8887,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/finalize_splat3_round3.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/finalize_splat3_round4.py",
+      "sha256": "ae019d6dd6aa511e809f08c4bb90e793ae0f0fd61a4f8b50e78e8414403ffa09",
+      "bytes": 8917,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/finalize_splat3_round4.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/finalize_training_round.py",
+      "sha256": "590839285f996ebf5a1e307f8f316b505b252c4d5540a0de7dd685cc962f78a9",
+      "bytes": 6366,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/finalize_training_round.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/inspect_reference_cameras.py",
+      "sha256": "50485c4386e9cc228325657e58089eed92726c19047b471ed5d1d5e37d042b3d",
+      "bytes": 14995,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/inspect_reference_cameras.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/inspect_reference_watermark.py",
+      "sha256": "8d1f1e327c2aee0f0fbb6f08fc25b5fcd67e6bd878da6777eee6419dcddd02ea",
+      "bytes": 3669,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/inspect_reference_watermark.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/make_reference_figure.py",
+      "sha256": "4f2db257b490b93f4c224a20963b6368c8bafec41d30294b355f00c06e9d68aa",
+      "bytes": 5329,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/make_reference_figure.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/monitor_original_gpu.ps1",
+      "sha256": "3eec343101ae6270161c5832fd176eb16b796af69b8a23ea80e4fbaba0b7013d",
+      "bytes": 1455,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/monitor_original_gpu.ps1",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/package-windows.ps1",
+      "sha256": "a56bf76bc9835d6fb097ffbb19ed690eb8c936e964d6405ebfc8fa9914f686a6",
+      "bytes": 17309,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/package-windows.ps1",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/prepare_original_gui_reference.py",
+      "sha256": "7cb453846db8ad4ff00f4ac3a32fa4acc247456a243eb26bc0e5cb5ef83ee5b1",
+      "bytes": 3518,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/prepare_original_gui_reference.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/prepare_splat3_round4.py",
+      "sha256": "7d8530e0475c450199bf94e632524f627001b8b8c262e831db73dc3bfada2023",
+      "bytes": 3515,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/prepare_splat3_round4.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/profile_splat3_round4.py",
+      "sha256": "e6e9b3d364e6702753510c97d695f5641db70b4b917c5e346911e3de69cf626c",
+      "bytes": 30455,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/profile_splat3_round4.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/profile_splat3_tiles_round4.py",
+      "sha256": "f5eb21e629140d55600a23c4c3b519b8e4acddccccaaafebe11a3d17fd270479",
+      "bytes": 16194,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/profile_splat3_tiles_round4.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/profile_training_round2.py",
+      "sha256": "5a9ea8f37dbd36fc0bd76c024f7a34dd34bf65285fea1078df3cd68aa7440c12",
+      "bytes": 17575,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/profile_training_round2.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/record_splat3_round3_contract.py",
+      "sha256": "d907d3d2c5bdc2056d21685e6eb5e6f700194f8cba553aec816cb80cbf89d13c",
+      "bytes": 6678,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/record_splat3_round3_contract.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/record_splat3_round4_desktop.py",
+      "sha256": "5c0769c08a59e1bdf4c795ce92c02557dd8ab948978f97a20820fcaa5aa27108",
+      "bytes": 3325,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/record_splat3_round4_desktop.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/record_splat3_round4_interruption.py",
+      "sha256": "e4f1e5089348996dbd66b06ca7428df6cd0b64c60f9233e43f0b5a5376c8fafa",
+      "bytes": 3293,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/record_splat3_round4_interruption.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_ApplyRelocations.java",
+      "sha256": "99e60a7d3cb5b99deea993cdfe585a3879ed5ed36d5cb57cca9adccb7d3300b0",
+      "bytes": 834,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_ApplyRelocations.java",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_CacheLayout.java",
+      "sha256": "c3579787336fe015b434ea7974379414a01247390868305869fd63496a26ff1c",
+      "bytes": 906,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_CacheLayout.java",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_Decompile.java",
+      "sha256": "f930de6b3e2af08ea80db06c5e211b2ba1c7ef18e7e1e7f0db708456a7284f5b",
+      "bytes": 2367,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_Decompile.java",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_DumpListing.java",
+      "sha256": "ba9099c3f8ced7db41a5ac596edff3f37647fddbe396672aa34c37b79617e924",
+      "bytes": 839,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_DumpListing.java",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_annotate_cache.py",
+      "sha256": "0c624cb6b86c9a38bb43739e62766655739db46e295c67e3e7e35de337982455",
+      "bytes": 1700,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_annotate_cache.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_cache_views.py",
+      "sha256": "25adc980b96d1916cf386c1d196e4cc789bcc65c62ef2bf1eb2e76560b6edfd0",
+      "bytes": 2861,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_cache_views.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_coff.py",
+      "sha256": "d336834405322a8c51d95edb3de02611be2c1f760c35daf6def0ba9493ceace6",
+      "bytes": 6071,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_coff.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_config_trace.py",
+      "sha256": "c7dce73534a38b45fdb27dfb3a5283064253caaacbfd34b4558fee3456669d35",
+      "bytes": 4854,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_config_trace.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_inventory.py",
+      "sha256": "890963f16b766a8c04c0d1d29b85f8e05feffb6b019abc9a8ee04f7ecde52afd",
+      "bytes": 8654,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_inventory.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_rex_inventory.py",
+      "sha256": "ab52f51eccdf01c59ff64d2d492d2c0adacb02a65aa30a0d71ed7147e51cafa2",
+      "bytes": 3363,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_rex_inventory.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_round2_contract.py",
+      "sha256": "85e7f0daea69f5d0495cf2a30fb6d8cbd4abab03a1a2ccf61ea92d7d593a557c",
+      "bytes": 17219,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_round2_contract.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_round2_host.py",
+      "sha256": "c51630e60fe3e00272bfa1642ce23aff73514e441de464745e113b687c63f590",
+      "bytes": 3659,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_round2_host.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_round2_optimizer.py",
+      "sha256": "09e61fe4cdfe737cc4d2befdca9e16e54381f070f3bed71b58ce16915ab11f0e",
+      "bytes": 10314,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_round2_optimizer.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_round2_runtime_alignment.py",
+      "sha256": "f99b2d31da1476eef15d912fc34dfe9b23ee419c37e955442f7396f3917f1a0c",
+      "bytes": 3088,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_round2_runtime_alignment.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_round3_optimizer.py",
+      "sha256": "88a3c0f3f505ed41c4ae2fd418b51a293ac29929e738a5e9c5a3e0566c6417f8",
+      "bytes": 15081,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_round3_optimizer.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_round3_quaternion.py",
+      "sha256": "7e1429dec5426a6bd5450d95972aa3e426eca974be6d65b6857a50557b2611be",
+      "bytes": 11875,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_round3_quaternion.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/reverse_splat3_write_contract.py",
+      "sha256": "8f6da9ca553aa3ec163307e169a8e1d572c4b2de31b0e33eed822ec5f1741817",
+      "bytes": 8705,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/reverse_splat3_write_contract.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/run_original_benchmark.py",
+      "sha256": "77684dd764398093cc0e41cf6c6c1fe3fb22b53717feaed7bbbc8b88886c88b1",
+      "bytes": 2966,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/run_original_benchmark.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/run_splat3_round4_batch.py",
+      "sha256": "5f0d2691cf56d89010b0df8ea617d3bcc0bc3e2b1f598f8af45c1610f8bbe400",
+      "bytes": 2397,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/run_splat3_round4_batch.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/run_training_experiment.py",
+      "sha256": "0f9ab56f882abfd240ff16a553f73fc24145741389e58e7193a6a9936cf2299a",
+      "bytes": 10429,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/run_training_experiment.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/setup-runtime.md",
+      "sha256": "b311c95a321c2bd7c4646e6cbc91579e2350221c285fc18e9c919ddf85c2f690",
+      "bytes": 11185,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/engine/scripts/setup-runtime.md",
+      "reason": "Original tool/runtime documentation retained privately before removing developer paths and superseded instructions."
+    },
+    {
+      "original_relative_path": "engine/scripts/summarize_reference_profile.py",
+      "sha256": "1caff8c2df432620c07deba1ca874e5dfd41b2522788a12579e2fd2018067625",
+      "bytes": 8557,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/summarize_reference_profile.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/summarize_splat3_round4_drift.py",
+      "sha256": "ee1996d5464543b248e8734e5608ff911dbcffbcedf2a3523686e9f1426b511d",
+      "bytes": 2416,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/summarize_splat3_round4_drift.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/sync_reference_evidence.py",
+      "sha256": "d723f1b3cd90d25b10d48a5fe6ced8ea0bfd35ca4bb617079ce880d4fcde77c7",
+      "bytes": 9743,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/sync_reference_evidence.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/update_splat3_round3_docs.py",
+      "sha256": "1dbc72bbdd3253b1c404c3fe4638f206a3f39a867a3efba6350f4f463b5fdeb9",
+      "bytes": 4657,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/update_splat3_round3_docs.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_splat3_round3_profile.py",
+      "sha256": "f1908a0008dccdc30379504ef4f252c5f1c72695ae751eb1e2d812a95129ae2c",
+      "bytes": 2062,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_splat3_round3_profile.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_splat3_round4_packages.py",
+      "sha256": "1f7ad5a75902298586d24032eba2ee18ae5b9760b2ef42549fb549987fe663bb",
+      "bytes": 1476,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_splat3_round4_packages.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/verify_splat3_round4_profile.py",
+      "sha256": "a9364653fdf6d68ef22521e3ffd58cbdc5ae7af0e2bda7166719d526ab4e45ab",
+      "bytes": 2688,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/verify_splat3_round4_profile.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/write_splat3_round3_report.py",
+      "sha256": "996e68ecd0448e33bd3a2a81fa8b2285019aa7b6ad60aee1d8060ea19786e8b4",
+      "bytes": 9101,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/write_splat3_round3_report.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "engine/scripts/write_splat3_round4_report.py",
+      "sha256": "ee8e43b0725a58ffda1d8a7e0661d7941b5722909bb7e5418273f8913341540a",
+      "bytes": 10240,
+      "action": "archive",
+      "archive_relative_path": "files/engine/scripts/write_splat3_round4_report.py",
+      "reason": "One-off benchmark/RE/round experiment or retired standalone packaging; current numerical tests and build/provisioning scripts retained."
+    },
+    {
+      "original_relative_path": "prototypes/__init__.py",
+      "sha256": "bd329576e14c95d9c5604ca2bf761e51765b09d788e123b83e9d8e754d81233c",
+      "bytes": 64,
+      "action": "archive",
+      "archive_relative_path": "files/prototypes/__init__.py",
+      "reason": "Retired Tk prototype; no current CLI/test dependency."
+    },
+    {
+      "original_relative_path": "prototypes/tk_studio/__init__.py",
+      "sha256": "bd329576e14c95d9c5604ca2bf761e51765b09d788e123b83e9d8e754d81233c",
+      "bytes": 64,
+      "action": "archive",
+      "archive_relative_path": "files/prototypes/tk_studio/__init__.py",
+      "reason": "Retired Tk prototype; no current CLI/test dependency."
+    },
+    {
+      "original_relative_path": "prototypes/tk_studio/studio.ps1",
+      "sha256": "35fd05a94e8904ff394ce1af0ea6f4417f44c680919064e9c1b87de35dcabedd",
+      "bytes": 883,
+      "action": "archive",
+      "archive_relative_path": "files/prototypes/tk_studio/studio.ps1",
+      "reason": "Retired Tk prototype; no current CLI/test dependency."
+    },
+    {
+      "original_relative_path": "prototypes/tk_studio/studio.py",
+      "sha256": "cd34c656b185dc249a32b4a5fedb2244422ecfec62e4df8511024afad7773947",
+      "bytes": 42786,
+      "action": "archive",
+      "archive_relative_path": "files/prototypes/tk_studio/studio.py",
+      "reason": "Retired Tk prototype; no current CLI/test dependency."
+    },
+    {
+      "original_relative_path": "scripts/apply_nerfstudio_patch.py",
+      "sha256": "48387b973f3ae221cd36770473a8e783e0152be510ca42f7c2d49e781d11cfc7",
+      "bytes": 1789,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/apply_nerfstudio_patch.py",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/bootstrap-gsplat-windows.ps1",
+      "sha256": "119021387e865499ecb8b90a49caeeffecaa25a87bf9466fcaba327d74d27c49",
+      "bytes": 6774,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/bootstrap-gsplat-windows.ps1",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/bootstrap-windows.ps1",
+      "sha256": "0610fe1729d4c50c82533f230a60950cdacae09c173a8daca8954e5964324a95",
+      "bytes": 2336,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/bootstrap-windows.ps1",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/build-windows-release.ps1",
+      "sha256": "ebc909687ed2efa0cf2967b6c80642608763cd8833f76b941d173e9fce872035",
+      "bytes": 12528,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/build-windows-release.ps1",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/build_gsplat_csrc.py",
+      "sha256": "22e9ba73ab479c624edadbf037840053ae0457560853fc6c36b2b255de321240",
+      "bytes": 6919,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/build_gsplat_csrc.py",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/diagnostics.ps1",
+      "sha256": "a7b08394081c5c96304ceceda5af3eaee5d76c0e171f86366722a08e01557d38",
+      "bytes": 447,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/diagnostics.ps1",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/frozen_cli.py",
+      "sha256": "c761d304dde26d431d2d59cac9d4f2d12a9c4be03b2bd3f34700084acbeae067",
+      "bytes": 260,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/frozen_cli.py",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/frozen_desktop.py",
+      "sha256": "bb90fd81843ea6df0687a351a553dd15ce950591e2bf3dcc3e8c1536b02ac556",
+      "bytes": 266,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/frozen_desktop.py",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/frozen_trainer.py",
+      "sha256": "e3f12ac43e4871c83ab3bdbac21bd7031ebc54531f4a33fc63770c911c8d8bf3",
+      "bytes": 491,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/frozen_trainer.py",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/frozen_worker.py",
+      "sha256": "deb4a7a5b866320cb8bcddc192083b76cb8bc6fd6c53aa79957759565d3ae309",
+      "bytes": 276,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/frozen_worker.py",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/gs-studio-next.ps1",
+      "sha256": "d80702a722f14aa66a5462ee5672e3ae29a8bf2f049a903f420bc5e57af9b628",
+      "bytes": 744,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/gs-studio-next.ps1",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/verify-release.ps1",
+      "sha256": "ddd1dfab0888b715f41d634c1eafaddd74c628c87df69ee94559ed2b85343edf",
+      "bytes": 2026,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/verify-release.ps1",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "scripts/write_release_manifest.py",
+      "sha256": "d6154d9e300ee43b63fc794b1ef5ca9f74b8218107169bf8bdae16534aa4e44b",
+      "bytes": 3340,
+      "action": "archive",
+      "archive_relative_path": "files/scripts/write_release_manifest.py",
+      "reason": "Superseded Qt/PyInstaller/cu130 build or unused activation launcher; current Tauri packager is in desktop/scripts."
+    },
+    {
+      "original_relative_path": "tests/fixtures/legacy-run/20260824T022046Z-5679786b/manifest.yaml",
+      "sha256": "983629e488c2ba4e542dc76acd89e681a015e285f801ab1d65a7c31a595d9bef",
+      "bytes": 6458,
+      "action": "archive",
+      "archive_relative_path": "files/tests/fixtures/legacy-run/20260824T022046Z-5679786b/manifest.yaml",
+      "reason": "Unused retired gsdb/private scene manifest fixture; current synthetic/vendor fixtures retained."
+    },
+    {
+      "original_relative_path": "tests/fixtures/repository-manifests/location.yaml",
+      "sha256": "f1b84140afcf9f127a81e95222d91de6fc38567f79b6fb40de39ed333dfe372a",
+      "bytes": 447,
+      "action": "archive",
+      "archive_relative_path": "files/tests/fixtures/repository-manifests/location.yaml",
+      "reason": "Unused retired gsdb/private scene manifest fixture; current synthetic/vendor fixtures retained."
+    },
+    {
+      "original_relative_path": "tests/fixtures/repository-manifests/night-pilot-8k/captures/capture-004-8k.yaml",
+      "sha256": "3eddd42d87f19dd0ed2fc18e2eb89407e11a2899dd2750c7d7c855f9808efa9c",
+      "bytes": 1162,
+      "action": "archive",
+      "archive_relative_path": "files/tests/fixtures/repository-manifests/night-pilot-8k/captures/capture-004-8k.yaml",
+      "reason": "Unused retired gsdb/private scene manifest fixture; current synthetic/vendor fixtures retained."
+    },
+    {
+      "original_relative_path": "tests/fixtures/repository-manifests/night-pilot-8k/scene.yaml",
+      "sha256": "cb9daeba6880dba7fa6da069b6e4cb3b6c0f23d7ecec1ea0996427b7b8507dc6",
+      "bytes": 436,
+      "action": "archive",
+      "archive_relative_path": "files/tests/fixtures/repository-manifests/night-pilot-8k/scene.yaml",
+      "reason": "Unused retired gsdb/private scene manifest fixture; current synthetic/vendor fixtures retained."
+    },
+    {
+      "original_relative_path": "tests/fixtures/repository-manifests/night-walk-4k/captures/capture-009-4k.yaml",
+      "sha256": "68ee4e99d599ab426623f837a4052b3325fa17efc6f97d7fe8d59d7b9f813fda",
+      "bytes": 1298,
+      "action": "archive",
+      "archive_relative_path": "files/tests/fixtures/repository-manifests/night-walk-4k/captures/capture-009-4k.yaml",
+      "reason": "Unused retired gsdb/private scene manifest fixture; current synthetic/vendor fixtures retained."
+    },
+    {
+      "original_relative_path": "tests/fixtures/repository-manifests/night-walk-4k/scene.yaml",
+      "sha256": "91edc96283ceb9cecd00f763566cab8be2aaa92a5969c5baa688ce9e103a33ee",
+      "bytes": 451,
+      "action": "archive",
+      "archive_relative_path": "files/tests/fixtures/repository-manifests/night-walk-4k/scene.yaml",
+      "reason": "Unused retired gsdb/private scene manifest fixture; current synthetic/vendor fixtures retained."
+    },
+    {
+      "original_relative_path": "tests/test_catalog.py",
+      "sha256": "3d45a3e48c581f4a0734dac7902fb29d0fe54caefb4c24b8364a9408bf4864b5",
+      "bytes": 2045,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_catalog.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_cli_smoke_profile.py",
+      "sha256": "2d7aa32978832a4b18d3612ef62c5a762de630f16884d14e85ab77668339c7f4",
+      "bytes": 4578,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_cli_smoke_profile.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_comparison.py",
+      "sha256": "14afd72cd99faea4e691acd5c67a095f6c144e8a2add9e6a93fcc6d02127ac18",
+      "bytes": 5171,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_comparison.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_doctor.py",
+      "sha256": "aebe82182d47d31e5a36378a639b6e4f72a9db0991eb43c08da4f68b5fe2e78c",
+      "bytes": 4264,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_doctor.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_frames.py",
+      "sha256": "2e082cfb097320d5c92e43d8f23414b85dfac21cfde0432ded98fd713710fb7e",
+      "bytes": 6538,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_frames.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_gpu_lock.py",
+      "sha256": "04412430d31bef5e952a8508740e812f6825bb6c0c7e019da50316659dbfa132",
+      "bytes": 832,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_gpu_lock.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_manifests.py",
+      "sha256": "e0cc4649e34221e7462436cffb4cc2a882281f790c57d8f26289aa8e8a5b36ab",
+      "bytes": 2051,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_manifests.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_mask_finalize.py",
+      "sha256": "8a4ed6760260db46f4d268d6a09b243a83e182fbc660e31d5eb44d73737ffc77",
+      "bytes": 4119,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_mask_finalize.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_mask_review.py",
+      "sha256": "7565a90d3cbe8678a24aac081bc41e4133a3628afd200dc8c7157927a47cf738",
+      "bytes": 4349,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_mask_review.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_masking.py",
+      "sha256": "0cd7c3c03cf46ae6c48b9e8d7ec51e759f425ffec0f792d72952430497dcc822",
+      "bytes": 20719,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_masking.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_media.py",
+      "sha256": "1195f96d6aec54955653f1ac2beceef2ef6926a7ab8d82404c417a9e08f11496",
+      "bytes": 4071,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_media.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_mediasdk_wrapper.py",
+      "sha256": "052c25e923cf4766b4b358d79e0d2970830e6d90d62df12745f13031e8c67675",
+      "bytes": 3512,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_mediasdk_wrapper.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_native_training.py",
+      "sha256": "0b836e320070a61d9ce6d37dcf8d24b5459cbff5a1b1aa7a0181d77a5b095490",
+      "bytes": 1736,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_native_training.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_nerfstudio_projection.py",
+      "sha256": "2b6520a06d8445152a08d07564948203c8a0d89dbdbe9c01faad3120979c9777",
+      "bytes": 2480,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_nerfstudio_projection.py",
+      "reason": "Tests the retired installed-nerfstudio mutation script and external package; current vendored projection parity tests/fixtures remain in tests/contract."
+    },
+    {
+      "original_relative_path": "tests/test_paths.py",
+      "sha256": "bfec5ded9a9e3ec47dd9b5e8ddab2b6850ec6ca20a9970a76ee64761c71949cd",
+      "bytes": 2591,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_paths.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_pipeline.py",
+      "sha256": "7c0dafc428ceaee0de87c0cb9cdf2926a89efc4324cfba98fffca4e777acf24a",
+      "bytes": 38015,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_pipeline.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_pipeline_v5.py",
+      "sha256": "44e17d2d5f64492704f058a12181ef98e53c662794847f6d05baf2b39be0aa42",
+      "bytes": 3591,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_pipeline_v5.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_pipeline_v6.py",
+      "sha256": "ffa54f2a86867e6fd357b4600902fd22e7ff6ad454d9bbf1211dd5082bb7967d",
+      "bytes": 19145,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_pipeline_v6.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_ply.py",
+      "sha256": "c808306cc5f935cd9a12fc1216cb18c57ae33d671c4c90a1213080031a1c34ab",
+      "bytes": 10156,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_ply.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_postshot.py",
+      "sha256": "64a281fa1bcab1540e7f1d1596fd673b3ddfc130e326001a1129ec52d82aaea1",
+      "bytes": 15044,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_postshot.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_processes.py",
+      "sha256": "d57ac0e5ba7f9a2ca71a637441f4dc2e78e97579e42f5ab7f99f13cd95bbaa04",
+      "bytes": 1340,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_processes.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_reconstruction.py",
+      "sha256": "2e6315bcb79a219ae433009a87aa60c275476a58a8725d0377ebbc618caf55a5",
+      "bytes": 23053,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_reconstruction.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_reconstruction_realityscan.py",
+      "sha256": "b251704fb96b689468edd0b005d5a50214fad0d201c59bf2348603dabfc0813e",
+      "bytes": 11496,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_reconstruction_realityscan.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_runs.py",
+      "sha256": "a3453607835f90d84302d3f2fc02f920a3c5fb16691062ca1987d0a642a089b4",
+      "bytes": 4036,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_runs.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_schema_route_and_schedule.py",
+      "sha256": "2a4694f4f52abf60240d271d784d79ad8afde35ef8dbcebd6a9d09cf2dd62afc",
+      "bytes": 3991,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_schema_route_and_schedule.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_segments.py",
+      "sha256": "e7168a1b3f37ebad9c68c34806d91069e57136462035221757e922fd8c2ac000",
+      "bytes": 3729,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_segments.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_sources.py",
+      "sha256": "ebf062f23d4ffe03572703a6bda6bf2c27b44fce494015caf559b817f337edb5",
+      "bytes": 17330,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_sources.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_studio.py",
+      "sha256": "6f15723340487b927ed4d8cc6f11b826dcf2eabb9e88495acb69fc5d1365beee",
+      "bytes": 8580,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_studio.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_training_data.py",
+      "sha256": "8a52d394b56384a1c5bd87931b1223b1bc81191f9def8c61d98c2b547c73051e",
+      "bytes": 6414,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_training_data.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_training_dispatch.py",
+      "sha256": "1c7a9938cd4f3006be1578017d3513534957764aab64c57c7d4960d75b222ab5",
+      "bytes": 2132,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_training_dispatch.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_trajectory.py",
+      "sha256": "ef1d3b840aa1d8e67ff4636e06c5f3bedee9168905448f6a80e64201b60a99cb",
+      "bytes": 4118,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_trajectory.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_v02_models.py",
+      "sha256": "3692cca22cae0c46c1300e7b99adaa863943fb0c3117c96a6aa808d0c435341c",
+      "bytes": 6223,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_v02_models.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_v5_boundaries.py",
+      "sha256": "92b09bfe12a0e5563add3489b4d93ec08eb78990c792df3fd6d5e7bc3acdecf3",
+      "bytes": 2470,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_v5_boundaries.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_vision_qa.py",
+      "sha256": "83d093e108b8c3c0758459452029458a47b8ef98b0cfb55116a56e513ac6e2c2",
+      "bytes": 4796,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_vision_qa.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_windows_wrapper.py",
+      "sha256": "37a87b8f1e5b8de395c98c68cf9451aa73010063f66ba666c749bb31b7fc8fa4",
+      "bytes": 3278,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_windows_wrapper.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tests/test_workflow_docs.py",
+      "sha256": "3ff616f43b304e777c9965981b1b4d0c4498d6ef4240ba63d1739cdb44413015",
+      "bytes": 3081,
+      "action": "archive",
+      "archive_relative_path": "files/tests/test_workflow_docs.py",
+      "reason": "Retired gsdb package/old wrapper test; current suites are tests/unit and tests/contract; no current import of this file."
+    },
+    {
+      "original_relative_path": "tools/mediasdk-helper/README.md",
+      "sha256": "ef6b267b7d41c80789c97b2d565c1bfc907633c366624ba968752bd94dcd09c5",
+      "bytes": 4901,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/tools/mediasdk-helper/README.md",
+      "reason": "Original tool/runtime documentation retained privately before removing developer paths and superseded instructions."
+    },
+    {
+      "original_relative_path": "tools/realityscan-setup/README.md",
+      "sha256": "b8ed4e03c44eefcae781511b696058211977762ebe36631f67fa9d0294838712",
+      "bytes": 1169,
+      "action": "backup_before_edit",
+      "archive_relative_path": "files/tools/realityscan-setup/README.md",
+      "reason": "Original tool/runtime documentation retained privately before removing developer paths and superseded instructions."
+    }
+  ]
+}

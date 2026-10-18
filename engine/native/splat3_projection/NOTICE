@@ -1,0 +1,18 @@
+Local Postshot private projection 0.1.0
+
+ProjectionEWA3DGSFused.cu (renamed projection.cu), Common.h and Utils.cuh
+derive from gsplat 1.5.3, Copyright the gsplat authors, Apache License 2.0:
+https://github.com/nerfstudio-project/gsplat/tree/v1.5.3
+Original notices and LICENSE are retained. GLM headers are used at build
+time from the pinned checkout; its MIT/modified-MIT license is included.
+
+Local modifications: separate module/namespace and checked one-camera
+float32 pinhole API; determinant numerator/denominator/ratio floors at
+binary32 1e-6; straight-through AA floor VJP with no extra denominator
+epsilon; backward recomputes raw screen covariance from shared camera
+state. The public projection Jacobian, covariance, general gradients,
+radius/visibility and bbox policies remain public substitutes.
+
+The small independent bindings, diagnostic API and Python wrapper are
+part of Local Postshot. No original Postshot source, executable, library,
+resource, PTX or other product artifact is loaded or distributed here.

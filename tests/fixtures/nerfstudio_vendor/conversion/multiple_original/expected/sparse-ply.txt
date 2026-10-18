@@ -1,0 +1,13 @@
+ply
+format ascii 1.0
+element vertex 3
+property float x
+property float y
+property float z
+property uint8 red
+property uint8 green
+property uint8 blue
+end_header
+1.125000 -2.250000 4.500000 0 127 255
+-0.125000 0.250000 3.750000 254 1 128
+0.000000 -0.000000 -0.500000 11 22 33

@@ -1,0 +1,36 @@
+{
+  "release": false,
+  "python": "python/python.exe",
+  "preprocess_python": "python/python.exe",
+  "engine_root": "../engine",
+  "pipeline_root": "../pipeline",
+  "data_root": "${user_data_root}/projects",
+  "ffmpeg": "../tools/ffmpeg/ffmpeg.exe",
+  "ffprobe": "../tools/ffmpeg/ffprobe.exe",
+  "colmap": "../tools/colmap/bin/colmap.exe",
+  "media_helper": "../tools/insta360/bin/gsstudio-media-helper.exe",
+  "mediasdk_root": "../tools/insta360",
+  "realityscan": null,
+  "realityscan_export_params": null,
+  "gpu_lock_path": "${user_data_root}/cache/gpu.lock",
+  "torch_extensions_dir": "../engine/extensions",
+  "torch_home": "../models/torch",
+  "package": {
+    "core_runtime_root": "python",
+    "preprocess_runtime_root": "python",
+    "python_lock_file": "python-requirements.lock.txt",
+    "ffmpeg_root": "../tools/ffmpeg",
+    "colmap_root": "../tools/colmap",
+    "mediasdk_runtime_root": "../tools/insta360",
+    "model_cache_roots": [
+      {
+        "source": "../models/torch",
+        "destination": "torch"
+      }
+    ],
+    "notice_files": [
+      "../notices/THIRD-PARTY-NOTICES.txt"
+    ],
+    "redistributable_files": []
+  }
+}

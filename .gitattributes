@@ -1,0 +1,22 @@
+* text=auto
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+LICENSE text eol=lf
+.githooks/* text eol=lf
+
+# Keep byte-hashed upstream fixtures/licenses and frozen CUDA sources verbatim.
+# Their whitespace belongs to the recorded source identity, not formatting edits.
+tests/fixtures/nerfstudio_vendor/** -text -whitespace
+src/gsstudio/_vendor/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+src/gsstudio/_vendor/LICENSE-APACHE-2.0.txt -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+src/gsstudio/_vendor/LICENSE-COLMAP-BSD.txt -text -whitespace
+engine/local_postshot/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+engine/native/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+engine/editor_native/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+engine/native/splat3_projection/projection.cu -whitespace
+engine/native/splat3_render/Statistics.cu -whitespace

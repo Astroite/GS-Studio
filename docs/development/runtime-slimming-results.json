@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "release": "v0.3.0-rc.1",
+  "review_date": "2026-10-18",
+  "release_scope": "source-only prerelease; no binary attachments",
+  "binary_distribution_status": "evidence-gathered-binary-release-blocked",
+  "evidence_policy": "Whitelisted aggregate values and external artifact fingerprints only; raw evidence remains outside public source. No GPU, reconstruction, training, installation or activation was run by this documentation cleanup.",
+  "gib_divisor": 1073741824,
+  "packages": {
+    "original": {
+      "payload_files": 65701,
+      "payload_bytes": 20169853443,
+      "inventory_sha256": "04e9ef55a48063878c0c61990345f99318fa90afa7c0a6cb01c08fb7f6e899c1"
+    },
+    "public_candidate": {
+      "payload_files": 9133,
+      "payload_bytes": 6495443306,
+      "inventory_sha256": "ddb6a69a8cfffa7c25e0be1fbfdc148797ec6b2433a4226d2d957e56abd24494",
+      "root_files_including_inventory": 9134,
+      "root_bytes_including_inventory": 6497272221
+    },
+    "local_final": {
+      "payload_files": 9298,
+      "payload_bytes": 8449816529,
+      "inventory_sha256": "393be8a260166b40ffdbae148dde36f4e104bc71d9c979a88ddb6323d4489285"
+    }
+  },
+  "public_compression": {
+    "volumes": 2,
+    "bytes": 2738873151,
+    "archive_test": "passed",
+    "extract": "passed",
+    "uploaded": false
+  },
+  "runtime_lock": {
+    "python": "3.10.22",
+    "torch": "2.8.0+cu129",
+    "torchvision": "0.23.0+cu129",
+    "frozen_core_distributions": 44,
+    "hash_locked_additions": 8,
+    "unified_development_distributions": 52,
+    "runtime_partition": 41,
+    "build_test_partition": 11,
+    "protected_old_environments": "preserved for rollback; excluded from final package size; no implicit runtime fallback"
+  },
+  "tests": {
+    "pipeline_final": {
+      "passed": 269,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "runtime_final": {
+      "passed": 39,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "deselected": 1
+    },
+    "frontend": {
+      "passed": 34,
+      "failed": 0
+    },
+    "rust": {
+      "passed": 7,
+      "failed": 0,
+      "includes_real_packaged_worker_bootstrap": true
+    },
+    "core": {
+      "passed": 354,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 48,
+      "skip_scope": "opt-in GPU, old PTX or platform conditions"
+    },
+    "vendor": {
+      "passed": 35,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pipeline_earlier": {
+      "passed": 259,
+      "failed": 1,
+      "failure": "stale startup -B assertion",
+      "affected_after_fix_passed": 26
+    }
+  },
+  "real_masks": {
+    "samples": 21,
+    "minimum_iou": 0.9945465644712745,
+    "missed_baseline_high_confidence_targets": 0,
+    "original_reviewed_masks": "unchanged"
+  },
+  "short_regression": {
+    "scene": "South Building",
+    "train_views": 112,
+    "holdout_views": 16,
+    "seed": 42,
+    "recipe": "quality_v2",
+    "steps": 120,
+    "runs_per_arm": 1,
+    "scope": "short consistency regression; not 10k-step quality acceptance or a robust speed benchmark",
+    "arms": [
+      {
+        "arm": "baseline",
+        "train_call_wall_seconds": 20.1189771,
+        "psnr": 15.116953790187836,
+        "ssim": 0.3890410605818033,
+        "source_unchanged": true,
+        "protected_unchanged": true
+      },
+      {
+        "arm": "unified",
+        "train_call_wall_seconds": 18.7149577,
+        "psnr": 15.116954326629639,
+        "ssim": 0.3890410494059324,
+        "source_unchanged": true,
+        "protected_unchanged": true
+      },
+      {
+        "arm": "pruned",
+        "train_call_wall_seconds": 19.506149,
+        "psnr": 15.116954863071442,
+        "ssim": 0.38904108852148056,
+        "source_unchanged": true,
+        "protected_unchanged": true
+      }
+    ],
+    "historical_10k_pairs": "three earlier pairs remain historical evidence, not rerun here"
+  },
+  "bounded_package_checks": {
+    "pruned_local_candidate": "passed CPU/GPU core, saved pause/resume, masks and probes; hermetic runtime, no JIT/download; protected hashes unchanged",
+    "public_smoke": "passed standalone runtime, absent optional tools and portable defaults",
+    "gui_local_final": "passed native window and packaged worker startup/termination; not visual interaction QA",
+    "sdk_stitch": "passed two real X6 frames, dynamic stitching and FlowState, deduplicated local SDK; source hash unchanged",
+    "local_final_integrity": {
+      "status": "passed",
+      "local_final": {
+        "files": 9298,
+        "bytes": 8449816529,
+        "inventory_sha256": "393be8a260166b40ffdbae148dde36f4e104bc71d9c979a88ddb6323d4489285",
+        "exe_sha256": "9f0c72c2497fbd8a8154dd67005e0106ef01c565d60986f2e5f8c2e398f443d5"
+      },
+      "candidate_to_final_changes": [
+        "notices/027-LICENSE",
+        "notices/028-NOTICE",
+        "notices/029-THIRD_PARTY_NOTICES.md",
+        "package-exclusions.json",
+        "package-inputs.json",
+        "pipeline/gsstudio/_vendor/PROVENANCE.md",
+        "pipeline/gsstudio/pipeline/editor/runtime.py"
+      ],
+      "elapsed_seconds": 98.33260107040405
+    },
+    "local_activation": {
+      "status": "passed",
+      "previous_inventory_sha256": "04e9ef55a48063878c0c61990345f99318fa90afa7c0a6cb01c08fb7f6e899c1",
+      "active_inventory_sha256": "393be8a260166b40ffdbae148dde36f4e104bc71d9c979a88ddb6323d4489285",
+      "gpu_lock_checked": true,
+      "no_active_tasks": true,
+      "protected_inputs": "Original media, projects, development runtimes and SDK/key directories preserved; previous package retained for rollback"
+    },
+    "public_relocation": {
+      "status": "passed",
+      "archive": "full extracted file list, byte counts and SHA256 verified",
+      "runtime": "isolated shared Python, frozen engine identity, optional SDK absence and no-JIT/download guards",
+      "gui": "native window and packaged worker startup/termination at a path containing Chinese characters and spaces",
+      "scope": "no relocated GPU training rerun or complete visual interaction acceptance",
+      "first_attempt": "test harness child omitted UTF-8 argument; corrected harness passed without package changes"
+    },
+    "active_gui": "passed native window and packaged worker startup/termination at active local package entry"
+  },
+  "pending_external_evidence": [],
+  "known_limitations": [
+    "low representative panorama quality",
+    "lossy SPZ and possible attribute clipping",
+    "actual GPU coverage only compute capability 8.9",
+    "old Run/checkpoint and .psht unsupported",
+    "trainable segments do not establish full-route coverage"
+  ],
+  "external_artifact_sha256": {
+    "final-pipeline-all.log": "f37aa5271ccb6149990beb1c9b72b4f7fc9685375bf788b2eb211e0d800e57db",
+    "final-pipeline-all.xml": "cc0cf846f0d7b3f2ebf0afeff204d62486d1a95c1c6b899ae18539bc9c3d4858",
+    "final-runtime-tests.log": "5f541ce263e9c87e3c2ed3022051552913567064233bff4f2ee9582a3e3891e5",
+    "final-runtime-tests.xml": "3cbde95d39e23a7e9c202aaf85675eaf8b0a94a150aad40f3087d21c38c27129",
+    "final-frontend-tests.log": "84f0c2c6e0e88964255b74564c5f84dd4e7d23016c42edd547b6886e1c7bfc18",
+    "final-rust-tests.log": "640a6f6deeeefa65c01a8411e7dc897d89f2e156146b37e0a8d206a3945e0fa7",
+    "engine-all.xml": "78f8463c2dd2adfe4326512f43dee6c18686a1379ed79971a06fccb2609f0d89",
+    "vendor-independent.xml": "98ed7af9f0108a12e113db148e071fd552ecbdc08b7e9622728a2487d4a597de",
+    "mask-comparison-unified.json": "26b7272f08e342ded6286e14dba56a4e35d0eacdca9bf1c1cf2b2671fc4afe6b",
+    "gpu-unified/validation.json": "8fca0614b78d67cfb58e51047b883d56dd7f74bf513f241e500653320f1153fb",
+    "package-local-002/result.json": "0533b547305025ef7215c9f982d83226fc700d88870fdb6874a0e98388a6f0f0",
+    "public-smoke-002/result.json": "8f5b7c513884584eec5e32ee1536111cb87a382337aff8b0ec0c7630737f3bd5",
+    "gui-local-001/result.json": "59af383b0acc01da33d108fb47c1bdf0e962db2c27645f9eb787ecf917612f70",
+    "sdk-stitch-final/result.json": "fb25a7f5d2405ab77ecad308cfc0be5e5a6e9da62259f050b17929d9b44f11fc",
+    "local-final-integrity.json": "3cbedddab931f8161588102d4e76f486789a0be1e2f1904973757cc0f9e064f1",
+    "real-baseline/run.json": "9b4aa1bc5ca6a73918fd05a42777d3eabfbdb5c959f1608ca00abc192cc169bf",
+    "real-unified/run.json": "360a35543daecb29657520ac05228ffeefec52feff4267085f7314fe2bac7201",
+    "real-pruned/run.json": "875db63da5e68319b769f7dfdc6eeda8180417fa2ac0da7b5aeb1ca082f053dd",
+    "archive-test.log": "f97dca920c40ea0ef89824580123c55b3efadc121f7b1b10b8b54312369132d8",
+    "archive-extract.log": "d3afb5d59363708f05f2114387b22fe29724990feeea522260745dfe0269e2ae",
+    "activation.json": "b2ad947a73c211a7661beb4ab0c9cc7b6d2f5f0f11c22d694cb6a1d6684cd5a8",
+    "size-and-relocation.json": "fc721cfd490d020d49ff01730da6166804c9cd599117d2c65d4a6df7a64c6a08",
+    "public-relocated-002/result.json": "e23be9232bf0eccf0d2baa031f7048349e786e3d619472faecb28534161e277a",
+    "gui-relocated-001/result.json": "a6be0c3cd25063031519bcdf59643facfee8e593112e75362ee51db0ee658c0b",
+    "gui-active-001/result.json": "e7c0534e4673d283d8075a00116d4df4115220a5cb046a3628cf953675e18da2"
+  }
+}

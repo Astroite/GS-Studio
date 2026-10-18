@@ -1,0 +1,3 @@
+# Reproduce the 52-distribution development environment without changing core versions.
+-r runtime-requirements.lock.txt
+-r build-test-requirements.lock.txt

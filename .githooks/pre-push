@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+repo=$(git rev-parse --show-toplevel) || exit 2
+# Do not chain git-lfs pre-push: this repository publishes source only.
+exec sh "$repo/.githooks/run-source-guard.sh" pre-push

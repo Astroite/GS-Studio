@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.test-output/
+src-tauri/target/
+src-tauri/gen/
+*.local
+*.log

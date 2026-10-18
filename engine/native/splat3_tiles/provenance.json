@@ -1,0 +1,10 @@
+{
+  "implementation": "Independently written LocalPostshot tiles; no original source/PTX/binary included",
+  "public_contract_source": "https://github.com/nerfstudio-project/gsplat/blob/v1.5.3/gsplat/cuda/csrc/IntersectTile.cu",
+  "recovery_evidence": "evidence/splat3/round4-tile/contract.json",
+  "license": "Apache-2.0",
+  "modes": [
+    "conservative_v1",
+    "native_exact_v1"
+  ]
+}

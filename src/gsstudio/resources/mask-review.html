@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mask Review · GS Studio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101214;
+      --panel: #181b1f;
+      --panel-2: #20242a;
+      --line: #31363e;
+      --muted: #929aa5;
+      --text: #edf0f3;
+      --accent: #f5bd4f;
+      --accent-2: #ff5d4a;
+      --good: #4ecb8d;
+      --bad: #ff6b62;
+      --warn: #f5bd4f;
+      --blue: #61a9ff;
+      --radius: 12px;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; overflow: hidden; background: var(--bg); color: var(--text); }
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; }
+    .app { height: 100%; display: grid; grid-template-rows: 64px minmax(0, 1fr); }
+    header {
+      display: flex; align-items: center; gap: 22px; padding: 0 20px;
+      border-bottom: 1px solid var(--line); background: #14171a;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 260px; }
+    .brand-mark {
+      width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+      color: #111; font-size: 12px; font-weight: 900; letter-spacing: -.02em;
+      background: linear-gradient(145deg, #ffe49b, var(--accent));
+      box-shadow: 0 0 0 1px #ffd9794d inset;
+    }
+    .brand h1 { font-size: 15px; margin: 0; letter-spacing: .01em; }
+    .brand p { font-size: 11px; color: var(--muted); margin: 3px 0 0; }
+    .summary { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; }
+    .metric {
+      display: flex; gap: 7px; align-items: baseline; padding: 7px 10px;
+      border-radius: 9px; border: 1px solid var(--line); background: #1a1e22;
+      white-space: nowrap;
+    }
+    .metric strong { font-size: 13px; }
+    .metric span { color: var(--muted); font-size: 11px; }
+    .header-actions { display: flex; gap: 8px; margin-left: auto; }
+    .btn, .icon-btn {
+      border: 1px solid var(--line); background: var(--panel-2); border-radius: 8px;
+      padding: 8px 11px; cursor: pointer; transition: .15s ease; text-decoration: none;
+    }
+    .btn:hover, .icon-btn:hover { border-color: #58616d; background: #292e35; }
+    .btn:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 1px;
+    }
+    .layout { min-height: 0; display: grid; grid-template-columns: 330px minmax(440px, 1fr) 300px; }
+    .layout.gallery-mode { grid-template-columns: 264px minmax(0, 1fr); }
+    .layout.gallery-mode .inspector { display: none; }
+    .layout.gallery-mode .browser { grid-template-rows: auto minmax(0, 1fr) auto; }
+    .layout.gallery-mode .list { visibility: hidden; }
+    .browser, .inspector { min-height: 0; background: var(--panel); }
+    .browser { border-right: 1px solid var(--line); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+    .inspector { border-left: 1px solid var(--line); overflow-y: auto; padding: 18px; }
+    .browser-controls { padding: 14px; border-bottom: 1px solid var(--line); display: grid; gap: 9px; }
+    .search-wrap { position: relative; }
+    .search-wrap::before { content: "⌕"; position: absolute; left: 11px; top: 8px; color: var(--muted); }
+    input[type="search"], input[type="number"], select, textarea {
+      width: 100%; border: 1px solid var(--line); border-radius: 8px;
+      background: #111418; color: var(--text); padding: 8px 10px;
+    }
+    input[type="search"] { padding-left: 31px; }
+    .control-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .control-label { display: grid; gap: 5px; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+    .list { overflow-y: auto; padding: 8px; scrollbar-color: #464c55 transparent; }
+    .card {
+      width: 100%; display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 10px;
+      padding: 8px; margin-bottom: 7px; text-align: left; border: 1px solid transparent;
+      border-radius: 10px; background: transparent; cursor: pointer;
+    }
+    .card:hover { background: #20242a; }
+    .card.selected { border-color: #665632; background: #29261e; box-shadow: 0 0 0 1px #f5bd4f1c inset; }
+    .thumb { width: 82px; height: 70px; object-fit: cover; border-radius: 7px; background: #0c0e10; }
+    .card-copy { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 5px; }
+    .card-title { font-size: 12px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .card-sub { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 10px; }
+    .ratio-track { height: 3px; border-radius: 99px; overflow: hidden; background: #353a41; }
+    .ratio-fill { height: 100%; min-width: 1px; background: var(--accent-2); }
+    .status-pill { width: fit-content; padding: 2px 6px; border: 1px solid var(--line); border-radius: 99px; font-size: 9px; }
+    .status-ok { color: var(--good); border-color: #356d54; }
+    .status-false_positive, .status-false_negative, .status-stale { color: var(--warn); border-color: #705d30; }
+    .status-exclude { color: var(--bad); border-color: #7f3e39; }
+    .pager { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--line); }
+    .pager span { font-size: 11px; color: var(--muted); }
+    .pager button { padding: 6px 10px; }
+    .viewer { min-width: 0; min-height: 0; display: grid; grid-template-rows: 52px minmax(0, 1fr) 42px; background: #0d0f11; }
+    .viewer-toolbar, .viewer-footer { display: flex; align-items: center; gap: 10px; padding: 0 14px; background: #15181c; }
+    .viewer-toolbar { border-bottom: 1px solid var(--line); }
+    .viewer-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; justify-content: space-between; }
+    .current-title { min-width: 0; flex: 1; }
+    .current-title strong, .current-title span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .current-title strong { font-size: 12px; }
+    .current-title span { color: var(--muted); font-size: 10px; margin-top: 2px; }
+    .mode-group { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .mode-group button { border: 0; border-right: 1px solid var(--line); background: var(--panel-2); padding: 7px 10px; cursor: pointer; font-size: 11px; }
+    .mode-group button:last-child { border-right: 0; }
+    .mode-group button.active { color: #19140a; background: var(--accent); }
+    .workspace-group button { padding-inline: 12px; }
+    .opacity { width: 110px; display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 10px; }
+    input[type="range"] { width: 75px; accent-color: var(--accent-2); }
+    .stage { min-height: 0; position: relative; display: grid; place-items: center; overflow: hidden; padding: 18px; background-image: radial-gradient(#24282d 1px, transparent 1px); background-size: 18px 18px; }
+    .stage.gallery-active { display: block; overflow-y: auto; padding: 14px; scrollbar-color: #464c55 transparent; }
+    .stage.gallery-active .single, .stage.gallery-active .split { display: none !important; }
+    .gallery { display: none; width: 100%; grid-template-columns: repeat(auto-fill, minmax(var(--gallery-min, 135px), 1fr)); gap: 10px; align-content: start; }
+    .stage.gallery-active .gallery { display: grid; }
+    .gallery-card {
+      min-width: 0; padding: 0; overflow: hidden; text-align: left; cursor: pointer;
+      border: 1px solid var(--line); border-radius: 9px; background: #171a1e;
+      transition: border-color .15s ease, transform .15s ease, background .15s ease;
+    }
+    .gallery-card:hover { border-color: #6b747f; background: #1e2227; transform: translateY(-1px); }
+    .gallery-card.selected { border-color: var(--accent); box-shadow: 0 0 0 1px #f5bd4f40 inset; }
+    .gallery-image-wrap { position: relative; aspect-ratio: 1 / 1; background: #08090a; overflow: hidden; }
+    .gallery-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .gallery-badge { position: absolute; top: 6px; padding: 3px 6px; border-radius: 5px; background: #080a0dcc; color: #f3f5f7; font-size: 9px; backdrop-filter: blur(4px); }
+    .gallery-id { left: 6px; }
+    .gallery-ratio { right: 6px; }
+    .gallery-copy { display: grid; gap: 5px; padding: 7px 8px 8px; }
+    .gallery-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10px; font-weight: 650; }
+    .gallery-meta { display: flex; align-items: center; justify-content: space-between; gap: 6px; color: var(--muted); font-size: 9px; }
+    .gallery-meta .status-pill { flex: 0 0 auto; }
+    .gallery[data-density="72"] { gap: 7px; }
+    .gallery[data-density="72"] .gallery-copy { padding: 5px 6px 6px; }
+    .gallery[data-density="72"] .gallery-meta { display: none; }
+    .gallery-toolbar { display: none; align-items: center; gap: 8px; }
+    .viewer.gallery-view .gallery-toolbar { display: flex; }
+    .viewer.gallery-view #prevItem, .viewer.gallery-view #nextItem, .viewer.gallery-view .opacity { display: none; }
+    .viewer.gallery-view [data-mode="split"] { display: none; }
+    .single, .split { width: 100%; height: 100%; min-height: 0; }
+    .single { position: relative; display: grid; place-items: center; }
+    .single img, .split img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .mask-overlay {
+      position: absolute; inset: 0; background: #ff3b2f;
+      -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+      -webkit-mask-position: center; mask-position: center;
+      -webkit-mask-size: contain; mask-size: contain;
+      mask-mode: luminance;
+      pointer-events: none;
+    }
+    .split { display: none; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .split-pane { min-width: 0; min-height: 0; position: relative; display: grid; place-items: center; background: #08090a; overflow: hidden; }
+    .pane-label { position: absolute; top: 10px; left: 10px; z-index: 2; padding: 4px 7px; border-radius: 6px; background: #111b; color: #d7dbe0; font-size: 10px; }
+    .mask-only { image-rendering: auto; }
+    .empty { color: var(--muted); display: grid; place-items: center; min-height: 180px; font-size: 12px; }
+    .inspector h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .09em; margin: 0 0 12px; color: #b8bec6; }
+    .info { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 9px 10px; margin: 0 0 18px; font-size: 11px; }
+    .info dt { color: var(--muted); }
+    .info dd { margin: 0; word-break: break-all; }
+    .large-ratio { font-size: 28px; font-weight: 750; letter-spacing: -.04em; }
+    .large-ratio span { font-size: 12px; color: var(--muted); letter-spacing: 0; }
+    .section { padding: 16px 0; border-top: 1px solid var(--line); }
+    .review-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .review-button { text-align: left; min-height: 48px; }
+    .review-button strong, .review-button span { display: block; }
+    .review-button strong { font-size: 11px; }
+    .review-button span { margin-top: 3px; color: var(--muted); font-size: 9px; }
+    .review-button.active { border-color: var(--accent); box-shadow: 0 0 0 1px #f5bd4f44 inset; }
+    textarea { min-height: 86px; resize: vertical; line-height: 1.45; }
+    .note-actions { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+    .check { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 10px; }
+    input[type="checkbox"] { accent-color: var(--accent); }
+    .legend { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 10px; }
+    .legend-swatch { width: 12px; height: 12px; border-radius: 3px; background: #ff3b2f; }
+    .shortcuts { display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; font-size: 10px; color: var(--muted); }
+    kbd { min-width: 24px; padding: 2px 5px; border: 1px solid #464c55; border-bottom-width: 2px; border-radius: 5px; color: #d9dde2; text-align: center; background: #252a30; }
+    .toast { position: fixed; left: 50%; bottom: 22px; z-index: 10; transform: translate(-50%, 12px); opacity: 0; pointer-events: none; padding: 9px 13px; border-radius: 8px; background: #f0f2f4; color: #16181a; font-size: 11px; font-weight: 650; transition: .18s ease; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    .error { display: none; position: fixed; z-index: 20; top: 76px; left: 50%; transform: translateX(-50%); max-width: 720px; padding: 12px 16px; border: 1px solid #a74b44; border-radius: 9px; background: #421f1d; color: #ffd8d4; font-size: 12px; }
+    @media (max-width: 1120px) {
+      .layout { grid-template-columns: 280px minmax(400px, 1fr); }
+      .layout.gallery-mode { grid-template-columns: 230px minmax(0, 1fr); }
+      .inspector { position: fixed; right: 0; top: 64px; bottom: 0; width: 300px; z-index: 5; box-shadow: -12px 0 28px #0008; }
+      .summary .metric:nth-child(n+3) { display: none; }
+    }
+    @media (max-width: 720px) {
+      html, body { height: auto; min-height: 100%; overflow-x: hidden; overflow-y: auto; }
+      .app { display: block; height: auto; min-height: 100vh; }
+      header {
+        min-height: 64px; height: auto; padding: 10px 12px; gap: 10px;
+        flex-wrap: wrap; align-content: center;
+      }
+      .brand { min-width: 126px; flex: 1 1 126px; }
+      .brand p { display: none; }
+      .summary { order: 3; flex: 1 0 100%; gap: 6px; }
+      .summary .metric { flex: 1; justify-content: center; padding: 6px 8px; }
+      .header-actions { margin-left: 0; gap: 4px; }
+      .header-actions .btn, .workspace-group button { padding-inline: 8px; }
+      .layout, .layout.gallery-mode { display: block; min-height: 0; }
+      .browser {
+        height: 430px; border-right: 0; border-bottom: 1px solid var(--line);
+      }
+      .layout.gallery-mode .browser { display: none; }
+      .viewer {
+        height: 520px; min-height: 520px;
+        grid-template-rows: auto minmax(0, 1fr) 42px;
+      }
+      .layout.gallery-mode .viewer { height: max(540px, calc(100vh - 112px)); }
+      .viewer-toolbar {
+        min-height: 92px; padding: 8px 10px; gap: 6px;
+        flex-wrap: wrap; align-content: center;
+      }
+      .viewer-toolbar .current-title { flex: 1 1 180px; }
+      .viewer-toolbar .mode-group { flex: 0 0 auto; }
+      .viewer-toolbar .opacity { flex: 1 1 110px; }
+      .stage { padding: 10px; }
+      .split { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+      .inspector {
+        position: static; width: 100%; height: auto; padding: 18px;
+        overflow: visible; border-top: 1px solid var(--line); border-left: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">MR</div>
+        <div><h1>Mask Review</h1><p>GS Studio · Postshot occluder QA</p></div>
+      </div>
+      <div class="summary">
+        <div class="metric"><strong id="totalCount">—</strong><span>图像</span></div>
+        <div class="metric"><strong id="reviewedCount">—</strong><span>已审核</span></div>
+        <div class="metric"><strong id="issueCount">—</strong><span>待修正</span></div>
+        <div class="metric"><strong id="excludedCount">—</strong><span>剔除</span></div>
+      </div>
+      <div class="header-actions">
+        <div class="mode-group workspace-group" id="workspaceGroup" role="group" aria-label="预览布局">
+          <button data-workspace="detail" class="active">单张</button>
+          <button data-workspace="gallery">缩略图墙</button>
+        </div>
+        <a class="btn" href="/api/reviews.csv">导出 CSV</a>
+      </div>
+    </header>
+
+    <div id="layout" class="layout">
+      <aside class="browser">
+        <div class="browser-controls">
+          <div class="search-wrap"><input id="search" type="search" placeholder="搜索 ID、文件名或源路径"></div>
+          <div class="control-row">
+            <label class="control-label">状态
+              <select id="statusFilter">
+                <option value="all">全部状态</option>
+                <option value="unreviewed">未审核</option>
+                <option value="ok">通过</option>
+                <option value="issues">待修正</option>
+                <option value="stale">遮罩已变更</option>
+                <option value="false_negative">漏遮人物</option>
+                <option value="false_positive">误遮背景</option>
+                <option value="exclude">整图剔除</option>
+              </select>
+            </label>
+            <label class="control-label">排序
+              <select id="sort">
+                <option value="ratio-desc">遮罩比例 ↓</option>
+                <option value="ratio-asc">遮罩比例 ↑</option>
+                <option value="id-asc">图像 ID</option>
+                <option value="source-asc">源路径</option>
+                <option value="status">审核状态</option>
+              </select>
+            </label>
+          </div>
+          <label class="control-label">最小遮罩比例
+            <div class="control-row" style="grid-template-columns: 1fr 72px">
+              <input id="minRatioRange" type="range" min="0" max="30" step="0.5" value="0">
+              <input id="minRatio" type="number" min="0" max="100" step="0.5" value="0" aria-label="最小遮罩百分比">
+            </div>
+          </label>
+        </div>
+        <div id="list" class="list"><div class="empty">正在读取数据集…</div></div>
+        <div class="pager">
+          <button id="prevPage" class="icon-btn">←</button>
+          <span id="pageInfo">—</span>
+          <button id="nextPage" class="icon-btn">→</button>
+        </div>
+      </aside>
+
+      <section id="viewer" class="viewer">
+        <div class="viewer-toolbar">
+          <button id="prevItem" class="icon-btn" title="上一张（A / ←）">←</button>
+          <button id="nextItem" class="icon-btn" title="下一张（D / →）">→</button>
+          <div class="current-title"><strong id="currentName">请选择图像</strong><span id="currentSource">—</span></div>
+          <div class="mode-group" id="modeGroup">
+            <button data-mode="overlay" class="active">叠加</button>
+            <button data-mode="split">并排</button>
+            <button data-mode="image">原图</button>
+            <button data-mode="mask">遮罩</button>
+          </div>
+          <label class="opacity">透明度 <input id="opacity" type="range" min="0" max="100" value="58"></label>
+          <div class="gallery-toolbar">
+            <button id="galleryPrev" class="icon-btn">← 上一页</button>
+            <label class="control-label" style="display:flex; align-items:center; gap:6px">密度
+              <select id="galleryPageSize" style="width:auto; padding:6px 24px 6px 8px">
+                <option value="32">宽松 · 32 张</option>
+                <option value="48" selected>标准 · 48 张</option>
+                <option value="72">紧凑 · 72 张</option>
+              </select>
+            </label>
+            <button id="galleryNext" class="icon-btn">下一页 →</button>
+          </div>
+        </div>
+        <div id="stage" class="stage">
+          <div id="single" class="single">
+            <img id="mainImage" alt="当前原图">
+            <div id="maskOverlay" class="mask-overlay"></div>
+          </div>
+          <div id="split" class="split">
+            <div class="split-pane"><span class="pane-label">原图</span><img id="splitImage" alt="原图"></div>
+            <div class="split-pane"><span class="pane-label">白色 = Postshot 忽略</span><img id="splitMask" class="mask-only" alt="遮罩"></div>
+          </div>
+          <div id="gallery" class="gallery" aria-label="批量缩略图预览"></div>
+        </div>
+        <div class="viewer-footer">
+          <div class="legend"><span class="legend-swatch"></span><span>红色区域 = 当前 Postshot 白色忽略遮罩</span></div>
+          <span id="position">—</span>
+        </div>
+      </section>
+
+      <aside class="inspector">
+        <h2>当前图像</h2>
+        <div class="large-ratio" id="ratio">—<span> 遮罩占比</span></div>
+        <div class="section">
+          <dl class="info">
+            <dt>Image ID</dt><dd id="infoId">—</dd>
+            <dt>尺寸</dt><dd id="infoSize">—</dd>
+            <dt>输出图像</dt><dd id="infoOutput">—</dd>
+            <dt>源图像</dt><dd id="infoSource">—</dd>
+            <dt>白色像素</dt><dd id="infoPixels">—</dd>
+          </dl>
+        </div>
+        <div class="section">
+          <h2>审核结论</h2>
+          <div class="review-buttons">
+            <button class="btn review-button" data-status="ok"><strong>1 · 通过</strong><span>人物覆盖准确</span></button>
+            <button class="btn review-button" data-status="false_negative"><strong>2 · 漏遮人物</strong><span>有明显人物残留</span></button>
+            <button class="btn review-button" data-status="false_positive"><strong>3 · 误遮背景</strong><span>建筑或植被被遮</span></button>
+            <button class="btn review-button" data-status="exclude"><strong>4 · 整图剔除</strong><span>遮挡或模糊严重</span></button>
+          </div>
+          <button id="clearReview" class="btn" style="width:100%; margin-top:8px">0 · 清除审核</button>
+        </div>
+        <div class="section">
+          <h2>备注</h2>
+          <textarea id="note" placeholder="例如：右下手臂漏遮；屋顶误遮；建议整图移除…"></textarea>
+          <div class="note-actions">
+            <label class="check"><input id="autoAdvance" type="checkbox" checked> 标记后自动下一张</label>
+            <button id="saveNote" class="btn">保存备注</button>
+          </div>
+        </div>
+        <div class="section">
+          <h2>快捷键</h2>
+          <div class="shortcuts">
+            <kbd>A / ←</kbd><span>上一张</span><kbd>D / →</kbd><span>下一张</span>
+            <kbd>1–4</kbd><span>设置审核结论</span><kbd>0</kbd><span>清除审核</span>
+            <kbd>V</kbd><span>切换查看方式</span><kbd>Ctrl ↵</kbd><span>保存备注</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <div id="error" class="error"></div>
+
+  <script>
+    const DETAIL_PAGE_SIZE = 24;
+    const labels = {
+      unreviewed: "未审核", ok: "通过", false_positive: "误遮背景",
+      false_negative: "漏遮人物", exclude: "整图剔除", stale: "遮罩已变更"
+    };
+    const state = { items: [], filtered: [], current: null, page: 0, mode: "overlay", workspace: "detail", galleryPageSize: 48 };
+    const $ = (id) => document.getElementById(id);
+    const pageSize = () => state.workspace === "gallery" ? state.galleryPageSize : DETAIL_PAGE_SIZE;
+
+    function percent(value) { return `${(value * 100).toFixed(2)}%`; }
+    function showError(message) { const el = $("error"); el.textContent = message; el.style.display = "block"; }
+    let toastTimer;
+    function toast(message) {
+      const el = $("toast"); el.textContent = message; el.classList.add("show");
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 1300);
+    }
+
+    function updateSummary() {
+      const counts = { unreviewed: 0, ok: 0, false_positive: 0, false_negative: 0, exclude: 0, stale: 0 };
+      state.items.forEach((item) => { counts[item.status] = (counts[item.status] || 0) + 1; });
+      $("totalCount").textContent = state.items.length.toLocaleString();
+      $("reviewedCount").textContent = (state.items.length - counts.unreviewed - counts.stale).toLocaleString();
+      $("issueCount").textContent = (counts.false_positive + counts.false_negative + counts.stale).toLocaleString();
+      $("excludedCount").textContent = counts.exclude.toLocaleString();
+    }
+
+    function applyFilters(keepCurrent = true) {
+      const query = $("search").value.trim().toLowerCase();
+      const status = $("statusFilter").value;
+      const minRatio = Math.max(0, Number($("minRatio").value) || 0) / 100;
+      let values = state.items.filter((item) => {
+        const textMatch = !query || String(item.image_id).includes(query) ||
+          item.output_image.toLowerCase().includes(query) || item.source_image.toLowerCase().includes(query);
+        const statusMatch = status === "all" || item.status === status ||
+          (status === "issues" && ["false_positive", "false_negative", "stale"].includes(item.status));
+        return textMatch && statusMatch && item.masked_fraction >= minRatio;
+      });
+      const sort = $("sort").value;
+      values.sort((a, b) => {
+        if (sort === "ratio-desc") return b.masked_fraction - a.masked_fraction || a.image_id - b.image_id;
+        if (sort === "ratio-asc") return a.masked_fraction - b.masked_fraction || a.image_id - b.image_id;
+        if (sort === "source-asc") return a.source_image.localeCompare(b.source_image);
+        if (sort === "status") return a.status.localeCompare(b.status) || b.masked_fraction - a.masked_fraction;
+        return a.image_id - b.image_id;
+      });
+      state.filtered = values;
+      let index = keepCurrent && state.current ? values.findIndex((item) => item.image_id === state.current.image_id) : -1;
+      if (index < 0) index = 0;
+      if (values.length) {
+        state.current = values[index];
+        state.page = Math.floor(index / pageSize());
+      } else {
+        state.current = null; state.page = 0;
+      }
+      renderList(); renderCurrent();
+    }
+
+    function renderList() {
+      const list = $("list"); list.replaceChildren();
+      const size = pageSize();
+      const pageCount = Math.max(1, Math.ceil(state.filtered.length / size));
+      state.page = Math.max(0, Math.min(state.page, pageCount - 1));
+      const start = state.page * size;
+      const visible = state.filtered.slice(start, start + size);
+      if (!visible.length) {
+        const empty = document.createElement("div"); empty.className = "empty"; empty.textContent = "没有符合筛选条件的图像"; list.append(empty);
+      }
+      if (state.workspace === "detail") visible.forEach((item) => {
+        const card = document.createElement("button");
+        card.className = `card${state.current?.image_id === item.image_id ? " selected" : ""}`;
+        card.addEventListener("click", () => selectItem(item.image_id));
+        const image = document.createElement("img"); image.className = "thumb"; image.loading = "lazy";
+        image.src = `/media/thumbnail?id=${item.image_id}&v=${item.mask_sha256}`; image.alt = "";
+        const copy = document.createElement("div"); copy.className = "card-copy";
+        const title = document.createElement("div"); title.className = "card-title"; title.textContent = item.output_image;
+        const sub = document.createElement("div"); sub.className = "card-sub";
+        const id = document.createElement("span"); id.textContent = `#${item.image_id}`;
+        const ratio = document.createElement("span"); ratio.textContent = percent(item.masked_fraction);
+        sub.append(id, ratio);
+        const track = document.createElement("div"); track.className = "ratio-track";
+        const fill = document.createElement("div"); fill.className = "ratio-fill";
+        fill.style.width = `${Math.min(100, item.masked_fraction * 100)}%`; track.append(fill);
+        const pill = document.createElement("span"); pill.className = `status-pill status-${item.status}`; pill.textContent = labels[item.status];
+        copy.append(title, sub, track, pill); card.append(image, copy); list.append(card);
+      });
+      renderGallery(visible, start);
+      $("pageInfo").textContent = `${state.filtered.length.toLocaleString()} 张 · ${state.page + 1}/${pageCount} 页`;
+      $("prevPage").disabled = state.page === 0;
+      $("nextPage").disabled = state.page >= pageCount - 1;
+      $("galleryPrev").disabled = state.page === 0;
+      $("galleryNext").disabled = state.page >= pageCount - 1;
+    }
+
+    function renderGallery(visible, start) {
+      const gallery = $("gallery"); gallery.replaceChildren();
+      if (state.workspace !== "gallery") return;
+      gallery.dataset.density = String(state.galleryPageSize);
+      gallery.style.setProperty("--gallery-min", ({32: "180px", 48: "135px", 72: "110px"})[state.galleryPageSize]);
+      if (!visible.length) {
+        const empty = document.createElement("div"); empty.className = "empty";
+        empty.textContent = "没有符合筛选条件的图像"; gallery.append(empty); return;
+      }
+      visible.forEach((item) => {
+        const card = document.createElement("button");
+        card.className = `gallery-card${state.current?.image_id === item.image_id ? " selected" : ""}`;
+        card.title = `打开 ${item.output_image} 的单张检查`;
+        card.addEventListener("click", () => openDetail(item.image_id));
+        const imageWrap = document.createElement("div"); imageWrap.className = "gallery-image-wrap";
+        const image = document.createElement("img"); image.className = "gallery-image"; image.loading = "lazy";
+        image.src = `/media/thumbnail?id=${item.image_id}&mode=${state.mode}&v=${item.mask_sha256}`;
+        image.alt = `${item.output_image} ${state.mode === "overlay" ? "叠加" : state.mode === "image" ? "原图" : "遮罩"}预览`;
+        const id = document.createElement("span"); id.className = "gallery-badge gallery-id"; id.textContent = `#${item.image_id}`;
+        const ratio = document.createElement("span"); ratio.className = "gallery-badge gallery-ratio"; ratio.textContent = percent(item.masked_fraction);
+        imageWrap.append(image, id, ratio);
+        const copy = document.createElement("div"); copy.className = "gallery-copy";
+        const title = document.createElement("div"); title.className = "gallery-title"; title.textContent = item.output_image;
+        const meta = document.createElement("div"); meta.className = "gallery-meta";
+        const source = document.createElement("span"); source.textContent = item.source_image;
+        source.style.cssText = "min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis";
+        const pill = document.createElement("span"); pill.className = `status-pill status-${item.status}`; pill.textContent = labels[item.status];
+        meta.append(source, pill); copy.append(title, meta); card.append(imageWrap, copy); gallery.append(card);
+      });
+      $("position").textContent = `${start + 1}–${start + visible.length} / ${state.filtered.length}`;
+    }
+
+    function selectItem(imageId) {
+      const item = state.filtered.find((candidate) => candidate.image_id === imageId) ||
+        state.items.find((candidate) => candidate.image_id === imageId);
+      if (!item) return;
+      state.current = item;
+      const index = state.filtered.findIndex((candidate) => candidate.image_id === imageId);
+      if (index >= 0) state.page = Math.floor(index / pageSize());
+      renderList(); renderCurrent();
+    }
+
+    function openDetail(imageId) {
+      const item = state.filtered.find((candidate) => candidate.image_id === imageId) ||
+        state.items.find((candidate) => candidate.image_id === imageId);
+      if (!item) return;
+      state.current = item;
+      setWorkspace("detail");
+    }
+
+    function renderCurrent() {
+      const item = state.current;
+      if (!item) {
+        $("currentName").textContent = "没有匹配图像"; $("position").textContent = "—"; return;
+      }
+      if (state.workspace === "gallery") {
+        const start = state.page * pageSize();
+        const end = Math.min(state.filtered.length, start + pageSize());
+        $("currentName").textContent = "缩略图批量预览";
+        $("currentSource").textContent = `当前显示 ${start + 1}–${end}，共 ${state.filtered.length.toLocaleString()} 张`;
+        $("opacity").disabled = true;
+        return;
+      }
+      const imageUrl = `/media/image?id=${item.image_id}`;
+      const maskUrl = `/media/mask?id=${item.image_id}&v=${item.mask_sha256}`;
+      $("mainImage").src = state.mode === "mask" ? maskUrl : imageUrl;
+      $("mainImage").classList.toggle("mask-only", state.mode === "mask");
+      $("splitImage").src = imageUrl; $("splitMask").src = maskUrl;
+      $("maskOverlay").style.webkitMaskImage = `url("${maskUrl}")`;
+      $("maskOverlay").style.maskImage = `url("${maskUrl}")`;
+      $("maskOverlay").style.opacity = Number($("opacity").value) / 100;
+      $("maskOverlay").style.display = state.mode === "overlay" ? "block" : "none";
+      $("single").style.display = state.mode === "split" ? "none" : "grid";
+      $("split").style.display = state.mode === "split" ? "grid" : "none";
+      $("opacity").disabled = state.mode !== "overlay";
+      $("currentName").textContent = item.output_image;
+      $("currentSource").textContent = item.source_image;
+      $("ratio").firstChild.textContent = percent(item.masked_fraction);
+      $("infoId").textContent = item.image_id;
+      $("infoSize").textContent = `${item.width} × ${item.height}`;
+      $("infoOutput").textContent = item.output_image;
+      $("infoSource").textContent = item.source_image;
+      $("infoPixels").textContent = item.ignored_pixels.toLocaleString();
+      $("note").value = item.note || "";
+      document.querySelectorAll("[data-status]").forEach((button) =>
+        button.classList.toggle("active", button.dataset.status === item.status));
+      const index = state.filtered.findIndex((candidate) => candidate.image_id === item.image_id);
+      $("position").textContent = index >= 0 ? `${index + 1} / ${state.filtered.length}` : "当前图像不在筛选结果中";
+    }
+
+    function move(delta) {
+      if (!state.current || !state.filtered.length) return;
+      let index = state.filtered.findIndex((item) => item.image_id === state.current.image_id);
+      index = Math.max(0, Math.min(state.filtered.length - 1, index + delta));
+      selectItem(state.filtered[index].image_id);
+    }
+
+    async function saveReview(status, advance = false) {
+      if (!state.current) return;
+      if (status === "stale") throw new Error("遮罩已变更，请重新查看后选择新的审核结论");
+      const currentId = state.current.image_id;
+      const currentIndex = state.filtered.findIndex((item) => item.image_id === currentId);
+      const nextId = state.filtered[Math.min(state.filtered.length - 1, currentIndex + 1)]?.image_id;
+      const response = await fetch("/api/review", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image_id: currentId, status, note: $("note").value })
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "保存审核失败");
+      const item = state.items.find((candidate) => candidate.image_id === currentId);
+      item.status = payload.review.status; item.note = payload.review.note;
+      updateSummary(); applyFilters(true); toast(`已保存：${labels[status]}`);
+      if (advance && $("autoAdvance").checked && nextId && nextId !== currentId) selectItem(nextId);
+    }
+
+    function setMode(mode) {
+      if (state.workspace === "gallery" && mode === "split") return;
+      state.mode = mode;
+      document.querySelectorAll("#modeGroup button").forEach((button) =>
+        button.classList.toggle("active", button.dataset.mode === mode));
+      if (state.workspace === "gallery") renderList();
+      renderCurrent();
+    }
+
+    function setWorkspace(workspace) {
+      const currentIndex = state.current ? state.filtered.findIndex((item) => item.image_id === state.current.image_id) : -1;
+      state.workspace = workspace;
+      if (workspace === "gallery" && state.mode === "split") state.mode = "overlay";
+      if (currentIndex >= 0) state.page = Math.floor(currentIndex / pageSize());
+      $("layout").classList.toggle("gallery-mode", workspace === "gallery");
+      $("viewer").classList.toggle("gallery-view", workspace === "gallery");
+      $("stage").classList.toggle("gallery-active", workspace === "gallery");
+      document.querySelectorAll("#workspaceGroup button").forEach((button) =>
+        button.classList.toggle("active", button.dataset.workspace === workspace));
+      document.querySelectorAll("#modeGroup button").forEach((button) =>
+        button.classList.toggle("active", button.dataset.mode === state.mode));
+      renderList(); renderCurrent();
+    }
+
+    async function boot() {
+      const response = await fetch("/api/items");
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "无法读取审核数据集");
+      state.items = payload.items; updateSummary(); applyFilters(false);
+    }
+
+    ["search", "statusFilter", "sort"].forEach((id) => $(id).addEventListener(id === "search" ? "input" : "change", () => applyFilters(false)));
+    $("minRatioRange").addEventListener("input", (event) => { $("minRatio").value = event.target.value; applyFilters(false); });
+    $("minRatio").addEventListener("input", (event) => { $("minRatioRange").value = Math.min(30, Number(event.target.value) || 0); applyFilters(false); });
+    $("prevPage").addEventListener("click", () => { state.page--; renderList(); });
+    $("nextPage").addEventListener("click", () => { state.page++; renderList(); });
+    $("galleryPrev").addEventListener("click", () => { state.page--; renderList(); renderCurrent(); });
+    $("galleryNext").addEventListener("click", () => { state.page++; renderList(); renderCurrent(); });
+    $("galleryPageSize").addEventListener("change", (event) => {
+      const firstVisible = state.page * state.galleryPageSize;
+      state.galleryPageSize = Number(event.target.value); state.page = Math.floor(firstVisible / state.galleryPageSize);
+      renderList(); renderCurrent();
+    });
+    $("workspaceGroup").addEventListener("click", (event) => { if (event.target.dataset.workspace) setWorkspace(event.target.dataset.workspace); });
+    $("prevItem").addEventListener("click", () => move(-1)); $("nextItem").addEventListener("click", () => move(1));
+    $("modeGroup").addEventListener("click", (event) => { if (event.target.dataset.mode) setMode(event.target.dataset.mode); });
+    $("opacity").addEventListener("input", () => { $("maskOverlay").style.opacity = Number($("opacity").value) / 100; });
+    document.querySelectorAll("[data-status]").forEach((button) => button.addEventListener("click", () => saveReview(button.dataset.status, true).catch((error) => showError(error.message))));
+    $("clearReview").addEventListener("click", () => saveReview("unreviewed", false).catch((error) => showError(error.message)));
+    $("saveNote").addEventListener("click", () => saveReview(state.current?.status || "unreviewed", false).catch((error) => showError(error.message)));
+    document.addEventListener("keydown", (event) => {
+      const typing = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName);
+      if (event.ctrlKey && event.key === "Enter") { event.preventDefault(); saveReview(state.current?.status || "unreviewed").catch((error) => showError(error.message)); return; }
+      if (typing || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (["ArrowLeft", "a", "A"].includes(event.key)) move(-1);
+      else if (["ArrowRight", "d", "D"].includes(event.key)) move(1);
+      else if (event.key === "1") saveReview("ok", true).catch((error) => showError(error.message));
+      else if (event.key === "2") saveReview("false_negative", true).catch((error) => showError(error.message));
+      else if (event.key === "3") saveReview("false_positive", true).catch((error) => showError(error.message));
+      else if (event.key === "4") saveReview("exclude", true).catch((error) => showError(error.message));
+      else if (event.key === "0") saveReview("unreviewed", false).catch((error) => showError(error.message));
+      else if (["v", "V"].includes(event.key)) {
+        const modes = state.workspace === "gallery" ? ["overlay", "image", "mask"] : ["overlay", "split", "image", "mask"];
+        setMode(modes[(modes.indexOf(state.mode) + 1) % modes.length]);
+      }
+      else if (["g", "G"].includes(event.key)) setWorkspace(state.workspace === "gallery" ? "detail" : "gallery");
+    });
+    boot().catch((error) => showError(error.message));
+  </script>
+</body>
+</html>

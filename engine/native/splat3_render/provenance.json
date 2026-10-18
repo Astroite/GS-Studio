@@ -1,0 +1,10 @@
+{
+  "RasterizeToPixels3DGSFwd.cu": {
+    "source": "https://github.com/nerfstudio-project/gsplat/blob/v1.5.3/gsplat/cuda/csrc/RasterizeToPixels3DGSFwd.cu",
+    "sha256": "91c09fadf0bcedf46787b353657bb8a7e10bf591d06769782a331e59bfd81624"
+  },
+  "RasterizeToPixels3DGSBwd.cu": {
+    "source": "https://github.com/nerfstudio-project/gsplat/blob/v1.5.3/gsplat/cuda/csrc/RasterizeToPixels3DGSBwd.cu",
+    "sha256": "7b68930f41ca26e35f1faa67d7a4df7ab1a03473869855cd5e7c498b9d067953"
+  }
+}
