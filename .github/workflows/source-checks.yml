@@ -35,6 +35,8 @@ jobs:
         run: python -I -B scripts/check_source_payload.py history --all
       - name: Source publication guard regressions (stdlib only)
         run: python -I -B -m unittest discover -s tests/source_guard -v
+      - name: Windows build scripts and public bootstrap contracts (stdlib only)
+        run: python -I -B -m unittest discover -s tests/build_scripts -v
       - name: Whitespace
         run: git diff --check
       - name: Install CPU test harness only

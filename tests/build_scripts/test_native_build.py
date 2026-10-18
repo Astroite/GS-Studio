@@ -1,0 +1,243 @@
+"""Portable build entrypoints: real CLI/path checks, no Torch, CUDA or compiler."""
+from __future__ import annotations
+
+import contextlib
+import importlib.util
+import io
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
+import unittest
+from unittest.mock import patch
+import zipfile
+
+
+REPO = Path(__file__).resolve().parents[2]
+SCRIPT = REPO / "engine/scripts/build_native.py"
+SPEC = importlib.util.spec_from_file_location("native_build_contract", SCRIPT)
+native = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(native)
+
+
+class NativeBuildTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(prefix="GS Studio 构建 ")
+        self.root = Path(self.temp.name)
+        self.out = self.root / "输出 jobs" / "new-job"
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def args(self, module="splat3-render", *extra):
+        return native.parse_args([module, "--python", sys.executable,
+                                  "--output", str(self.out), "--plan", *extra])
+
+    def fixture(self, name, files):
+        root = self.root / name
+        for file in files:
+            path = root / file
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("fixture\n", encoding="utf-8")
+        return root
+
+    def invoke(self, script, args, env=None):
+        return subprocess.run([sys.executable, "-I", "-B", "-X", "utf8", str(script), *args],
+                              cwd=self.root, env=env, capture_output=True, text=True, encoding="utf-8")
+
+    def test_internal_mapping_is_engine_native_from_unrelated_cwd(self):
+        for module in ("splat3-stats", "splat3-render", "splat3-tiles"):
+            with self.subTest(module=module):
+                result = self.invoke(SCRIPT, [module, "--output", str(self.out), "--plan"])
+                self.assertEqual(result.returncode, 0, result.stderr)
+                plan = json.loads(result.stdout)
+                root = Path(plan["sources"][module]["root"])
+                self.assertEqual(root, REPO / "engine/native" / module.replace("-", "_"))
+                self.assertNotIn("engine/engine", root.as_posix())
+        self.assertFalse(self.out.exists())
+
+    def test_selection_plan_never_imports_torch_or_engine_runtime(self):
+        before = set(sys.modules)
+        plan = native.make_plan(self.args("studio-selection"))
+        self.assertEqual(Path(plan["sources"]["studio-selection"]["root"]), REPO / "engine/editor_native")
+        self.assertNotIn("torch", set(sys.modules) - before)
+        self.assertFalse(any(name.startswith("local_postshot") for name in set(sys.modules) - before))
+        self.assertFalse(self.out.exists())
+
+    def test_projection_requires_and_records_pinned_glm_source(self):
+        with self.assertRaisesRegex(ValueError, "GLM"):
+            native.make_plan(self.args("splat3-projection"))
+        gsplat = self.fixture("gsplat 中文", [native.GLM + "/glm/glm.hpp", "setup.py"])
+        plan = native.make_plan(self.args("splat3-projection", "--gsplat-source", str(gsplat)))
+        self.assertEqual(plan["sources"]["gsplat"]["revision"], native.PINS["gsplat"])
+        self.assertEqual(plan["glm_revision"], native.GLM_PIN)
+
+    def test_external_sources_must_be_explicit(self):
+        with patch.dict(os.environ, {}, clear=True):
+            for module in ("gsplat", "fused-ssim", "spz"):
+                with self.subTest(module=module), self.assertRaisesRegex(ValueError, "Explicit"):
+                    native.make_plan(self.args(module))
+
+    def test_spz_requires_local_compression_sources_and_preserves_build_cmake(self):
+        spz = self.fixture("spz", ["pyproject.toml"])
+        zlib = self.fixture("zlib", ["CMakeLists.txt"])
+        zstd = self.fixture("zstd", ["build/cmake/CMakeLists.txt", "lib/zstd.h"])
+        with self.assertRaisesRegex(ValueError, "zlib-source"):
+            native.make_plan(self.args("spz", "--spz-source", str(spz)))
+        plan = native.make_plan(self.args("spz", "--spz-source", str(spz),
+                                "--zlib-source", str(zlib), "--zstd-source", str(zstd)))
+        self.assertIn("build/cmake/CMakeLists.txt", plan["sources"]["zstd"]["files"])
+        self.assertFalse(plan["downloads"])
+
+    def test_plan_preserves_space_unicode_arguments_and_omits_compiler_requirement(self):
+        source = self.fixture("源码 含空格", ["setup.py", "binding.cpp"])
+        result = self.invoke(SCRIPT, ["splat3-render", "--source-root", str(source),
+                                     "--output", str(self.out), "--plan"])
+        self.assertEqual(result.returncode, 0, result.stderr)
+        plan = json.loads(result.stdout)
+        self.assertEqual(plan["sources"]["splat3-render"]["root"], str(source))
+        self.assertEqual(plan["output"], str(self.out))
+        self.assertFalse(self.out.exists())
+
+    def test_output_must_be_new_external_and_not_runtime_ancestor(self):
+        self.out.mkdir(parents=True)
+        with self.assertRaisesRegex(ValueError, "already exists"):
+            native.make_plan(self.args())
+        self.out.rmdir()
+        for output in (REPO / "new-build-output", Path(sys.executable).parent / "new-build-output"):
+            with self.subTest(output=output), self.assertRaisesRegex(ValueError, "overlap"):
+                native.make_plan(native.parse_args(["splat3-render", "--output", str(output), "--plan"]))
+
+    def test_missing_source_python_and_invalid_architecture_are_rejected(self):
+        for extra, error in [(["--source-root", str(self.root / "missing")], "entry missing"),
+                             (["--python", str(self.root / "missing.exe")], "Python executable missing"),
+                             (["--architecture", "8.9 & cmd"], "Architecture")]:
+            with self.subTest(extra=extra), self.assertRaisesRegex(ValueError, error):
+                native.make_plan(self.args("splat3-render", *extra))
+
+    def test_source_snapshot_omits_build_products_and_keeps_text_sources(self):
+        source = self.fixture("snapshot", ["setup.py", "native/kernel.cu", "build/temp.obj",
+                                         "cache.pyc", "dist/old.whl", "old.egg-info/PKG-INFO"])
+        self.assertEqual(set(native.source_files(source)), {"setup.py", "native/kernel.cu"})
+
+    def test_archive_receipt_binds_every_source_file_and_revision(self):
+        source = self.fixture("fused source", ["setup.py", "kernel.cu"])
+        plan = native.make_plan(self.args("fused-ssim", "--fused-ssim-source", str(source)))
+        with self.assertRaisesRegex(ValueError, "archive needs"):
+            native.verify_external_sources(plan)
+        receipts = {"fused-ssim": {"revision": native.PINS["fused-ssim"],
+                                   "files": dict(plan["sources"]["fused-ssim"]["files"])}}
+        receipt = self.root / "receipts.json"
+        receipt.write_text(json.dumps(receipts))
+        native.verify_external_sources(plan, receipt)
+        receipts["fused-ssim"]["files"]["extra.py"] = "0" * 64
+        receipt.write_text(json.dumps(receipts))
+        with self.assertRaisesRegex(ValueError, "archive needs"):
+            native.verify_external_sources(plan, receipt)
+
+    def test_git_commit_mismatch_and_dirty_trees_are_rejected(self):
+        source = self.fixture("fused git", ["setup.py", ".git/HEAD"])
+        plan = native.make_plan(self.args("fused-ssim", "--fused-ssim-source", str(source)))
+        with patch.object(native, "git_output", return_value="wrong"):
+            with self.assertRaisesRegex(ValueError, "Unpinned"):
+                native.verify_external_sources(plan)
+        with patch.object(native, "git_output", side_effect=[native.PINS["fused-ssim"], " M kernel.cu"]):
+            with self.assertRaisesRegex(ValueError, "Modified"):
+                native.verify_external_sources(plan)
+
+    def test_symlink_source_is_rejected_when_supported(self):
+        source = self.fixture("source", ["setup.py"])
+        link = self.root / "linked"
+        try:
+            link.symlink_to(source, target_is_directory=True)
+        except OSError:
+            self.skipTest("symlink creation is unavailable")
+        with self.assertRaisesRegex(ValueError, "symlink/reparse"):
+            native.make_plan(self.args("splat3-render", "--source-root", str(link)))
+
+    def test_real_build_failure_propagates_and_keeps_failure_proof(self):
+        plan = native.make_plan(self.args())
+        fake_result = subprocess.CompletedProcess([], 7)
+        with patch.object(native, "compiler_environment", return_value=dict(os.environ)), \
+                patch.object(native.subprocess, "run", return_value=fake_result):
+            with self.assertRaisesRegex(RuntimeError, "exited 7"):
+                native.build(plan)
+        proof = json.loads((self.out / "build-proof.json").read_text())
+        self.assertFalse(proof["success"])
+        self.assertEqual(proof["exit_code"], 7)
+        self.assertTrue((self.out / "sources/splat3-render/setup.py").is_file())
+        self.assertFalse((REPO / "engine/native/splat3_render/build").exists())
+
+    def test_main_failure_has_nonzero_status_without_output_mutation(self):
+        with contextlib.redirect_stderr(io.StringIO()) as error:
+            status = native.main(["splat3-render", "--python", "missing-python", "--output", str(self.out), "--plan"])
+        self.assertEqual(status, 1)
+        self.assertIn("Python executable missing", error.getvalue())
+        self.assertFalse(self.out.exists())
+
+    def test_spz_wheel_metadata_must_match_frozen_version_and_actual_cp310_abi(self):
+        plan = {"distribution": "spz", "version": "1.1.0"}
+        wheel = self.root / "fixture.whl"
+        for version, tag, valid in (("1.1.0", "cp310-cp310-win_amd64", True),
+                                    ("1.1.0", "cp312-abi3-win_amd64", False),
+                                    ("1.2.0", "cp310-cp310-win_amd64", False)):
+            with self.subTest(version=version, tag=tag):
+                with zipfile.ZipFile(wheel, "w") as archive:
+                    archive.writestr("spz.dist-info/METADATA", f"Name: spz\nVersion: {version}\n")
+                    archive.writestr("spz.dist-info/WHEEL", f"Wheel-Version: 1.0\nTag: {tag}\n")
+                if valid:
+                    native.validate_wheel(wheel, plan)
+                else:
+                    with self.assertRaises(RuntimeError):
+                        native.validate_wheel(wheel, plan)
+
+    @unittest.skipUnless(os.name == "nt", "Windows entrypoints")
+    def test_every_cmd_delegates_to_same_relative_helper_and_propagates_bad_plan(self):
+        mapping = {"native": "gsplat", "fused-ssim": "fused-ssim", "spz": "spz",
+                   **{name: name for name in ("splat3-stats", "splat3-render", "splat3-tiles", "splat3-projection")}}
+        env = dict(os.environ, GSSTUDIO_BUILD_PYTHON=sys.executable)
+        for name, module in mapping.items():
+            with self.subTest(script=name):
+                source = self.fixture("CMD " + name, ["setup.py", "pyproject.toml", native.GLM + "/glm/glm.hpp"])
+                command = f'"{REPO / ("engine/scripts/setup-build-" + name + ".cmd")}" --source-root "{source}" --output "{self.out}" --plan'
+                if module == "spz":
+                    zlib = self.fixture("CMD zlib", ["CMakeLists.txt"])
+                    zstd = self.fixture("CMD zstd", ["build/cmake/CMakeLists.txt"])
+                    command += f' --zlib-source "{zlib}" --zstd-source "{zstd}"'
+                if module == "splat3-projection":
+                    command += f' --gsplat-source "{source}"'
+                proc = subprocess.run(native.cmd_command(command),
+                                      cwd=self.root, env=env, capture_output=True, text=True, encoding="utf-8")
+                self.assertEqual(proc.returncode, 0, proc.stderr)
+                self.assertEqual(json.loads(proc.stdout)["module"], module)
+        command = f'"{REPO / "engine/scripts/setup-build-splat3-render.cmd"}" --source-root "{self.root / "missing"}" --output "{self.out}" --plan'
+        proc = subprocess.run(native.cmd_command(command), env=env, capture_output=True)
+        self.assertNotEqual(proc.returncode, 0)
+        self.assertFalse(self.out.exists())
+
+    @unittest.skipUnless(os.name == "nt", "Windows entrypoints")
+    def test_selection_powershell_plan_is_explicit_and_unicode_safe(self):
+        shell = shutil.which("pwsh") or shutil.which("powershell")
+        proc = subprocess.run([shell, "-NoProfile", "-File", str(REPO / "engine/scripts/build_studio_selection.ps1"),
+                               "-PythonPath", sys.executable, "-Output", str(self.out), "-PlanOnly"],
+                              cwd=self.root, capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertEqual(json.loads(proc.stdout)["module"], "studio-selection")
+        self.assertFalse(self.out.exists())
+
+    @unittest.skipUnless(os.name == "nt", "Windows entrypoints")
+    def test_retired_runtime_entrypoint_exits_two_without_writing(self):
+        shell = shutil.which("pwsh") or shutil.which("powershell")
+        proc = subprocess.run([shell, "-NoProfile", "-File", str(REPO / "engine/scripts/setup-runtime.ps1"),
+                               "-DataRoot", str(self.out)], cwd=self.root,
+                              capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(proc.returncode, 2, proc.stderr)
+        self.assertIn("bootstrap_windows.py", proc.stderr)
+        self.assertFalse(self.out.exists())
+
+
+if __name__ == "__main__":
+    unittest.main()

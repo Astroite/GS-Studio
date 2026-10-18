@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "python_version": "3.10.22",
+  "platform": "win_amd64",
+  "metadata_checked": "2026-10-19",
+  "python": {
+    "filename": "cpython-3.10.22+20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.10.22%2B20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "sha256": "f20288c45ff11e7fe026f40ddcfb2acfe695cec18860746639e289142a589745",
+    "size": 22008461
+  },
+  "wheels": [
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "filename": "jinja2-3.1.6-py3-none-any.whl",
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "url": "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl",
+      "size": 134899
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0",
+      "filename": "setuptools-84.0.0-py3-none-any.whl",
+      "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+      "url": "https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl",
+      "size": 818216
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "filename": "shellingham-1.5.4-py2.py3-none-any.whl",
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+      "url": "https://files.pythonhosted.org/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl",
+      "size": 9755
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "filename": "sympy-1.14.0-py3-none-any.whl",
+      "sha256": "e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5",
+      "url": "https://files.pythonhosted.org/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl",
+      "size": 6299353
+    },
+    {
+      "name": "tomli",
+      "version": "2.5.0",
+      "filename": "tomli-2.5.0-py3-none-any.whl",
+      "sha256": "32a7b79ac57a2e83670ce329ccf675798bc5a2094783a63676866b70503f2e2b",
+      "url": "https://files.pythonhosted.org/packages/60/3f/3e3f8fd0919249b0200c80fbc4f9a1e70be19f9883da71dfb7f8b9ab8aca/tomli-2.5.0-py3-none-any.whl",
+      "size": 14765
+    },
+    {
+      "name": "typer",
+      "version": "0.27.2",
+      "filename": "typer-0.27.2-py3-none-any.whl",
+      "sha256": "b3a5fc4342d5fc8fda8fc3010b1cf117e9249aab7fae800c2eff62fd3842d97d",
+      "url": "https://files.pythonhosted.org/packages/dc/bf/205d0004930ede8f542fb58f601526fccf4ae7626075ca1e6c4de5d3d652/typer-0.27.2-py3-none-any.whl",
+      "size": 123130
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "filename": "typing_inspection-0.4.4-py3-none-any.whl",
+      "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+      "url": "https://files.pythonhosted.org/packages/67/81/4add07e5172b7ac40d8ed5ff580409a7801a4fe26d529bdd915401dabfbe/typing_inspection-0.4.4-py3-none-any.whl",
+      "size": 14750
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "size": 45571
+    },
+    {
+      "name": "wadler_lindig",
+      "version": "0.1.7",
+      "filename": "wadler_lindig-0.1.7-py3-none-any.whl",
+      "sha256": "e3ec83835570fd0a9509f969162aeb9c65618f998b1f42918cfc8d45122fe953",
+      "url": "https://files.pythonhosted.org/packages/8d/96/04e7b441807b26b794da5b11e59ed7f83b2cf8af202bd7eba8ad2fa6046e/wadler_lindig-0.1.7-py3-none-any.whl",
+      "size": 20516
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "filename": "scipy-1.15.3-cp310-cp310-win_amd64.whl",
+      "sha256": "9d61e97b186a57350f6d6fd72640f9e99d5a4a2b8fbf4b9ee9a841eab327dc13",
+      "url": "https://files.pythonhosted.org/packages/d1/84/55bc4881973d3f79b479a5a2e2df61c8c9a04fcb986a213ac9c02cfb659b/scipy-1.15.3-cp310-cp310-win_amd64.whl",
+      "size": 41259201
+    },
+    {
+      "name": "cmake",
+      "version": "4.4.4",
+      "filename": "cmake-4.4.4-py3-none-win_amd64.whl",
+      "sha256": "ad8e0a38b5707e27882701146bdfffecacd80e7703fa0fc36c77528518d545af",
+      "url": "https://files.pythonhosted.org/packages/87/9c/a7918eeeed09b34aa5dc1b767367fb1a2dcbb56171be00be0fd1280fe752/cmake-4.4.4-py3-none-win_amd64.whl",
+      "size": 42321211
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "filename": "iniconfig-2.3.1-py3-none-any.whl",
+      "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7",
+      "url": "https://files.pythonhosted.org/packages/56/43/4ca9e49d27a1fcf6bece6f6aec0ea46bb9112489b93d4b688fb415457bdb/iniconfig-2.3.1-py3-none-any.whl",
+      "size": 7552
+    },
+    {
+      "name": "nanobind",
+      "version": "3.1.0",
+      "filename": "nanobind-3.1.0-py3-none-any.whl",
+      "sha256": "96984dbe8154ffb86e653b1b60aaeed6985c710c5e75ad0279eb87943c66292d",
+      "url": "https://files.pythonhosted.org/packages/36/c1/6fd56f7a02a478d54a1a3e6000eccd34b446b1c45cbf0d002fe5d2937126/nanobind-3.1.0-py3-none-any.whl",
+      "size": 316917
+    },
+    {
+      "name": "pathspec",
+      "version": "1.1.1",
+      "filename": "pathspec-1.1.1-py3-none-any.whl",
+      "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+      "url": "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl",
+      "size": 57328
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1",
+      "filename": "pip-26.2.1-py3-none-any.whl",
+      "sha256": "71138adf1f4ca900cdb7d289c21b7494329f2332b6d85f0e1c42108c0384ed3e",
+      "url": "https://files.pythonhosted.org/packages/f3/6e/1736e5b4ae2b778ef2f81c47d797de9f891d4d8acb047a24ca37a60294dd/pip-26.2.1-py3-none-any.whl",
+      "size": 1816632
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "filename": "pluggy-1.6.0-py3-none-any.whl",
+      "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746",
+      "url": "https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl",
+      "size": 20538
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "filename": "pytest-9.1.1-py3-none-any.whl",
+      "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c",
+      "url": "https://files.pythonhosted.org/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl",
+      "size": 386536
+    },
+    {
+      "name": "scikit_build_core",
+      "version": "1.1.1",
+      "filename": "scikit_build_core-1.1.1-py3-none-any.whl",
+      "sha256": "6f6d6cf600e2e9639fd258ecd11cfc19bd189354b968916a519c6793e7e26237",
+      "url": "https://files.pythonhosted.org/packages/01/1b/83913d6d5c6a7f8ad5bf5d67b2d57ab09475f1bb9dd0c7a3f44067d59b90/scikit_build_core-1.1.1-py3-none-any.whl",
+      "size": 293450
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "filename": "wheel-0.48.0-py3-none-any.whl",
+      "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+      "url": "https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl",
+      "size": 33320
+    },
+    {
+      "name": "exceptiongroup",
+      "version": "1.3.1",
+      "filename": "exceptiongroup-1.3.1-py3-none-any.whl",
+      "sha256": "a7a39a3bd276781e98394987d3a5701d0c4edffb633bb7a5144577f82c773598",
+      "url": "https://files.pythonhosted.org/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl",
+      "size": 16740
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "filename": "rich-15.0.0-py3-none-any.whl",
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+      "url": "https://files.pythonhosted.org/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl",
+      "size": 310654
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.46.5",
+      "filename": "pydantic_core-2.46.5-cp310-cp310-win_amd64.whl",
+      "sha256": "1e5aad1220a1192c42341c8fd4a8686657e73ab2a920c970bdc4de334fe3193d",
+      "url": "https://files.pythonhosted.org/packages/f2/94/205ed9d7ddaf44acd489889708ea124a3f41bdb42c141c8684d528ad0e7a/pydantic_core-2.46.5-cp310-cp310-win_amd64.whl",
+      "size": 2042551
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5",
+      "filename": "pydantic-2.13.5-py3-none-any.whl",
+      "sha256": "346a034f080da3755d8e9cb5e00e8b07de1d39e4f6e2c87d8ab7cafa0b269a73",
+      "url": "https://files.pythonhosted.org/packages/eb/47/c95ffc2009878c7aac0c5e08528022dcb885933252a88b5f170058014464/pydantic-2.13.5-py3-none-any.whl",
+      "size": 472589
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "filename": "markupsafe-3.0.4-cp310-cp310-win_amd64.whl",
+      "sha256": "5c22873ad1f0532ba40fa1727f3c0fc1bbbaab6d373d4cbe3f0dc74b2e2521c7",
+      "url": "https://files.pythonhosted.org/packages/50/50/394a1c61c9b9972cb4f76875c332af7109bd39bdad09d3a0ec5327a339dc/markupsafe-3.0.4-cp310-cp310-win_amd64.whl",
+      "size": 14329
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "filename": "pyyaml-6.0.3-cp310-cp310-win_amd64.whl",
+      "sha256": "bdb2c67c6c1390b63c6ff89f210c8fd09d9a1217a465701eac7316313c915e4c",
+      "url": "https://files.pythonhosted.org/packages/2a/fa/926c003379b19fca39dd4634818b00dec6c62d87faf628d1394e137354d4/pyyaml-6.0.3-cp310-cp310-win_amd64.whl",
+      "size": 158561
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "filename": "pygments-2.21.0-py3-none-any.whl",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "url": "https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl",
+      "size": 1250147
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "filename": "annotated_doc-0.0.5-py3-none-any.whl",
+      "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101",
+      "url": "https://files.pythonhosted.org/packages/3e/30/e900b21425a860e195f32e37657aa1f7c7f2b1bfb26f03ca209b90933c06/annotated_doc-0.0.5-py3-none-any.whl",
+      "size": 5302
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "filename": "annotated_types-0.8.0-py3-none-any.whl",
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "url": "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl",
+      "size": 13427
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+      "size": 25335
+    },
+    {
+      "name": "filelock",
+      "version": "4.1.0",
+      "filename": "filelock-4.1.0-py3-none-any.whl",
+      "sha256": "2ce9818e3e2d8f284c1a964414447ef148d42a5fd5e2a477a7118e574b293ec1",
+      "url": "https://files.pythonhosted.org/packages/ee/86/032133892a5de43b5a98200b01aadcad68cc255e274a762f08b8a76d2912/filelock-4.1.0-py3-none-any.whl",
+      "size": 133003
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "filename": "fsspec-2026.9.0-py3-none-any.whl",
+      "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f",
+      "url": "https://files.pythonhosted.org/packages/6c/c0/a98505f18594f1bce828bb159cec0fcf9860562f1a2c85913409fc8f3d9e/fsspec-2026.9.0-py3-none-any.whl",
+      "size": 221738
+    },
+    {
+      "name": "jaxtyping",
+      "version": "0.3.7",
+      "filename": "jaxtyping-0.3.7-py3-none-any.whl",
+      "sha256": "303ab8599edf412eeb40bf06c863e3168fa186cf0e7334703fa741ddd7046e66",
+      "url": "https://files.pythonhosted.org/packages/78/42/caf65e9a0576a3abadc537e2f831701ba9081f21317fb3be87d64451587a/jaxtyping-0.3.7-py3-none-any.whl",
+      "size": 56101
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "filename": "markdown_it_py-4.2.0-py3-none-any.whl",
+      "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a",
+      "url": "https://files.pythonhosted.org/packages/b3/81/4da04ced5a082363ecfa159c010d200ecbd959ae410c10c0264a38cac0f5/markdown_it_py-4.2.0-py3-none-any.whl",
+      "size": 91687
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "filename": "mdurl-0.1.2-py3-none-any.whl",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "url": "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl",
+      "size": 9979
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "filename": "mpmath-1.3.0-py3-none-any.whl",
+      "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c",
+      "url": "https://files.pythonhosted.org/packages/43/e3/7d92a15f894aa0c9c4b49b8ee9ac9850d6e63b03c9c32c0367a13ae62209/mpmath-1.3.0-py3-none-any.whl",
+      "size": 536198
+    },
+    {
+      "name": "networkx",
+      "version": "3.4.2",
+      "filename": "networkx-3.4.2-py3-none-any.whl",
+      "sha256": "df5d4365b724cf81b8c6a7312509d0c22386097011ad1abe274afd5e9d3bbc5f",
+      "url": "https://files.pythonhosted.org/packages/b9/54/dd730b32ea14ea797530a4479b2ed46a6fb250f682a9cfb997e968bf0261/networkx-3.4.2-py3-none-any.whl",
+      "size": 1723263
+    },
+    {
+      "name": "ninja",
+      "version": "1.13.2",
+      "filename": "ninja-1.13.2-py3-none-win_amd64.whl",
+      "sha256": "1293f4078278b70d0ee4b6cc8f3a9e030656c9b2f59909970343c4fe76070118",
+      "url": "https://files.pythonhosted.org/packages/3f/dd/3766b5f4d32e8a9b97d195496b0b01fbbe2e1a41669dab0cd6492a6ce199/ninja-1.13.2-py3-none-win_amd64.whl",
+      "size": 311798
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "filename": "numpy-1.26.4-cp310-cp310-win_amd64.whl",
+      "sha256": "b97fe8060236edf3662adfc2c633f56a08ae30560c56310562cb4f95500022d5",
+      "url": "https://files.pythonhosted.org/packages/19/77/538f202862b9183f54108557bfda67e17603fc560c384559e769321c9d92/numpy-1.26.4-cp310-cp310-win_amd64.whl",
+      "size": 15808905
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "4.11.0.86",
+      "filename": "opencv_python_headless-4.11.0.86-cp37-abi3-win_amd64.whl",
+      "sha256": "6c304df9caa7a6a5710b91709dd4786bf20a74d57672b3c31f7033cc638174ca",
+      "url": "https://files.pythonhosted.org/packages/86/8a/69176a64335aed183529207ba8bc3d329c2999d852b4f3818027203f50e6/opencv_python_headless-4.11.0.86-cp37-abi3-win_amd64.whl",
+      "size": 39402386
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "size": 129956
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "filename": "pillow-12.3.0-cp310-cp310-win_amd64.whl",
+      "sha256": "300557495eb45ebb8aec96c2da9c4be642fbf7cd937278b4013ba894ea8eb0eb",
+      "url": "https://files.pythonhosted.org/packages/48/7c/8fa0039574c476d7c6fa57dd7c32a130436877c6ec1e5ce1cc8ec44878c1/pillow-12.3.0-cp310-cp310-win_amd64.whl",
+      "size": 7226887
+    },
+    {
+      "name": "plyfile",
+      "version": "1.1.3",
+      "filename": "plyfile-1.1.3-py3-none-any.whl",
+      "sha256": "581302f07b1c298431dcaa9038bba2ae80f3f7868b29ccb826a07bc4488ff38a",
+      "url": "https://files.pythonhosted.org/packages/22/22/1755bb4c7db15bb1ed63b4eb7a7fc133bf42a3f9cc806c0d5941e107ba90/plyfile-1.1.3-py3-none-any.whl",
+      "size": 36455
+    },
+    {
+      "name": "torch",
+      "version": "2.8.0+cu129",
+      "filename": "torch-2.8.0+cu129-cp310-cp310-win_amd64.whl",
+      "sha256": "e4adcc3d44089d4a696e6a2ca4233d1ddad7614adc1d48ec8a8cfb95ba235ea1",
+      "url": "https://download.pytorch.org/whl/cu129/torch-2.8.0%2Bcu129-cp310-cp310-win_amd64.whl"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.23.0+cu129",
+      "filename": "torchvision-0.23.0+cu129-cp310-cp310-win_amd64.whl",
+      "sha256": "eaec7f8dd6f50f7516d4290c865ef4c9149034983523ebed83ebbd6023b5bf72",
+      "url": "https://download.pytorch.org/whl/cu129/torchvision-0.23.0%2Bcu129-cp310-cp310-win_amd64.whl"
+    }
+  ],
+  "sdists": [
+    {
+      "name": "python-devtools",
+      "version": "2",
+      "filename": "python-devtools-2.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/d5/ec/00fd45bbfaecbb04d87235bb81ba212ad42df0b0c77650c76951f30e1ea4/python-devtools-2.tar.gz",
+      "sha256": "2bb8e37305818dc80b5a23335aef54c602e5b6fd2572af38600d1ca1bcae89a1",
+      "size": 951
+    }
+  ],
+  "sources": [
+    {
+      "name": "gsplat",
+      "url": "https://github.com/nerfstudio-project/gsplat.git",
+      "glm_revision": "33b4a621a697a305bc3a7610d290677b96beb181",
+      "revision": "937e29912570c372bed6747a5c9bf85fed877bae"
+    },
+    {
+      "name": "fused-ssim",
+      "url": "https://github.com/rahul-goel/fused-ssim.git",
+      "revision": "a7c48d6dd7ac6dc39a7958c7c4452e0b10418f38"
+    },
+    {
+      "name": "spz",
+      "url": "https://github.com/nianticlabs/spz.git",
+      "revision": "affd0ecea7fbb4c265ee119475af7ee5b2997482"
+    },
+    {
+      "name": "zstd",
+      "url": "https://github.com/facebook/zstd.git",
+      "revision": "794ea1b0afca0f020f4e57b6732332231fb23c70"
+    }
+  ],
+  "zlib": {
+    "name": "zlib",
+    "version": "1.3.2",
+    "filename": "zlib-1.3.2.tar.gz",
+    "sha256": "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16",
+    "url": "https://zlib.net/fossils/zlib-1.3.2.tar.gz"
+  },
+  "cuda": {
+    "components": [
+      {
+        "sha256": "b83e3d6e57a078ba064051782d6312fbe4a3c8f73d6fe771b768e924a5d95788",
+        "version": "12.9.41",
+        "name": "cuda_nvcc",
+        "filename": "cuda_nvcc-windows-x86_64-12.9.41-archive.zip",
+        "size": 126946330,
+        "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvcc/windows-x86_64/cuda_nvcc-windows-x86_64-12.9.41-archive.zip"
+      },
+      {
+        "sha256": "f96afe6df898bc8510c48b44668bd9f825731efbf460f3640a922b2b8ae59ccc",
+        "version": "12.9.37",
+        "name": "cuda_cudart",
+        "filename": "cuda_cudart-windows-x86_64-12.9.37-archive.zip",
+        "size": 3519893,
+        "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_cudart/windows-x86_64/cuda_cudart-windows-x86_64-12.9.37-archive.zip"
+      },
+      {
+        "sha256": "17aaa7c6b8f94a417d8f3261780b7e34b9cbdfab7513bce86768623b06aa28b5",
+        "version": "12.9.27",
+        "name": "cuda_cccl",
+        "filename": "cuda_cccl-windows-x86_64-12.9.27-archive.zip",
+        "size": 3127658,
+        "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_cccl/windows-x86_64/cuda_cccl-windows-x86_64-12.9.27-archive.zip"
+      },
+      {
+        "sha256": "84b3486b7e2c4520da165646de508ae49b3b49b948bfc5746fecccb3aaebf0ff",
+        "version": "12.9.19",
+        "name": "cuda_profiler_api",
+        "filename": "cuda_profiler_api-windows-x86_64-12.9.19-archive.zip",
+        "size": 20199,
+        "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_profiler_api/windows-x86_64/cuda_profiler_api-windows-x86_64-12.9.19-archive.zip"
+      },
+      {
+        "sha256": "20d9c2cd3810c948b875820917b38053dacf200b23cb3b8b8a14ff3569aa1f31",
+        "version": "12.9.0.13",
+        "name": "libcublas",
+        "filename": "libcublas-windows-x86_64-12.9.0.13-archive.zip",
+        "size": 549211990,
+        "url": "https://developer.download.nvidia.com/compute/cuda/redist/libcublas/windows-x86_64/libcublas-windows-x86_64-12.9.0.13-archive.zip"
+      },
+      {
+        "sha256": "5f50aab32ad988108e50073092ca51fd99c12b8ba82f0cb6ecd44a5b89286508",
+        "version": "12.5.9.5",
+        "name": "libcusparse",
+        "filename": "libcusparse-windows-x86_64-12.5.9.5-archive.zip",
+        "size": 358101108,
+        "url": "https://developer.download.nvidia.com/compute/cuda/redist/libcusparse/windows-x86_64/libcusparse-windows-x86_64-12.5.9.5-archive.zip"
+      },
+      {
+        "sha256": "85d9a098231feea58c3728037d8986af85eaa43555cb2f852753ba62c73660c1",
+        "version": "11.7.4.40",
+        "name": "libcusolver",
+        "filename": "libcusolver-windows-x86_64-11.7.4.40-archive.zip",
+        "size": 316344091,
+        "url": "https://developer.download.nvidia.com/compute/cuda/redist/libcusolver/windows-x86_64/libcusolver-windows-x86_64-11.7.4.40-archive.zip"
+      }
+    ],
+    "metadata_url": "https://developer.download.nvidia.com/compute/cuda/redist/redistrib_12.9.0.json",
+    "version": "12.9.0"
+  }
+}
